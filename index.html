@@ -1,198 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sashelka</title>
-  <meta name="description" content="Sashelka — multidisciplinary artist and photographer." />
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sashelka</title>
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: #000;
-      color: #fff;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+<style>
 
-    body {
-      min-height: 100vh;
-    }
+*{
+box-sizing:border-box;
+}
 
-    .page {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-    }
+html,body{
+margin:0;
+padding:0;
+background:#000;
+color:#fff;
+font-family:Arial, Helvetica, sans-serif;
+}
 
-    .art-side {
-      padding: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.page{
+min-height:100vh;
+display:grid;
+grid-template-columns:1.1fr 0.9fr;
+}
 
-    .art-grid {
-      width: 100%;
-      max-width: 900px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
+.art-side{
+padding:24px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
 
-    .art-grid img {
-      width: 100%;
-      aspect-ratio: 3 / 4;
-      object-fit: cover;
-      display: block;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: #111;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-    }
+.art-grid{
+width:100%;
+max-width:900px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+}
 
-    .content-side {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 48px 32px;
-    }
+.art-grid img{
+width:100%;
+aspect-ratio:3/4;
+object-fit:cover;
+display:block;
+border-radius:16px;
+border:1px solid rgba(255,255,255,0.08);
+background:#111;
+box-shadow:0 10px 30px rgba(0,0,0,0.35);
+transition:transform 0.4s ease;
+}
 
-    .content {
-      max-width: 460px;
-      width: 100%;
-    }
+.art-grid img:hover{
+transform:scale(1.03);
+}
 
-    h1 {
-      font-size: clamp(42px, 7vw, 84px);
-      line-height: 0.95;
-      margin: 0 0 18px;
-      font-weight: 700;
-      letter-spacing: -0.04em;
-    }
+.content-side{
+display:flex;
+align-items:center;
+justify-content:center;
+padding:48px 32px;
+}
 
-    .tagline {
-      font-size: 14px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.68);
-      margin-bottom: 22px;
-    }
+.content{
+max-width:460px;
+width:100%;
+}
 
-    .about-title {
-      font-size: 13px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-      margin: 0 0 10px;
-    }
+h1{
+font-size:clamp(48px,7vw,90px);
+line-height:0.95;
+margin:0 0 18px;
+font-weight:600;
+letter-spacing:-0.03em;
+}
 
-    .about {
-      font-size: 18px;
-      line-height: 1.65;
-      color: rgba(255,255,255,0.92);
-      margin: 0 0 32px;
-    }
+.tagline{
+font-size:14px;
+letter-spacing:0.18em;
+text-transform:uppercase;
+color:rgba(255,255,255,0.68);
+margin-bottom:22px;
+}
 
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 36px;
-    }
+.about-title{
+font-size:13px;
+letter-spacing:0.16em;
+text-transform:uppercase;
+color:rgba(255,255,255,0.55);
+margin:0 0 10px;
+}
 
-    .links a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 18px;
-      line-height: 1.4;
-      padding: 14px 16px;
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 12px;
-      transition: 0.2s ease;
-      background: rgba(255,255,255,0.02);
-    }
+.about{
+font-size:18px;
+line-height:1.65;
+color:rgba(255,255,255,0.92);
+margin:0 0 32px;
+}
 
-    .links a:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.28);
-    }
+.links{
+display:flex;
+flex-direction:column;
+gap:12px;
+margin-bottom:36px;
+}
 
-    .footer-note {
-      font-size: 13px;
-      color: rgba(255,255,255,0.45);
-      line-height: 1.6;
-    }
+.links a{
+color:#fff;
+text-decoration:none;
+font-size:18px;
+line-height:1.4;
+padding:14px 16px;
+border:1px solid rgba(255,255,255,0.14);
+border-radius:12px;
+transition:0.2s ease;
+background:rgba(255,255,255,0.02);
+}
 
-    @media (max-width: 980px) {
-      .page {
-        grid-template-columns: 1fr;
-      }
+.links a:hover{
+background:#fff;
+color:#000;
+border-color:#fff;
+}
 
-      .art-side {
-        padding: 20px 20px 0;
-      }
+.footer-note{
+font-size:13px;
+color:rgba(255,255,255,0.45);
+line-height:1.6;
+}
 
-      .content-side {
-        padding: 28px 20px 40px;
-      }
+@media (max-width:980px){
 
-      .art-grid {
-        gap: 10px;
-      }
-    }
+.page{
+grid-template-columns:1fr;
+}
 
-    @media (max-width: 640px) {
-      .art-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+.art-side{
+padding:20px 20px 0;
+}
 
-      .links a {
-        font-size: 17px;
-      }
+.content-side{
+padding:28px 20px 40px;
+}
 
-      .about {
-        font-size: 17px;
-      }
-    }
-  </style>
+.art-grid{
+gap:10px;
+}
+
+}
+
+</style>
 </head>
+
+
 <body>
-  <main class="page">
-    <section class="art-side">
-      <div class="art-grid">
-        <img src="IBUPROFEN.jpg" alt="Ibuprofen artwork by Sashelka">
-        <img src="SARDINY.jpg" alt="Sardines artwork by Sashelka">
-        <img src="SEMKI.jpg" alt="Seeds artwork by Sashelka">
-        <img src="SPICHKI.jpg" alt="Matches artwork by Sashelka">
-      </div>
-    </section>
 
-    <section class="content-side">
-      <div class="content">
-        <div class="tagline">Artist • Photography • Digital • Oil</div>
-        <h1>Sashelka</h1>
+<main class="page">
 
-        <div class="about-title">About</div>
-        <p class="about">
-          Multidisciplinary artist and photographer based in the UK.
-          I create oil paintings, digital works, photography and NFT art.
-        </p>
+<section class="art-side">
 
-        <div class="links">
-          <a href="https://x.com/sashelka" target="_blank" rel="noopener noreferrer">X / Twitter</a>
-          <a href="https://www.instagram.com/sashelka.eth" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="https://linktr.ee/sashelka" target="_blank" rel="noopener noreferrer">Linktree</a>
-        </div>
+<div class="art-grid">
 
-        <div class="footer-note">
-          Official website of Sashelka. More works and sections coming soon.
-        </div>
-      </div>
-    </section>
-  </main>
+<img src="IBUPROFEN.jpg">
+<img src="SARDINY.jpg">
+<img src="SEMKI.jpg">
+<img src="SPICHKI.jpg">
+
+</div>
+
+</section>
+
+
+<section class="content-side">
+
+<div class="content">
+
+<div class="tagline">
+ARTIST • PHOTOGRAPHY • DIGITAL • OIL
+</div>
+
+<h1>Sashelka</h1>
+
+<div class="about-title">
+ABOUT
+</div>
+
+<p class="about">
+Multidisciplinary artist and photographer based in the UK.  
+I create oil paintings, digital works, photography and NFT art.
+</p>
+
+
+<div class="links">
+
+<a href="https://x.com/sashelka" target="_blank">
+X / Twitter
+</a>
+
+<a href="https://www.instagram.com/sashelka.eth" target="_blank">
+Instagram
+</a>
+
+<a href="https://linktr.ee/sashelka" target="_blank">
+Linktree
+</a>
+
+</div>
+
+
+<div class="footer-note">
+Official website of Sashelka. More works and sections coming soon.
+</div>
+
+</div>
+
+</section>
+
+</main>
+
 </body>
 </html>
