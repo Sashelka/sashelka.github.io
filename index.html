@@ -1,223 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sashelka</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sashelka</title>
+  <meta name="description" content="Sashelka — multidisciplinary artist and photographer." />
 
-<style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-*{
-box-sizing:border-box;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-html,body{
-margin:0;
-padding:0;
-background:#000;
-color:#fff;
-font-family:Arial, Helvetica, sans-serif;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.page{
-min-height:100vh;
-display:grid;
-grid-template-columns:1.1fr 0.9fr;
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      color: #fff;
+    }
 
-.art-side{
-padding:24px;
-display:flex;
-align-items:center;
-justify-content:center;
-}
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      min-height: 100vh;
+    }
 
-.art-grid{
-width:100%;
-max-width:900px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:14px;
-}
+    .page {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      animation: fadeInPage 0.9s ease forwards;
+    }
 
-.art-grid img{
-width:100%;
-aspect-ratio:3/4;
-object-fit:cover;
-display:block;
-border-radius:16px;
-border:1px solid rgba(255,255,255,0.08);
-background:#111;
-box-shadow:0 10px 30px rgba(0,0,0,0.35);
-transition:transform 0.4s ease;
-}
+    .art-side {
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(18px);
+      animation: fadeUp 0.9s ease 0.15s forwards;
+    }
 
-.art-grid img:hover{
-transform:scale(1.03);
-}
+    .art-grid {
+      width: 100%;
+      max-width: 920px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
 
-.content-side{
-display:flex;
-align-items:center;
-justify-content:center;
-padding:48px 32px;
-}
+    .art-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #111;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+      cursor: pointer;
+    }
 
-.content{
-max-width:460px;
-width:100%;
-}
+    .art-card img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s ease, opacity 0.3s ease;
+    }
 
-h1{
-font-size:clamp(48px,7vw,90px);
-line-height:0.95;
-margin:0 0 18px;
-font-weight:600;
-letter-spacing:-0.03em;
-}
+    .art-card:hover img {
+      transform: scale(1.035);
+    }
 
-.tagline{
-font-size:14px;
-letter-spacing:0.18em;
-text-transform:uppercase;
-color:rgba(255,255,255,0.68);
-margin-bottom:22px;
-}
+    .art-card::after {
+      content: "View";
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.82);
+      background: rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 8px 10px;
+      border-radius: 999px;
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: 0.3s ease;
+    }
 
-.about-title{
-font-size:13px;
-letter-spacing:0.16em;
-text-transform:uppercase;
-color:rgba(255,255,255,0.55);
-margin:0 0 10px;
-}
+    .art-card:hover::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-.about{
-font-size:18px;
-line-height:1.65;
-color:rgba(255,255,255,0.92);
-margin:0 0 32px;
-}
+    .content-side {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 36px;
+      opacity: 0;
+      transform: translateY(18px);
+      animation: fadeUp 0.9s ease 0.28s forwards;
+    }
 
-.links{
-display:flex;
-flex-direction:column;
-gap:12px;
-margin-bottom:36px;
-}
+    .content {
+      max-width: 470px;
+      width: 100%;
+    }
 
-.links a{
-color:#fff;
-text-decoration:none;
-font-size:18px;
-line-height:1.4;
-padding:14px 16px;
-border:1px solid rgba(255,255,255,0.14);
-border-radius:12px;
-transition:0.2s ease;
-background:rgba(255,255,255,0.02);
-}
+    .tagline {
+      font-size: 13px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.66);
+      margin-bottom: 18px;
+    }
 
-.links a:hover{
-background:#fff;
-color:#000;
-border-color:#fff;
-}
+    h1 {
+      margin: 0 0 18px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(58px, 7vw, 108px);
+      line-height: 0.9;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
 
-.footer-note{
-font-size:13px;
-color:rgba(255,255,255,0.45);
-line-height:1.6;
-}
+    .about-title {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.54);
+      margin: 0 0 10px;
+    }
 
-@media (max-width:980px){
+    .about {
+      font-size: 18px;
+      line-height: 1.72;
+      color: rgba(255,255,255,0.92);
+      margin: 0 0 30px;
+      max-width: 420px;
+    }
 
-.page{
-grid-template-columns:1fr;
-}
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 34px;
+    }
 
-.art-side{
-padding:20px 20px 0;
-}
+    .links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 1.4;
+      padding: 15px 16px;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 14px;
+      transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+      background: rgba(255,255,255,0.02);
+    }
 
-.content-side{
-padding:28px 20px 40px;
-}
+    .links a:hover {
+      background: #fff;
+      color: #000;
+      border-color: #fff;
+      transform: translateY(-1px);
+    }
 
-.art-grid{
-gap:10px;
-}
+    .footer-note {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+    }
 
-}
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.28s ease;
+    }
 
-</style>
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-inner {
+      position: relative;
+      max-width: min(92vw, 980px);
+      max-height: 92vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 92vh;
+      display: block;
+      border-radius: 16px;
+      box-shadow: 0 20px 70px rgba(0,0,0,0.45);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      background: rgba(0,0,0,0.72);
+      color: #fff;
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .lightbox-close:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInPage {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .page {
+        grid-template-columns: 1fr;
+      }
+
+      .art-side {
+        padding: 20px 20px 0;
+      }
+
+      .content-side {
+        padding: 28px 20px 42px;
+      }
+
+      .art-grid {
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: clamp(52px, 16vw, 82px);
+      }
+
+      .about {
+        font-size: 17px;
+      }
+
+      .links a {
+        font-size: 17px;
+      }
+    }
+  </style>
 </head>
-
-
 <body>
+  <main class="page">
+    <section class="art-side">
+      <div class="art-grid">
+        <div class="art-card" data-full="IBUPROFEN.jpg">
+          <img src="IBUPROFEN.jpg" alt="Ibuprofen artwork by Sashelka">
+        </div>
 
-<main class="page">
+        <div class="art-card" data-full="SARDINY.jpg">
+          <img src="SARDINY.jpg" alt="Sardines artwork by Sashelka">
+        </div>
 
-<section class="art-side">
+        <div class="art-card" data-full="SEMKI.jpg">
+          <img src="SEMKI.jpg" alt="Seeds artwork by Sashelka">
+        </div>
 
-<div class="art-grid">
+        <div class="art-card" data-full="SPICHKI.jpg">
+          <img src="SPICHKI.jpg" alt="Matches artwork by Sashelka">
+        </div>
+      </div>
+    </section>
 
-<img src="IBUPROFEN.jpg">
-<img src="SARDINY.jpg">
-<img src="SEMKI.jpg">
-<img src="SPICHKI.jpg">
+    <section class="content-side">
+      <div class="content">
+        <div class="tagline">Artist • Photography • Digital • Oil</div>
 
-</div>
+        <h1>Sashelka</h1>
 
-</section>
+        <div class="about-title">About</div>
+        <p class="about">
+          Multidisciplinary artist and photographer based in the UK.
+          I create oil paintings, digital works, photography and NFT art.
+        </p>
 
+        <div class="links">
+          <a href="https://x.com/sashelka" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+          <a href="https://www.instagram.com/sashelka.eth" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://linktr.ee/sashelka" target="_blank" rel="noopener noreferrer">Collect NFTs | Linktree</a>
+        </div>
 
-<section class="content-side">
+        <div class="footer-note">
+          Official website of Sashelka. More works and sections coming soon.
+        </div>
+      </div>
+    </section>
+  </main>
 
-<div class="content">
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+      <img id="lightboxImage" src="" alt="Expanded artwork">
+    </div>
+  </div>
 
-<div class="tagline">
-ARTIST • PHOTOGRAPHY • DIGITAL • OIL
-</div>
+  <script>
+    const cards = document.querySelectorAll('.art-card');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
 
-<h1>Sashelka</h1>
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const fullImage = card.getAttribute('data-full');
+        lightboxImage.src = fullImage;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
 
-<div class="about-title">
-ABOUT
-</div>
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      lightboxImage.src = '';
+      document.body.style.overflow = '';
+    }
 
-<p class="about">
-Multidisciplinary artist and photographer based in the UK.  
-I create oil paintings, digital works, photography and NFT art.
-</p>
+    lightboxClose.addEventListener('click', closeLightbox);
 
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
 
-<div class="links">
-
-<a href="https://x.com/sashelka" target="_blank">
-X / Twitter
-</a>
-
-<a href="https://www.instagram.com/sashelka.eth" target="_blank">
-Instagram
-</a>
-
-<a href="https://linktr.ee/sashelka" target="_blank">
-Linktree
-</a>
-
-</div>
-
-
-<div class="footer-note">
-Official website of Sashelka. More works and sections coming soon.
-</div>
-
-</div>
-
-</section>
-
-</main>
-
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+  </script>
 </body>
 </html>
