@@ -1,214 +1,747 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>SASHELKA | Visual Artist</title>
+  <title>SASHELKA | Visual Artist</title>
+  <meta
+    name="description"
+    content="SASHELKA is a visual artist working through symbolism, tension, and transformation across painting, photography, and digital media."
+  />
 
-<link rel="icon" href="favicon.jpg">
+  <link rel="icon" type="image/jpeg" href="favicon.jpg" />
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-body {
-  margin: 0;
-  background: #0b0b0b;
-  color: #f2f2f2;
-  font-family: 'Inter', sans-serif;
-}
+  <style>
+    :root {
+      --bg: #080808;
+      --bg-soft: #101010;
+      --card: rgba(255,255,255,0.03);
+      --text: #f4f1eb;
+      --muted: #a8a29a;
+      --line: rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.14);
+      --accent: #a91d1d;
+      --accent-2: #cf3434;
+      --shadow: 0 24px 60px rgba(0,0,0,0.35);
+      --radius: 24px;
+      --max: 1320px;
+    }
 
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-h1, h2 {
-  font-family: 'Cormorant Garamond', serif;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-header {
-  padding: 20px 0;
-  border-bottom: 1px solid #222;
-}
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.035), transparent 26%),
+        linear-gradient(to bottom, #0b0b0b, #080808 38%);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  padding: 80px 0;
-}
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-.hero img {
-  width: 100%;
-  border-radius: 20px;
-}
+    .container {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
 
-.buttons {
-  margin-top: 20px;
-}
+    /* HEADER */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(16px);
+      background: rgba(8, 8, 8, 0.74);
+      border-bottom: 1px solid var(--line);
+    }
 
-.btn {
-  display: inline-block;
-  padding: 12px 20px;
-  margin-right: 10px;
-  border-radius: 30px;
-  text-decoration: none;
-}
+    .header-inner {
+      min-height: 78px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
 
-.primary {
-  background: #b71c1c;
-  color: white;
-}
+    .brand {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+    }
 
-.secondary {
-  border: 1px solid #444;
-}
+    .nav {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
 
-section {
-  padding: 80px 0;
-}
+    .nav a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      transition: color 0.25s ease;
+    }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 20px;
-}
+    .nav a:hover {
+      color: var(--text);
+    }
 
-.card img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-}
+    /* SECTIONS */
+    section {
+      padding: 100px 0;
+      border-top: 1px solid var(--line);
+    }
 
-.card {
-  border: 1px solid #222;
-  border-radius: 15px;
-  overflow: hidden;
-}
+    section.first {
+      border-top: none;
+    }
 
-.card-text {
-  padding: 15px;
-}
+    .section-label {
+      color: var(--muted);
+      font-size: 0.76rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
 
-footer {
-  padding: 40px 0;
-  border-top: 1px solid #222;
-  font-size: 14px;
-  color: #888;
-}
-</style>
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    h1, h2, h3, .work-title {
+      font-family: "Cormorant Garamond", serif;
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: clamp(3.6rem, 8vw, 6.6rem);
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      font-size: clamp(2.4rem, 4vw, 3.8rem);
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 720px;
+    }
+
+    /* HERO */
+    .hero {
+      padding-top: 58px;
+      padding-bottom: 88px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .positioning {
+      font-size: 1.18rem;
+      color: #e7e0d6;
+      max-width: 640px;
+      margin-bottom: 18px;
+      font-weight: 500;
+    }
+
+    .intro {
+      color: var(--muted);
+      max-width: 620px;
+      font-size: 1.03rem;
+      margin-bottom: 34px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-size: 0.96rem;
+      font-weight: 600;
+      transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(169, 29, 29, 0.28);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 18px 42px rgba(169, 29, 29, 0.34);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--line-strong);
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .hero-image-wrap {
+      position: relative;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 78vh;
+      min-height: 620px;
+      max-height: 860px;
+      object-fit: cover;
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .hero-image-wrap::after {
+      content: "";
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 24px;
+      height: 140px;
+      background: linear-gradient(to top, rgba(0,0,0,0.42), transparent);
+      border-radius: 0 0 24px 24px;
+      pointer-events: none;
+    }
+
+    /* WORK GRID */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+      margin-top: 28px;
+    }
+
+    .work-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      transition: transform 0.32s ease, border-color 0.32s ease, box-shadow 0.32s ease;
+    }
+
+    .work-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255,255,255,0.15);
+      box-shadow: 0 20px 46px rgba(0,0,0,0.28);
+    }
+
+    .work-card img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      background: #0e0e0e;
+      transition: transform 0.45s ease;
+    }
+
+    .work-card:hover img {
+      transform: scale(1.03);
+    }
+
+    .work-info {
+      padding: 20px 20px 22px;
+    }
+
+    .work-title {
+      font-size: 1.8rem;
+      margin-bottom: 6px;
+    }
+
+    .work-meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 30px;
+    }
+
+    .about-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 34px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.16);
+    }
+
+    .about-card p {
+      color: #ddd8d0;
+      margin-bottom: 18px;
+      font-size: 1rem;
+    }
+
+    .about-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .statement {
+      color: #f1ece4;
+      font-size: 1.06rem;
+      line-height: 1.75;
+    }
+
+    /* CV */
+    .cv-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .cv-item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 24px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .cv-year {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .cv-title {
+      font-size: 1.04rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .cv-desc {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    /* COLLECT */
+    .collect-box {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 42px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 30px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .collect-box p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 18px;
+      max-width: 700px;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 28px;
+    }
+
+    .contact-card {
+      display: block;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .contact-label {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .contact-value {
+      font-size: 1.12rem;
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 38px 0 60px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .about-grid,
+      .collect-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        height: 72vh;
+        min-height: 520px;
+      }
+
+      .work-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .header-inner {
+        padding: 14px 0;
+        align-items: flex-start;
+      }
+
+      .nav {
+        gap: 14px;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .hero {
+        padding-top: 50px;
+      }
+
+      .hero-image {
+        height: auto;
+        min-height: unset;
+        max-height: unset;
+      }
+
+      .work-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .work-card img {
+        height: auto;
+      }
+
+      .cv-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .about-card,
+      .collect-box {
+        padding: 28px;
+      }
+
+      .container {
+        width: min(94%, var(--max));
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-<div class="container">
-<nav>
-<div>SASHELKA</div>
-<div>Portfolio / About / Contact</div>
-</nav>
-</div>
-</header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#home" class="brand">SASHELKA</a>
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#cv">CV</a>
+        <a href="#collect">Collect</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<section class="hero container">
-<div>
-<h1>SASHELKA</h1>
-<p>Visual artist working through symbolism, tension, and transformation.</p>
+  <main>
 
-<p>
-I create symbolic works across painting, photography, and digital media.
-My practice explores feminine force, memory, and emotional tension.
-</p>
+    <section class="hero first" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Visual Artist</div>
+          <h1>SASHELKA</h1>
+          <p class="positioning">Visual artist working through symbolism, tension, and transformation.</p>
+          <p class="intro">
+            I create symbolic works across painting, photography, and digital media.
+            My practice explores feminine force, memory, contradiction, and psychological intensity
+            through emotionally charged visual narratives.
+          </p>
 
-<div class="buttons">
-<a href="#portfolio" class="btn primary">View Portfolio</a>
-<a href="https://linktr.ee/sashelka" target="_blank" class="btn secondary">Collect Works</a>
-</div>
-</div>
+          <div class="hero-buttons">
+            <a href="#portfolio" class="btn btn-primary">View Portfolio</a>
+            <a href="#collect" class="btn btn-secondary">Collect Works</a>
+          </div>
+        </div>
 
-<div>
-<img src="sashelka.jpg">
-</div>
-</section>
+        <div class="hero-image-wrap">
+          <img src="sashelka.jpg" alt="Portrait of SASHELKA" class="hero-image">
+        </div>
+      </div>
+    </section>
 
-<section id="portfolio" class="container">
-<h2>Selected Works</h2>
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Selected Works</div>
+          <h2>Visual Portfolio</h2>
+          <p class="section-copy">
+            A focused selection across photography, painting, and digital media.
+            This is a coherent language built through recurring symbols, emotional pressure, and visual contrast.
+          </p>
+        </div>
 
-<div class="grid">
+        <div class="work-grid">
+          <div class="work-card">
+            <img src="girl-balloon.jpg" alt="Invisible Wings #5 by SASHELKA">
+            <div class="work-info">
+              <div class="work-title">Invisible Wings #5</div>
+              <div class="work-meta">Photography</div>
+            </div>
+          </div>
 
-<div class="card">
-<img src="girl-balloon.jpg">
-<div class="card-text">
-<b>Invisible Wings #5</b><br>
-Photography
-</div>
-</div>
+          <div class="work-card">
+            <img src="wine-bullet.jpg" alt="Let’s Celebrate by SASHELKA">
+            <div class="work-info">
+              <div class="work-title">Let’s Celebrate</div>
+              <div class="work-meta">Oil on canvas</div>
+            </div>
+          </div>
 
-<div class="card">
-<img src="wine-bullet.jpg">
-<div class="card-text">
-<b>Let Celebrate</b><br>
-Oil on canvas
-</div>
-</div>
+          <div class="work-card">
+          <img src="snail.jpg" alt="Soft Obstruction by SASHELKA">
+<div class="work-info">
+  <div class="work-title">Soft Obstruction</div>
+  <div class="work-meta">Digital artwork</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="card">
-<img src="snail.jpg">
-<div class="card-text">
-<b>Soft Abstraction</b><br>
-Digital artwork
-</div>
-</div>
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">About</div>
+          <h2>Artist Statement</h2>
+        </div>
 
-</div>
-</section>
+        <div class="about-grid">
+          <div class="about-card">
+            <p class="statement">
+              My work exists in the space between control and rupture. I am drawn to images that hold contradiction —
+              beauty and discomfort, fragility and force, silence and pressure.
+            </p>
+            <p class="statement">
+              Across painting, photography, and digital media, I build symbolic scenes that speak through tension rather than explanation.
+              I am interested in the emotional charge carried by bodies, objects, wounds, rituals, and suspended gestures.
+            </p>
+            <p class="statement">
+              I do not use symbolism as decoration. I use it as a structural language —
+              to articulate what cannot be said directly, but can still be recognized immediately.
+            </p>
+          </div>
 
-<section class="container">
-<h2>About</h2>
+          <div class="about-card">
+            <p>
+              SASHELKA is a multidisciplinary visual artist working across oil painting, conceptual photography, and digital media.
+            </p>
+            <p>
+              Her practice explores transformation, memory, feminine force, internal tension, and psychological symbolism through dark, emotionally loaded visual narratives.
+            </p>
+            <p>
+              She creates works that merge intimacy with confrontation, building images that feel both elegant and unstable —
+              suspended between attraction and unease.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<p>
-My work explores contradiction — beauty and discomfort, fragility and force.
-I use symbolism not as decoration, but as a language.
-</p>
+    <section id="cv">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">CV</div>
+          <h2>Exhibitions & Practice</h2>
+          <p class="section-copy">
+            This section can be expanded as your archive grows. For now, it establishes continuity across exhibitions, digital releases, and interviews.
+          </p>
+        </div>
 
-<p>
-Across painting, photography, and digital media, I build emotionally charged visual narratives
-that exist between control and rupture.
-</p>
-</section>
+        <div class="cv-list">
+          <div class="cv-item">
+            <div class="cv-year">2026</div>
+            <div>
+              <div class="cv-title">Selected Exhibitions & Digital Projects</div>
+              <div class="cv-desc">Details to be added: exhibition title, city, country, and format.</div>
+            </div>
+          </div>
 
-<section class="container">
-<h2>Collect</h2>
+          <div class="cv-item">
+            <div class="cv-year">2025</div>
+            <div>
+              <div class="cv-title">NFT / Web3 Art Releases</div>
+              <div class="cv-desc">Selected drops, curated collaborations, and digital collections.</div>
+            </div>
+          </div>
 
-<p>
-NFT works and digital collections are available via Linktree.
-For physical artworks, contact directly.
-</p>
+          <div class="cv-item">
+            <div class="cv-year">2024</div>
+            <div>
+              <div class="cv-title">Press / Interviews / Features</div>
+              <div class="cv-desc">Articles, interviews, YouTube conversations, and publications.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<a href="https://linktr.ee/sashelka" target="_blank" class="btn primary">
-Open Linktree
-</a>
-</section>
+    <section id="collect">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Collect</div>
+          <h2>Available Works & Editions</h2>
+        </div>
 
-<section class="container">
-<h2>Contact</h2>
+        <div class="collect-box">
+          <div>
+            <p>
+              Original artworks, selected prints, and NFT editions are available through direct inquiry and external platforms.
+            </p>
+            <p>
+              For NFT releases, archive links, and collector access, use the link below.
+              For physical works or print inquiries, contact me directly.
+            </p>
+          </div>
 
-<p>Email: <a href="mailto:sashelka.nft@gmail.com">sashelka.nft@gmail.com</a></p>
-<p>X: <a href="https://x.com/sashelka" target="_blank">@sashelka</a></p>
-<p>Instagram: <a href="https://instagram.com/sashelka.eth" target="_blank">@sashelka.eth</a></p>
+          <div class="hero-buttons">
+            <a href="https://linktr.ee/sashelka" target="_blank" class="btn btn-primary">Open Linktree</a>
+            <a href="#contact" class="btn btn-secondary">Inquire Directly</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</section>
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Contact</div>
+          <h2>Get in Touch</h2>
+          <p class="section-copy">
+            For collaborations, commissions, exhibitions, interviews, or collecting inquiries.
+          </p>
+        </div>
 
-<footer class="container">
-© SASHELKA 2026
-</footer>
+        <div class="contact-grid">
+          <a class="contact-card" href="mailto:sashelka.nft@gmail.com">
+            <div class="contact-label">Email</div>
+            <div class="contact-value">sashelka.nft@gmail.com</div>
+          </a>
+
+          <a class="contact-card" href="https://x.com/sashelka" target="_blank">
+            <div class="contact-label">X / Twitter</div>
+            <div class="contact-value">@sashelka</div>
+          </a>
+
+          <a class="contact-card" href="https://www.instagram.com/sashelka.eth" target="_blank">
+            <div class="contact-label">Instagram</div>
+            <div class="contact-value">@sashelka.eth</div>
+          </a>
+
+          <a class="contact-card" href="https://linktr.ee/sashelka" target="_blank">
+            <div class="contact-label">Linktree</div>
+            <div class="contact-value">Open links</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© SASHELKA 2026. All rights reserved.</div>
+      <div>Visual artist working through symbolism, tension, and transformation.</div>
+    </div>
+  </footer>
 
 </body>
 </html>
