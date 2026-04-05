@@ -4,295 +4,439 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CV | SASHELKA</title>
-  <meta
-    name="description"
-    content="CV of Sashelka, including exhibitions, digital projects, and features."
-  />
-
-  <link rel="icon" type="image/jpeg" href="favicon.jpg" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
   <style>
     :root {
-      --bg: #070707;
-      --text: #f4f0e8;
-      --muted: #aaa39a;
-      --line: rgba(255,255,255,0.08);
-      --shadow: 0 30px 80px rgba(0,0,0,0.38);
-      --max: 1360px;
+      --bg: #0b0b0b;
+      --card: #111111;
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f2ede4;
+      --muted: #cfc7b9;
+      --soft: #9d9383;
+      --accent: #b59f7a;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      font-family: "Manrope", Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
       color: var(--text);
-      background:
-        radial-gradient(circle at top center, rgba(255,255,255,0.035), transparent 24%),
-        linear-gradient(to bottom, #0a0a0a, #070707 30%, #060606 100%);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.6;
     }
 
-    a { color: inherit; text-decoration: none; }
-    .container { width: min(92%, var(--max)); margin: 0 auto; }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(18px);
-      background: rgba(7,7,7,0.72);
-      border-bottom: 1px solid var(--line);
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+      padding: 60px 0 90px;
     }
 
-    .header-inner {
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
+    .page-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 28px;
+      margin-bottom: 48px;
     }
 
-    .brand {
-      font-family: "Manrope", Arial, sans-serif;
-      font-size: 0.98rem;
-      font-weight: 700;
-      letter-spacing: 0.28em;
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.35em;
       text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .nav {
-      display: flex;
-      gap: 26px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav a {
-      color: #b6afa5;
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      transition: color 0.25s ease;
-    }
-
-    .nav a:hover { color: var(--text); }
-
-    section {
-      padding: 96px 0;
-    }
-
-    .hero {
-      padding-top: 54px;
-      padding-bottom: 44px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .section-label {
-      color: var(--muted);
-      font-size: 0.73rem;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 14px;
     }
 
     h1 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(3.5rem, 6vw, 5.8rem);
-      line-height: 0.95;
-      margin-bottom: 16px;
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 1.08;
+      margin: 0 0 18px;
       font-weight: 600;
     }
 
-    .hero p {
-      color: var(--muted);
+    .intro {
       max-width: 760px;
+      color: var(--muted);
       font-size: 1rem;
     }
 
-    .cv-shell {
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      padding: 8px 34px 4px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      box-shadow: var(--shadow);
+    .section {
+      margin-top: 70px;
     }
 
-    .cv-list {
-      display: grid;
-      gap: 2px;
-      margin-top: 12px;
-    }
-
-    .cv-item {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 24px;
-      padding: 24px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .cv-item:last-child {
-      border-bottom: none;
-    }
-
-    .cv-year {
-      color: var(--muted);
-      font-size: 0.94rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-    }
-
-    .cv-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-      color: var(--text);
-    }
-
-    .cv-desc {
-      color: var(--muted);
-      font-size: 0.96rem;
-      max-width: 900px;
-    }
-
-    .footer {
-      padding: 42px 0 64px;
-      border-top: 1px solid var(--line);
-    }
-
-    .footer-inner {
+    .section-header {
       display: flex;
       justify-content: space-between;
+      align-items: end;
       gap: 20px;
-      flex-wrap: wrap;
-      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 14px;
+      margin-bottom: 24px;
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 500;
+    }
+
+    .entry-count {
+      color: var(--soft);
       font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .entries {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .entry {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .entry:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.14);
+    }
+
+    .entry-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border-radius: 14px;
+      background: #000;
+    }
+
+    .entry-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .entry-meta {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .entry-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 14px;
+    }
+
+    .entry-year {
+      color: var(--accent);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .entry-tag {
+      color: var(--soft);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .entry h3 {
+      margin: 0;
+      font-size: 1.5rem;
+      line-height: 1.2;
+      font-weight: 600;
+    }
+
+    .entry-details {
+      color: var(--muted);
+      font-size: 1rem;
     }
 
     @media (max-width: 780px) {
-      .header-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        padding: 14px 0 16px;
-      }
-
-      .brand {
-        font-size: 0.9rem;
-        letter-spacing: 0.24em;
-      }
-
-      .nav {
-        gap: 12px;
-        row-gap: 10px;
-      }
-
-      .nav a {
-        font-size: 0.74rem;
-        letter-spacing: 0.12em;
-      }
-
-      section {
-        padding: 72px 0;
-      }
-
-      .hero {
-        padding-top: 34px;
-        padding-bottom: 38px;
-      }
-
-      .cv-shell {
-        padding: 8px 20px 4px;
-      }
-
-      .cv-item {
+      .entry {
         grid-template-columns: 1fr;
-        gap: 8px;
-        padding: 20px 0;
       }
 
-      .container {
-        width: min(94%, var(--max));
+      .entry-image {
+        aspect-ratio: 16 / 10;
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: start;
       }
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand">SASHELKA</a>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="about.html">About</a>
-        <a href="cv.html">CV</a>
-        <a href="collect.html">Collect</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <main class="container">
+    <header class="page-header">
+      <div class="eyebrow">CV</div>
+      <h1>Selected Exhibitions, Publications & Awards</h1>
+      <p class="intro">
+        A selected record of public presentations, editorial features, and recognitions from 2023–2024.
+      </p>
+    </header>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <div class="section-label">CV</div>
-        <h1>CV</h1>
-        <p>
-          Exhibitions, digital projects, interviews, and selected professional activity.
-        </p>
+    <!-- EXHIBITIONS -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Exhibitions</h2>
+        <div class="entry-count">9 entries</div>
+      </div>
+
+      <div class="entries">
+
+        <article class="entry">
+          <div class="entry-image">
+            <img src="images/cv/exhibition-rome-2024-lilith-firesire-main.jpg" alt="Artwork displayed at The Night of the Phoenix in Rome">
+          </div>
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2024</span>
+              <span class="entry-tag">Group Exhibition</span>
+            </div>
+            <h3>The Night of the Phoenix</h3>
+            <div class="entry-details">Studio26, Rome, Italy</div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-image">
+            <img src="images/cv/exhibition-nftnyc-2024-invisible-wings-display.jpg" alt="Invisible Wings displayed at NFT.NYC 2024">
+          </div>
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2024</span>
+              <span class="entry-tag">Group Exhibition</span>
+            </div>
+            <h3>NFT.NYC 2024 — Community Artist Showcase</h3>
+            <div class="entry-details">Artists Village, New York, USA</div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-image">
+            <img src="images/cv/exhibition-warpedcast-melbourne-2024-space-01.jpg" alt="Artwork displayed at WarpedCast IRL Exhibition in Melbourne">
+          </div>
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2024</span>
+              <span class="entry-tag">Group Exhibition</span>
+            </div>
+            <h3>WarpedCast IRL Exhibition</h3>
+            <div class="entry-details">OSHI, Melbourne, Australia</div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-image">
+            <img src="images/cv/2023-manifest-blrxzo-bengaluru-envy-01.jpg" alt="Envy displayed at mani-fest exhibition in Bengaluru">
+          </div>
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2024</span>
+              <span class="entry-tag">Group Exhibition</span>
+            </div>
+            <h3>mani-fest</h3>
+            <div class="entry-details">BLRxZo / Zo Studio, Bengaluru, India</div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-image">
+            <img src="images/cv/cv-2023-exhibition-artpacks-genesis-nightmare-installation.jpg" alt="Installation view from Digital Art: The New Frontier in São Paulo">
+          </div>
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2023</span>
+              <span class="entry-tag">Featured Artist</span>
+            </div>
+            <h3>Digital Art: The New Frontier</h3>
+            <div class="entry-details">ArtPacks: Genesis and Nightmare, Casa NUA, São Paulo, Brazil</div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-image">
+            <img src="images/cv/cv-2023-exhibition-cryptogods-world-delhi-feature.jpg" alt="Feature visual for CryptoGod’s World 2.0 in Delhi">
+          </div>
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2023</span>
+              <span class="entry-tag">Featured Artist</span>
+            </div>
+            <h3>CryptoGod’s World 2.0: Fusion of Photography & Art</h3>
+            <div class="entry-details">Delhi NFT Gallery at Saket Social, New Delhi, India</div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-image">
+            <img src="images/cv/cv-2023-exhibition-nft-nexus-stage-display.jpg" alt="Stage display from NFT Nexus: Tri-City Unveil">
+          </div>
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2023</span>
+              <span class="entry-tag">Selected Series Presentation</span>
+            </div>
+            <h3>NFT Nexus: Tri-City Unveil</h3>
+            <div class="entry-details">Islamabad, Pakistan</div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-image">
+            <img src="images/cv/cv-2023-exhibition-zebu-live-invisible-wings-artwork.jpg" alt="Invisible Wings presented at Zebu Live 2023 in London">
+          </div>
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2023</span>
+              <span class="entry-tag">Selected Series Presentation</span>
+            </div>
+            <h3>Zebu Live 2023</h3>
+            <div class="entry-details">London, United Kingdom</div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-image">
+            <img src="images/cv/cv-2023-exhibition-nabu-paris-installation-view.jpg" alt="Installation view from NABU Crypto Art Exhibition in Paris">
+          </div>
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2023</span>
+              <span class="entry-tag">Group Exhibition</span>
+            </div>
+            <h3>NABU Crypto Art Exhibition</h3>
+            <div class="entry-details">Paris, France</div>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <section>
-      <div class="container">
-        <div class="cv-shell">
-          <div class="cv-list">
-            <div class="cv-item">
-              <div class="cv-year">2026</div>
-              <div>
-                <div class="cv-title">Selected Exhibitions & Digital Projects</div>
-                <div class="cv-desc">Add here: exhibition title, venue, city, country, and format.</div>
-              </div>
-            </div>
+    <!-- PUBLICATIONS -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Publications</h2>
+        <div class="entry-count">5 entries</div>
+      </div>
 
-            <div class="cv-item">
-              <div class="cv-year">2025</div>
-              <div>
-                <div class="cv-title">NFT / Web3 Art Releases</div>
-                <div class="cv-desc">Selected drops, curated collaborations, digital collections, and releases.</div>
-              </div>
-            </div>
+      <div class="entries">
 
-            <div class="cv-item">
-              <div class="cv-year">2024</div>
-              <div>
-                <div class="cv-title">Press / Interviews / Features</div>
-                <div class="cv-desc">Articles, interviews, YouTube appearances, and editorial mentions.</div>
-              </div>
-            </div>
+        <article class="entry">
+          <div class="entry-image">
+            <img src="images/cv/publication-aguilar-magazine-2024-feature.jpg" alt="Feature in AGUILAR Art & NFT Magazine Issue 34">
           </div>
-        </div>
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2024</span>
+              <span class="entry-tag">Featured Artist / Published Work</span>
+            </div>
+            <h3>AGUILAR Art & NFT Magazine</h3>
+            <div class="entry-details">Issue No. 34</div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-image">
+            <img src="images/cv/publication-aguilar-hardcover-2024-spread.jpg" alt="Spread from AGUILAR hardcover anniversary book">
+          </div>
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2024</span>
+              <span class="entry-tag">Printed Publication</span>
+            </div>
+            <h3>AGUILAR Art & NFT Magazine</h3>
+            <div class="entry-details">2nd Anniversary Hardcover Book</div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-image">
+            <img src="images/cv/cv-2023-publication-aguilar-art-nft-magazine-spotlight.jpg" alt="Artist Spotlight in AGUILAR Art & NFT Magazine Issue 20">
+          </div>
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2023</span>
+              <span class="entry-tag">Artist Spotlight</span>
+            </div>
+            <h3>AGUILAR Art & NFT Magazine</h3>
+            <div class="entry-details">Issue 20</div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-image">
+            <img src="images/cv/cv-2023-publication-nocturnalist-magazine-spotlight.jpg" alt="Artist Spotlight in Nocturnalist Magazine Issue 2">
+          </div>
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2023</span>
+              <span class="entry-tag">Artist Spotlight</span>
+            </div>
+            <h3>Nocturnalist Magazine</h3>
+            <div class="entry-details">Issue 2</div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-image">
+            <img src="images/cv/cv-2023-publication-art-share-gallery-magazine-feature.jpg" alt="Invisible Wings featured in ART SHARE: Gallery Magazine Issue 3">
+          </div>
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2023</span>
+              <span class="entry-tag">Featured Work</span>
+            </div>
+            <h3>ART SHARE: Gallery Magazine</h3>
+            <div class="entry-details">Issue 3</div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- AWARDS -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Awards</h2>
+        <div class="entry-count">1 entry</div>
+      </div>
+
+      <div class="entries">
+
+        <article class="entry">
+          <div class="entry-image">
+            <img src="images/cv/cv-2023-award-zero14gallery-opencall-winner-announcement.jpg" alt="Winner announcement for Zero14 Gallery Open Call">
+          </div>
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2023</span>
+              <span class="entry-tag">Cash Prize Award</span>
+            </div>
+            <h3>Zero14 Gallery Open Call</h3>
+            <div class="entry-details">3rd Place Winner</div>
+          </div>
+        </article>
+
       </div>
     </section>
   </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div>© SASHELKA 2026. All rights reserved.</div>
-      <div>Visual artist working through symbolism, tension, and transformation.</div>
-    </div>
-  </footer>
 </body>
 </html>
