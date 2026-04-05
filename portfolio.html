@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | SASHELKA</title>
+  <meta
+    name="description"
+    content="Portfolio categories of Sashelka: photography, oil paintings, and digital art."
+  />
+
+  <link rel="icon" type="image/jpeg" href="favicon.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #070707;
+      --bg-2: #0d0d0d;
+      --text: #f4f0e8;
+      --muted: #aaa39a;
+      --line: rgba(255, 255, 255, 0.08);
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.38);
+      --max: 1360px;
+      --hero-overlay: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent 40%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Manrope", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top center, rgba(255,255,255,0.035), transparent 24%),
+        linear-gradient(to bottom, #0a0a0a, #070707 30%, #060606 100%);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 7, 7, 0.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-family: "Manrope", Arial, sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .nav {
+      display: flex;
+      gap: 26px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      color: #b6afa5;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: color 0.25s ease;
+    }
+
+    .nav a:hover {
+      color: var(--text);
+    }
+
+    section {
+      padding: 96px 0;
+    }
+
+    .hero {
+      padding-top: 56px;
+      padding-bottom: 58px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-label {
+      color: var(--muted);
+      font-size: 0.73rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    h1, h2 {
+      font-family: "Cormorant Garamond", serif;
+      line-height: 0.95;
+      letter-spacing: 0.015em;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: clamp(3.5rem, 6vw, 5.8rem);
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 760px;
+      font-size: 1rem;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .category-card {
+      display: block;
+      overflow: hidden;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background: #0f0f0f;
+      transition: transform 0.34s ease, border-color 0.34s ease, box-shadow 0.34s ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255,255,255,0.16);
+      box-shadow: 0 22px 54px rgba(0,0,0,0.3);
+    }
+
+    .category-image-wrap {
+      position: relative;
+      overflow: hidden;
+      background: #0e0e0e;
+    }
+
+    .category-image-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--hero-overlay);
+      pointer-events: none;
+    }
+
+    .category-card img {
+      width: 100%;
+      height: 620px;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+    }
+
+    .category-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .category-info {
+      padding: 22px 22px 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.012));
+    }
+
+    .category-info h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .category-info p {
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .footer {
+      padding: 42px 0 64px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 1100px) {
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-card img {
+        height: 500px;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 14px 0 16px;
+      }
+
+      .brand {
+        font-size: 0.9rem;
+        letter-spacing: 0.24em;
+      }
+
+      .nav {
+        gap: 12px;
+        row-gap: 10px;
+      }
+
+      .nav a {
+        font-size: 0.74rem;
+        letter-spacing: 0.12em;
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      .hero {
+        padding-top: 34px;
+        padding-bottom: 42px;
+      }
+
+      .category-card img {
+        height: auto;
+      }
+
+      .container {
+        width: min(94%, var(--max));
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">SASHELKA</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="cv.html">CV</a>
+        <a href="collect.html">Collect</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="section-label">Portfolio</div>
+        <h1>Portfolio</h1>
+        <p>
+          Explore the work by medium. Select a category to enter its gallery.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="category-grid">
+          <a class="category-card" href="photography.html">
+            <div class="category-image-wrap">
+              <img src="girl-balloon.jpg" alt="Photography by Sashelka" />
+            </div>
+            <div class="category-info">
+              <h2>Photography</h2>
+              <p>Conceptual photographic works built around atmosphere, memory, symbolic contrast, and emotional distance.</p>
+            </div>
+          </a>
+
+          <a class="category-card" href="oil.html">
+            <div class="category-image-wrap">
+              <img src="wine-bullet.jpg" alt="Oil Paintings by Sashelka" />
+            </div>
+            <div class="category-info">
+              <h2>Oil Paintings</h2>
+              <p>Symbolic oil works exploring sensuality, danger, contradiction, containment, and internal pressure.</p>
+            </div>
+          </a>
+
+          <a class="category-card" href="digital.html">
+            <div class="category-image-wrap">
+              <img src="snail.jpg" alt="Digital Art by Sashelka" />
+            </div>
+            <div class="category-info">
+              <h2>Digital Art</h2>
+              <p>Dark visual allegories shaped by bodily tension, emotional symbolism, surreal imagery, and psychological charge.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© SASHELKA 2026. All rights reserved.</div>
+      <div>Visual artist working through symbolism, tension, and transformation.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
