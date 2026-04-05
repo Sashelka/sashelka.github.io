@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>CV | SASHELKA</title>
+  <meta name="description" content="Selected exhibitions, publications and awards by Sashelka." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="shortcut icon" href="images/favicon.png" />
+  <link rel="apple-touch-icon" href="images/favicon.png" />
+
   <style>
     :root {
       --bg: #0b0b0b;
@@ -13,6 +21,7 @@
       --muted: #cfc7b9;
       --soft: #9d9383;
       --accent: #b59f7a;
+      --nav-bg: rgba(11, 11, 11, 0.78);
     }
 
     * {
@@ -29,6 +38,57 @@
       color: var(--text);
       font-family: Georgia, "Times New Roman", serif;
       line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAV */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      font-size: 0.95rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.92rem;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent);
     }
 
     .container {
@@ -64,8 +124,32 @@
       font-size: 1rem;
     }
 
+    .cv-jump-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .cv-jump-links a {
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      background: rgba(255,255,255,0.02);
+      transition: all 0.2s ease;
+    }
+
+    .cv-jump-links a:hover {
+      color: var(--accent);
+      border-color: rgba(181, 159, 122, 0.35);
+      background: rgba(181, 159, 122, 0.06);
+    }
+
     .section {
       margin-top: 70px;
+      scroll-margin-top: 100px;
     }
 
     .section-header {
@@ -166,6 +250,25 @@
       font-size: 1rem;
     }
 
+    .back-to-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 999;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(17, 17, 17, 0.9);
+      color: var(--muted);
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
+    }
+
+    .back-to-top:hover {
+      color: var(--accent);
+      border-color: rgba(181, 159, 122, 0.35);
+    }
+
     @media (max-width: 780px) {
       .entry {
         grid-template-columns: 1fr;
@@ -179,10 +282,35 @@
         flex-direction: column;
         align-items: start;
       }
+
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
     }
   </style>
 </head>
-<body>
+<body id="top">
+
+  <!-- TOP NAV -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">SASHELKA</a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="cv.html" class="active">CV</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
   <main class="container">
     <header class="page-header">
       <div class="eyebrow">CV</div>
@@ -190,10 +318,16 @@
       <p class="intro">
         A selected record of public presentations, editorial features, and recognitions from 2023–2024.
       </p>
+
+      <div class="cv-jump-links">
+        <a href="#exhibitions">Exhibitions</a>
+        <a href="#publications">Publications</a>
+        <a href="#awards">Awards</a>
+      </div>
     </header>
 
     <!-- EXHIBITIONS -->
-    <section class="section">
+    <section class="section" id="exhibitions">
       <div class="section-header">
         <h2>Exhibitions</h2>
         <div class="entry-count">9 entries</div>
@@ -331,7 +465,7 @@
     </section>
 
     <!-- PUBLICATIONS -->
-    <section class="section">
+    <section class="section" id="publications">
       <div class="section-header">
         <h2>Publications</h2>
         <div class="entry-count">5 entries</div>
@@ -413,7 +547,7 @@
     </section>
 
     <!-- AWARDS -->
-    <section class="section">
+    <section class="section" id="awards">
       <div class="section-header">
         <h2>Awards</h2>
         <div class="entry-count">1 entry</div>
@@ -438,5 +572,7 @@
       </div>
     </section>
   </main>
+
+  <a class="back-to-top" href="#top">↑ Top</a>
 </body>
 </html>
