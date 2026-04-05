@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collect | SASHELKA</title>
+  <meta
+    name="description"
+    content="Collect works by Sashelka through direct inquiry and external platforms."
+  />
+
+  <link rel="icon" type="image/jpeg" href="favicon.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #070707;
+      --text: #f4f0e8;
+      --muted: #aaa39a;
+      --line: rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.14);
+      --accent: #9e1d1d;
+      --accent-2: #c73636;
+      --shadow: 0 30px 80px rgba(0,0,0,0.38);
+      --max: 1360px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Manrope", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top center, rgba(255,255,255,0.035), transparent 24%),
+        linear-gradient(to bottom, #0a0a0a, #070707 30%, #060606 100%);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(92%, var(--max)); margin: 0 auto; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      background: rgba(7,7,7,0.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-family: "Manrope", Arial, sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .nav {
+      display: flex;
+      gap: 26px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      color: #b6afa5;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: color 0.25s ease;
+    }
+
+    .nav a:hover { color: var(--text); }
+
+    section {
+      padding: 96px 0;
+    }
+
+    .hero {
+      padding-top: 54px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-label {
+      color: var(--muted);
+      font-size: 0.73rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(3.5rem, 6vw, 5.8rem);
+      line-height: 0.95;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 760px;
+      font-size: 1rem;
+    }
+
+    .collect-box {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      padding: 46px;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 34px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .collect-copy p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 18px;
+      max-width: 700px;
+    }
+
+    .collect-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      box-shadow: 0 16px 38px rgba(158, 29, 29, 0.28);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 22px 46px rgba(158, 29, 29, 0.34);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--line-strong);
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .footer {
+      padding: 42px 0 64px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 980px) {
+      .collect-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 14px 0 16px;
+      }
+
+      .brand {
+        font-size: 0.9rem;
+        letter-spacing: 0.24em;
+      }
+
+      .nav {
+        gap: 12px;
+        row-gap: 10px;
+      }
+
+      .nav a {
+        font-size: 0.74rem;
+        letter-spacing: 0.12em;
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      .hero {
+        padding-top: 34px;
+        padding-bottom: 38px;
+      }
+
+      .collect-box {
+        padding: 24px;
+      }
+
+      .container {
+        width: min(94%, var(--max));
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">SASHELKA</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="cv.html">CV</a>
+        <a href="collect.html">Collect</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="section-label">Collect</div>
+        <h1>Collect</h1>
+        <p>
+          Original artworks, selected prints, and NFT editions are available through direct inquiry and external platforms.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="collect-box">
+          <div class="collect-copy">
+            <p>
+              For NFT releases, archive links, and collector access, use the link below.
+            </p>
+            <p>
+              For physical works or print inquiries, contact directly by email.
+            </p>
+          </div>
+
+          <div class="buttons">
+            <a href="https://linktr.ee/sashelka" target="_blank" class="btn btn-primary">Open Linktree</a>
+            <a href="mailto:sashelka.nft@gmail.com" class="btn btn-secondary">Email Inquiry</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© SASHELKA 2026. All rights reserved.</div>
+      <div>Visual artist working through symbolism, tension, and transformation.</div>
+    </div>
+  </footer>
+</body>
+</html>
