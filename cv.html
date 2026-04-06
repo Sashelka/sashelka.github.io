@@ -3,19 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV — SASHELKA</title>
+  <title>CV | SASHELKA</title>
+  <meta name="description" content="Selected exhibitions, publications, talks, awards, and digital presentations by Sashelka." />
+
+  <link rel="icon" href="/favicon.jpg?v=4" type="image/jpeg" />
+  <link rel="shortcut icon" href="/favicon.jpg?v=4" type="image/jpeg" />
+  <link rel="apple-touch-icon" href="/favicon.jpg?v=4" />
 
   <style>
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
+    :root {
+      --bg: #0a0a0a;
+      --panel: #111111;
+      --panel-2: #151515;
+      --border: rgba(255,255,255,0.08);
+      --text: #f2ede4;
+      --muted: #cfc7b9;
+      --soft: #9f9484;
+      --accent: #b59f7a;
+      --thumb-w: 150px;
+      --thumb-h: 110px;
     }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
+      background: var(--bg);
+      color: var(--text);
       font-family: Arial, Helvetica, sans-serif;
-      background: #ffffff;
-      color: #111;
       line-height: 1.6;
     }
 
@@ -27,420 +43,884 @@
     img {
       display: block;
       max-width: 100%;
-      height: auto;
     }
 
-    /* ===== HEADER ===== */
-    header {
-      width: 100%;
-      border-bottom: 1px solid #e5e5e5;
-      background: #fff;
+    .site-nav {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,10,0.94);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+      backdrop-filter: blur(6px);
     }
 
-    .header-inner {
-      max-width: 1200px;
+    .nav-inner {
+      width: min(1180px, 92%);
       margin: 0 auto;
-      padding: 18px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
+      gap: 22px;
+      padding: 14px 0;
     }
 
-    .logo {
-      font-size: 15px;
-      letter-spacing: 0.18em;
-      font-weight: 700;
+    .brand {
+      font-size: 0.78rem;
+      letter-spacing: 0.30em;
       text-transform: uppercase;
+      white-space: nowrap;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.80rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s ease, opacity 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent);
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+      padding: 48px 0 90px;
+    }
+
+    .page-header {
+      margin-bottom: 36px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      margin-bottom: 12px;
+      font-size: 12px;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+      line-height: 1.12;
+      font-weight: 600;
+      max-width: 820px;
+    }
+
+    .intro {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .jump-links {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .jump-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 10px 16px;
+      border: 1px solid rgba(181,159,122,0.28);
+      border-radius: 999px;
+      background: rgba(181,159,122,0.06);
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    }
+
+    .jump-links a:hover {
+      color: var(--accent);
+      border-color: rgba(181,159,122,0.55);
+      background: rgba(181,159,122,0.10);
+      transform: translateY(-1px);
+    }
+
+    .section {
+      margin-top: 58px;
+      scroll-margin-top: 84px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      padding-bottom: 14px;
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 600;
+    }
+
+    .section-count {
+      color: var(--soft);
+      font-size: 0.92rem;
       white-space: nowrap;
     }
 
-    nav {
+    .entries {
       display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    nav a {
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      position: relative;
-    }
-
-    nav a:hover {
-      opacity: 0.65;
-    }
-
-    /* ===== PAGE ===== */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 60px 24px 100px;
-    }
-
-    .page-title {
-      margin-bottom: 50px;
-    }
-
-    .page-title h1 {
-      font-size: 34px;
-      font-weight: 700;
-      margin: 0 0 8px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .page-title p {
-      margin: 0;
-      font-size: 14px;
-      color: #666;
-      max-width: 700px;
-    }
-
-    /* ===== SECTION ===== */
-    .section {
-      margin-bottom: 72px;
-    }
-
-    .section h2 {
-      font-size: 15px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      margin: 0 0 28px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #ddd;
+      flex-direction: column;
+      gap: 18px;
     }
 
     .entry {
-      margin-bottom: 48px;
-    }
-
-    .entry:last-child {
-      margin-bottom: 0;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
     }
 
     .entry-meta {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 20px;
-      align-items: start;
       margin-bottom: 14px;
     }
 
-    .year {
-      font-size: 14px;
-      color: #666;
+    .entry-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 14px;
+      margin-bottom: 6px;
+    }
+
+    .entry-year {
+      color: var(--accent);
+      font-size: 0.95rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
     }
 
-    .entry-text h3 {
-      margin: 0 0 6px;
-      font-size: 20px;
+    .entry-tag {
+      color: var(--soft);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .entry h3 {
+      margin: 0 0 4px;
+      font-size: 1.45rem;
+      line-height: 1.18;
       font-weight: 700;
-      line-height: 1.35;
     }
 
-    .entry-text p {
-      margin: 0;
-      font-size: 15px;
-      color: #333;
+    .entry-details {
+      color: var(--muted);
+      font-size: 1rem;
     }
 
-    .entry-text .sub {
-      color: #666;
-      font-size: 14px;
-      margin-top: 4px;
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: flex-start;
+      margin-top: 14px;
     }
 
-    /* ===== IMAGE GRID ===== */
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .image-card {
+    .thumb {
+      flex: 0 0 auto;
+      width: var(--thumb-w);
+      height: var(--thumb-h);
+      border: 1px solid var(--border);
+      border-radius: 14px;
       overflow: hidden;
-      border: 1px solid #eee;
-      background: #fafafa;
+      background: var(--panel-2);
       cursor: pointer;
-      transition: transform 0.18s ease, opacity 0.18s ease;
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
 
-    .image-card:hover {
+    .thumb:hover {
       transform: translateY(-2px);
-      opacity: 0.92;
+      border-color: rgba(255,255,255,0.14);
     }
 
-    .image-card img {
+    .thumb img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    /* ===== LIGHTBOX ===== */
+    .entry-links {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .entry-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 8px 14px;
+      border: 1px solid rgba(181,159,122,0.28);
+      border-radius: 999px;
+      background: rgba(181,159,122,0.05);
+      color: var(--muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .entry-links a:hover {
+      color: var(--accent);
+      border-color: rgba(181,159,122,0.55);
+      background: rgba(181,159,122,0.10);
+    }
+
+    .back-to-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 100;
+      padding: 11px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(17,17,17,0.92);
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .back-to-top:hover {
+      color: var(--accent);
+    }
+
     .lightbox {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.92);
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 30px;
-      z-index: 9999;
+      padding: 24px;
+      background: rgba(0,0,0,0.84);
+      z-index: 2000;
     }
 
-    .lightbox.active {
+    .lightbox.open {
       display: flex;
     }
 
+    .lightbox-inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: min(800px, 88vw);
+      max-height: 80vh;
+    }
+
     .lightbox img {
-      max-width: min(800px, 92vw);
-      max-height: 90vh;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      display: block;
+      max-width: min(800px, 88vw);
+      max-height: 80vh;
+      width: auto;
+      height: auto;
+      border-radius: 14px;
+      box-shadow: 0 28px 80px rgba(0,0,0,0.5);
     }
 
     .lightbox-close {
       position: absolute;
-      top: 18px;
-      right: 22px;
-      color: white;
-      font-size: 34px;
-      font-weight: 300;
+      top: -14px;
+      right: -14px;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      background: rgba(18,18,18,0.96);
+      color: #fff;
+      font-size: 20px;
       cursor: pointer;
-      line-height: 1;
     }
 
-    /* ===== BACK TO TOP ===== */
-    .back-top {
-      margin-top: 80px;
-      text-align: right;
-    }
-
-    .back-top a {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      border-bottom: 1px solid #111;
-      padding-bottom: 2px;
-    }
-
-    .back-top a:hover {
-      opacity: 0.65;
-    }
-
-    /* ===== MOBILE ===== */
-    @media (max-width: 768px) {
-      .header-inner {
+    @media (max-width: 760px) {
+      .nav-inner {
         flex-direction: column;
         align-items: flex-start;
+        gap: 12px;
       }
 
-      nav {
-        justify-content: flex-start;
-        gap: 16px;
+      .nav-links {
+        gap: 12px 14px;
       }
 
-      .container {
-        padding: 42px 18px 80px;
+      .nav-links a {
+        font-size: 0.76rem;
       }
 
-      .page-title h1 {
-        font-size: 28px;
+      .section-header {
+        flex-direction: column;
+        align-items: start;
       }
 
-      .entry-meta {
-        grid-template-columns: 1fr;
-        gap: 8px;
+      :root {
+        --thumb-w: 132px;
+        --thumb-h: 98px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      :root {
+        --thumb-w: 100%;
+        --thumb-h: 180px;
       }
 
-      .entry-text h3 {
-        font-size: 18px;
-      }
-
-      .image-grid {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-        gap: 10px;
+      .thumb {
+        width: 100%;
       }
     }
   </style>
 </head>
 <body id="top">
 
-  <!-- HEADER -->
-  <header>
-    <div class="header-inner">
-      <a href="index.html" class="logo">SASHELKA</a>
-      <nav>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">SASHELKA</a>
+      <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="works.html">Works</a>
-        <a href="cv.html">CV</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="cv.html" class="active">CV</a>
+        <a href="collect.html">Collect</a>
         <a href="contact.html">Contact</a>
-      </nav>
+      </div>
     </div>
-  </header>
+  </nav>
 
-  <!-- MAIN -->
   <main class="container">
-    <div class="page-title">
-      <h1>CV</h1>
-      <p>Selected exhibitions, awards, interviews, publications, and digital presentations.</p>
-    </div>
-
-    <!-- AWARDS -->
-    <section class="section">
-      <h2>Awards & Recognition</h2>
-
-      <div class="entry">
-        <div class="entry-meta">
-          <div class="year">2025</div>
-          <div class="entry-text">
-            <h3>Web3 Artists Awards (W3AA)</h3>
-            <p>Platinum Award / 1st Place, Digital Painting</p>
-          </div>
-        </div>
-
-        <div class="image-grid">
-          <div class="image-card">
-            <img src="w3aa.png" alt="Web3 Artists Awards 2025 — Platinum Award / 1st Place, Digital Painting" onclick="openLightbox(this)">
-          </div>
-        </div>
+    <header class="page-header">
+      <div class="eyebrow">CV</div>
+      <h1>Selected Exhibitions, Publications, Talks & Awards</h1>
+      <p class="intro">
+        A selected record of exhibitions, publications, public appearances, awards, and digital presentations from 2023–2025.
+      </p>
+      <div class="jump-links">
+        <a href="#exhibitions">Exhibitions</a>
+        <a href="#publications">Publications</a>
+        <a href="#talks">Talks</a>
+        <a href="#awards">Awards</a>
+        <a href="#digital">Digital</a>
       </div>
-    </section>
+    </header>
 
-    <!-- EXHIBITIONS -->
-    <section class="section">
-      <h2>Exhibitions</h2>
+    <section class="section" id="exhibitions">
+      <div class="section-header">
+        <h2>Exhibitions</h2>
+        <div class="section-count">2023–2025</div>
+      </div>
 
-      <div class="entry">
-        <div class="entry-meta">
-          <div class="year">2025</div>
-          <div class="entry-text">
+      <div class="entries">
+
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2025</span>
+              <span class="entry-tag">AR Group Exhibition</span>
+            </div>
             <h3>CODE:BLUE</h3>
-            <p>AR Exhibition, Miami Art Week</p>
-            <p class="sub">Balanced Forces × BitBasel, Miami, USA</p>
+            <div class="entry-details">Balanced Forces × BitBasel, Miami Art Week, Miami, USA</div>
           </div>
-        </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/cv-2025-code-blue-bone-memory-ar-installation.jpg" alt="CODE:BLUE AR installation view"></div>
+            <div class="thumb"><img src="images/cv/cv-2025-code-blue-bone-memory-artwork.jpg" alt="Bone Memory artwork"></div>
+            <div class="thumb"><img src="images/cv/cv-2025-code-blue-bone-memory-exhibition-card.jpg" alt="CODE:BLUE exhibition card"></div>
+          </div>
+        </article>
 
-        <div class="image-grid">
-          <div class="image-card">
-            <img src="codeblue.png" alt="CODE:BLUE AR Exhibition, Miami Art Week 2025" onclick="openLightbox(this)">
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2025</span>
+              <span class="entry-tag">Virtual Group Exhibition</span>
+            </div>
+            <h3>ArenaARTTriumph Virtual Exhibition</h3>
+            <div class="entry-details">OnCyber / ArenaARTTriumph, Online</div>
           </div>
-        </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/cv-2025-exhibition-arenaarttriumph-virtual-artwork.jpg" alt="ArenaARTTriumph featured artwork"></div>
+            <div class="thumb"><img src="images/cv/cv-2025-exhibition-arenaarttriumph-virtual-installation-view.jpg" alt="ArenaARTTriumph virtual exhibition installation view"></div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2025</span>
+              <span class="entry-tag">Group Exhibition</span>
+            </div>
+            <h3>EXPOS3D 2026 Exhibition</h3>
+            <div class="entry-details">Edinburgh, Scotland, United Kingdom</div>
+          </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/cv-2025-exhibition-expos3d-edinburgh-the-lesson-of-truth-artwork.jpg" alt="The Lesson of Truth artwork"></div>
+            <div class="thumb"><img src="images/cv/cv-2025-exhibition-expos3d-edinburgh-the-lesson-of-truth-installation-view.jpg" alt="EXPOS3D installation view"></div>
+            <div class="thumb"><img src="images/cv/cv-2025-exhibition-expos3d-edinburgh-venue-view.jpg" alt="EXPOS3D venue view"></div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2024</span>
+              <span class="entry-tag">Group Exhibition</span>
+            </div>
+            <h3>The Night of the Phoenix</h3>
+            <div class="entry-details">Rome, Italy</div>
+          </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/exhibition_rome_2024_lilith_firesire_main.jpg" alt="The Night of the Phoenix main display"></div>
+            <div class="thumb"><img src="images/cv/exhibition_rome_2024_space_view.jpg" alt="The Night of the Phoenix exhibition space"></div>
+            <div class="thumb"><img src="images/cv/exhibition_rome_2024_poster.jpg" alt="The Night of the Phoenix poster"></div>
+            <div class="thumb"><img src="images/cv/artwork_lilith_firesire.jpg" alt="Lilith Firesire artwork"></div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2024</span>
+              <span class="entry-tag">Group Exhibition</span>
+            </div>
+            <h3>NFT.NYC 2024 — Community Artist Showcase</h3>
+            <div class="entry-details">Artists Village, New York, USA</div>
+          </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/exhibition_nftnyc_2024_invisible_wings_display.jpg" alt="NFT.NYC 2024 display"></div>
+            <div class="thumb"><img src="images/cv/exhibition_nftnyc_2024_selection_proof.jpg" alt="NFT.NYC 2024 selection proof"></div>
+            <div class="thumb"><img src="images/cv/exhibition_nftnyc_2024_promo_card.jpg" alt="NFT.NYC 2024 promo card"></div>
+            <div class="thumb"><img src="images/cv/exhibition_nftnyc_2024_post.jpg" alt="NFT.NYC 2024 post proof"></div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2024</span>
+              <span class="entry-tag">Group Exhibition</span>
+            </div>
+            <h3>WarpedCast IRL Exhibition</h3>
+            <div class="entry-details">Melbourne, Australia</div>
+          </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/exhibition_warpedcast_melbourne_2024_artwork.jpg" alt="WarpedCast artwork"></div>
+            <div class="thumb"><img src="images/cv/exhibition_warpedcast_melbourne_2024_space_01.jpg" alt="WarpedCast exhibition space view 1"></div>
+            <div class="thumb"><img src="images/cv/exhibition_warpedcast_melbourne_2024_space_02.jpg" alt="WarpedCast exhibition space view 2"></div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2024</span>
+              <span class="entry-tag">Group Exhibition</span>
+            </div>
+            <h3>mani-fest</h3>
+            <div class="entry-details">BLRxZo / Zo Studio, Bengaluru, India</div>
+          </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/2023_Manifest_BLRxZo_Bengaluru_Envy_01.jpg" alt="mani-fest installation"></div>
+            <div class="thumb"><img src="images/cv/2023_Manifest_BLRxZo_Bengaluru_Envy_Artwork_01.jpg" alt="Envy artwork"></div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2023</span>
+              <span class="entry-tag">Virtual Exhibition</span>
+            </div>
+            <h3>XREY Fall Exhibition</h3>
+            <div class="entry-details">Online</div>
+          </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/2023_XREY_Fall_Exhibition_Virtual_01.jpg" alt="XREY Fall Exhibition virtual view"></div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2023</span>
+              <span class="entry-tag">Featured Artist</span>
+            </div>
+            <h3>Digital Art: The New Frontier</h3>
+            <div class="entry-details">ArtPacks: Genesis and Nightmare, Casa NUA, São Paulo, Brazil</div>
+          </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/cv-2023-exhibition-artpacks-genesis-nightmare-installation.jpg" alt="ArtPacks installation"></div>
+            <div class="thumb"><img src="images/cv/cv-2023-exhibition-artpacks-genesis-nightmare-poster.jpg" alt="ArtPacks poster"></div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2023</span>
+              <span class="entry-tag">Featured Artist</span>
+            </div>
+            <h3>CryptoGod’s World 2.0: Fusion of Photography &amp; Art</h3>
+            <div class="entry-details">Delhi NFT Gallery at Saket Social, New Delhi, India</div>
+          </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/cv-2023-exhibition-cryptogods-world-delhi-feature.jpg.jpg" alt="CryptoGod's World feature"></div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2023</span>
+              <span class="entry-tag">Group Exhibition</span>
+            </div>
+            <h3>NFTMuses Depo</h3>
+            <div class="entry-details">Digital Exhibition</div>
+          </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/cv-2023-exhibition-nftmuses-depo-event-branding.jpg" alt="NFTMuses Depo event branding"></div>
+            <div class="thumb"><img src="images/cv/cv-2023-exhibition-nftmuses-depo-space-view.jpg" alt="NFTMuses Depo space view"></div>
+            <div class="thumb"><img src="images/cv/cv-2023-exhibition-nftmuses-depo-stage-display.jpg" alt="NFTMuses Depo stage display"></div>
+            <div class="thumb"><img src="images/cv/cv-2023-exhibition-nftmuses-depo-web-listing.jpg" alt="NFTMuses Depo web listing"></div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2023</span>
+              <span class="entry-tag">Selected Series Presentation</span>
+            </div>
+            <h3>NFT Nexus: Tri-City Unveil</h3>
+            <div class="entry-details">Islamabad, Pakistan</div>
+          </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/cv-2023-exhibition-nft-nexus-invisible-wings-artwork.jpg" alt="NFT Nexus artwork"></div>
+            <div class="thumb"><img src="images/cv/cv-2023-exhibition-nft-nexus-invisible-wings-installation.jpg" alt="NFT Nexus installation"></div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2023</span>
+              <span class="entry-tag">Selected Series Presentation</span>
+            </div>
+            <h3>Zebu Live 2023</h3>
+            <div class="entry-details">London, United Kingdom</div>
+          </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/cv-2023-exhibition-zebu-live-invisible-wings-artwork.jpg" alt="Zebu Live artwork"></div>
+            <div class="thumb"><img src="images/cv/cv-2023-exhibition-zebu-live-poster.jpg" alt="Zebu Live poster"></div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2023</span>
+              <span class="entry-tag">Group Exhibition</span>
+            </div>
+            <h3>NABU Crypto Art Exhibition</h3>
+            <div class="entry-details">Paris, France</div>
+          </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/cv-2023-exhibition-nabu-paris-artwork-pride.jpg" alt="NABU artwork"></div>
+            <div class="thumb"><img src="images/cv/cv-2023-exhibition-nabu-paris-certificate.jpg" alt="NABU certificate"></div>
+            <div class="thumb"><img src="images/cv/cv-2023-exhibition-nabu-paris-installation-view.jpg" alt="NABU installation view"></div>
+            <div class="thumb"><img src="images/cv/cv-2023-exhibition-nabu-paris-official-poster.jpg" alt="NABU official poster"></div>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <!-- TALKS -->
-    <section class="section">
-      <h2>Talks & Interviews</h2>
+    <section class="section" id="publications">
+      <div class="section-header">
+        <h2>Publications & Features</h2>
+        <div class="section-count">2023–2025</div>
+      </div>
 
-      <div class="entry">
-        <div class="entry-meta">
-          <div class="year">2025</div>
-          <div class="entry-text">
-            <h3>Hour of Power</h3>
-            <p>Interview / Artist Talk with Marc Mauro</p>
-            <p class="sub">QuestionMarc / Hour of Power</p>
-          </div>
-        </div>
+      <div class="entries">
 
-        <div class="image-grid">
-          <div class="image-card">
-            <img src="hop.png" alt="Hour of Power interview with Sashelka" onclick="openLightbox(this)">
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2025</span>
+              <span class="entry-tag">Online Art Feature</span>
+            </div>
+            <h3>Featured in TweakZine</h3>
+            <div class="entry-details">Work: LOVE</div>
           </div>
-        </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/cv-2025-feature-tweakzine-love-artwork.jpg" alt="LOVE artwork"></div>
+            <div class="thumb"><img src="images/cv/cv-2025-feature-tweakzine-love-post.jpg" alt="TweakZine feature post"></div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2024</span>
+              <span class="entry-tag">Featured Artist / Published Work</span>
+            </div>
+            <h3>AGUILAR Art &amp; NFT Magazine</h3>
+            <div class="entry-details">Issue No. 34</div>
+          </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/publication_aguilar_magazine_2024_feature.jpg" alt="AGUILAR 2024 feature"></div>
+            <div class="thumb"><img src="images/cv/artwork_aguilar_feature_piece.jpg" alt="AGUILAR feature artwork"></div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2024</span>
+              <span class="entry-tag">Printed Publication</span>
+            </div>
+            <h3>AGUILAR Art &amp; NFT Magazine</h3>
+            <div class="entry-details">2nd Anniversary Hardcover Book</div>
+          </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/publication_aguilar_hardcover_2024_cover.jpg" alt="AGUILAR hardcover cover"></div>
+            <div class="thumb"><img src="images/cv/publication_aguilar_hardcover_2024_physical.jpg" alt="AGUILAR hardcover physical book"></div>
+            <div class="thumb"><img src="images/cv/publication_aguilar_hardcover_2024_profile.jpg" alt="AGUILAR hardcover profile page"></div>
+            <div class="thumb"><img src="images/cv/publication_aguilar_hardcover_2024_spread.jpg" alt="AGUILAR hardcover spread"></div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2023</span>
+              <span class="entry-tag">Artist Spotlight</span>
+            </div>
+            <h3>AGUILAR Art &amp; NFT Magazine</h3>
+            <div class="entry-details">Issue 20</div>
+          </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/cv-2023-publication-aguilar-art-nft-magazine-spotlight.jpg" alt="AGUILAR 2023 spotlight"></div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2023</span>
+              <span class="entry-tag">Artist Spotlight</span>
+            </div>
+            <h3>Nocturnalist Magazine</h3>
+            <div class="entry-details">Issue 2</div>
+          </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/cv-2023-publication-nocturnalist-magazine-spotlight.jpg" alt="Nocturnalist spotlight"></div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2023</span>
+              <span class="entry-tag">Featured Work</span>
+            </div>
+            <h3>ART SHARE: Gallery Magazine</h3>
+            <div class="entry-details">Issue 3</div>
+          </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/cv-2023-publication-art-share-gallery-magazine-feature.jpg" alt="ART SHARE feature"></div>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <!-- PRESS -->
-    <section class="section">
-      <h2>Press / Publications / Features</h2>
+    <section class="section" id="talks">
+      <div class="section-header">
+        <h2>Talks & Interviews</h2>
+        <div class="section-count">2025</div>
+      </div>
 
-      <div class="entry">
-        <div class="entry-meta">
-          <div class="year">2025</div>
-          <div class="entry-text">
-            <h3>TweakZine / LinkedByArt</h3>
-            <p>Featured Artwork Publication</p>
-            <p class="sub">Artwork: <em>LOVE</em></p>
-          </div>
-        </div>
+      <div class="entries">
 
-        <div class="image-grid">
-          <div class="image-card">
-            <img src="love_tweakzine.png" alt="LOVE featured in TweakZine / LinkedByArt" onclick="openLightbox(this)">
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2025</span>
+              <span class="entry-tag">Live Online Group Artist Feature</span>
+            </div>
+            <h3>The Hour of Power — 23 Artists Feature</h3>
+            <div class="entry-details">Online</div>
           </div>
-        </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/cv-2025-talk-23artists-hour-of-power-poster.jpg" alt="23 Artists Hour of Power poster"></div>
+            <div class="thumb"><img src="images/cv/cv-2025-talk-23artists-hour-of-power-feature.jpg" alt="23 Artists Hour of Power feature"></div>
+            <div class="thumb"><img src="images/cv/cv-2025-talk-23artists-hour-of-power-live.jpg" alt="23 Artists Hour of Power live appearance"></div>
+            <div class="thumb"><img src="images/cv/cv-2025-talk-23-artists-hour-of-power-artwork.jpg" alt="My Good Morning artwork"></div>
+            <div class="thumb"><img src="images/cv/cv-2025-talk-23-artists-hour-of-power-artwork-screen.jpg" alt="Artwork screen during 23 Artists feature"></div>
+            <div class="thumb"><img src="images/cv/cv-2025-talk-23-artists-hour-of-power-live-appearance.jpg" alt="Live appearance during 23 Artists feature"></div>
+          </div>
+          <div class="entry-links">
+            <a href="https://www.youtube.com/watch?v=_2ycao3HrmE" target="_blank" rel="noopener noreferrer">Watch feature</a>
+            <a href="https://www.youtube.com/watch?v=R8jZXVoF_9I&t=12242s" target="_blank" rel="noopener noreferrer">Watch full episode</a>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2025</span>
+              <span class="entry-tag">Live Online Artist Interview</span>
+            </div>
+            <h3>The Hour of Power — Artist Interview</h3>
+            <div class="entry-details">Online</div>
+          </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/cv-2025-talk-hour-of-power-interview.jpg" alt="Hour of Power interview"></div>
+            <div class="thumb"><img src="images/cv/cv-2025-talk-hour-of-power-poster.jpg" alt="Hour of Power poster"></div>
+          </div>
+          <div class="entry-links">
+            <a href="https://www.youtube.com/watch?v=MtqoM2xfY9A" target="_blank" rel="noopener noreferrer">Watch full interview</a>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <!-- DIGITAL -->
-    <section class="section">
-      <h2>Selected Digital Presentations</h2>
+    <section class="section" id="awards">
+      <div class="section-header">
+        <h2>Awards & Recognition</h2>
+        <div class="section-count">2023–2025</div>
+      </div>
 
-      <div class="entry">
-        <div class="entry-meta">
-          <div class="year">2025</div>
-          <div class="entry-text">
+      <div class="entries">
+
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2025</span>
+              <span class="entry-tag">Award</span>
+            </div>
+            <h3>Web3 Artists Awards (W3AA)</h3>
+            <div class="entry-details">Platinum Award / 1st Place, Digital Painting</div>
+          </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/cv-2025-w3aa-digital-painting-1st-place.jpg" alt="W3AA 1st Place, Digital Painting"></div>
+            <div class="thumb"><img src="images/cv/cv-2025-w3aa-platinum-award.jpg" alt="W3AA Platinum Award"></div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2023</span>
+              <span class="entry-tag">Award</span>
+            </div>
+            <h3>Zero14 Gallery Open Call</h3>
+            <div class="entry-details">3rd Place Winner</div>
+          </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/cv-2023-award-zero14gallery-opencall-winner-announcement.jpg" alt="Zero14 winner announcement"></div>
+            <div class="thumb"><img src="images/cv/cv-2023-award-zero14gallery-opencall-organizer-post.jpg" alt="Zero14 organizer post"></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section" id="digital">
+      <div class="section-header">
+        <h2>Selected Digital Presentations</h2>
+        <div class="section-count">2025</div>
+      </div>
+
+      <div class="entries">
+
+        <article class="entry">
+          <div class="entry-meta">
+            <div class="entry-top">
+              <span class="entry-year">2025</span>
+              <span class="entry-tag">Digital Event Showcase</span>
+            </div>
             <h3>NFT.NYC 2025</h3>
-            <p>Digital Event Showcase</p>
-            <p class="sub">Marriott Marquis, New York City, USA</p>
+            <div class="entry-details">Marriott Marquis, New York City, USA</div>
           </div>
-        </div>
+          <div class="gallery">
+            <div class="thumb"><img src="images/cv/cv-2025-nftnyc-commemorative-ticket.jpg" alt="NFT.NYC 2025 commemorative ticket"></div>
+            <div class="thumb"><img src="images/cv/cv-2025-nftnyc-proof-of-submission.jpg" alt="NFT.NYC 2025 proof of submission"></div>
+            <div class="thumb"><img src="images/cv/cv-2025-nftnyc-screen-display.jpg" alt="NFT.NYC 2025 screen display"></div>
+          </div>
+        </article>
 
-        <div class="image-grid">
-          <div class="image-card">
-            <img src="nftnyc.png" alt="NFT.NYC 2025 Digital Event Showcase" onclick="openLightbox(this)">
-          </div>
-        </div>
       </div>
     </section>
-
-    <div class="back-top">
-      <a href="#top">Back to Top</a>
-    </div>
   </main>
 
-  <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-    <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
-    <img id="lightbox-img" src="" alt="Expanded image">
+  <a class="back-to-top" href="#top">↑ Top</a>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+      <img id="lightboxImage" src="" alt="">
+    </div>
   </div>
 
   <script>
-    function openLightbox(img) {
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightbox-img');
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    document.querySelectorAll('.thumb img').forEach((img) => {
+      img.addEventListener('click', () => {
+        lightboxImage.src = img.currentSrc || img.src;
+        lightboxImage.alt = img.getAttribute('alt') || '';
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImage.src = '';
+      lightboxImage.alt = '';
     }
 
-    function closeLightbox(event) {
-      if (
-        event.target.id === 'lightbox' ||
-        event.target.classList.contains('lightbox-close')
-      ) {
-        document.getElementById('lightbox').classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    }
+    lightboxClose.addEventListener('click', closeLightbox);
 
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        document.getElementById('lightbox').classList.remove('active');
-        document.body.style.overflow = '';
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+        closeLightbox();
       }
     });
   </script>
-
 </body>
 </html>
