@@ -302,7 +302,7 @@
 
     .lower-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1fr;
       gap: 22px;
     }
 
@@ -332,41 +332,25 @@
       line-height: 1.76;
     }
 
-    .note-grid {
+    .contact-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(2, minmax(240px, 1fr));
+      gap: 18px;
       margin-top: 24px;
-    }
-
-    .note {
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 18px;
-      background: rgba(255,255,255,0.018);
-    }
-
-    .note h3 {
-      font-size: 1.3rem;
-      margin-bottom: 8px;
-    }
-
-    .note p {
-      font-size: 0.92rem;
     }
 
     .cta-panel {
       padding: 32px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       gap: 24px;
     }
 
     .contact-block {
       display: grid;
       gap: 10px;
-      padding-top: 4px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
     }
 
     .contact-label {
@@ -408,7 +392,7 @@
     @media (max-width: 980px) {
       .route-grid,
       .lower-grid,
-      .note-grid {
+      .contact-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -488,7 +472,7 @@
         <div class="eyebrow">Collect</div>
         <h1>Collect original works and digital releases.</h1>
         <p class="hero-copy">
-          For physical artworks, NFT editions, and collector inquiries, use the appropriate route below. The page is intentionally split into direct acquisition paths so it reads faster and feels less repetitive.
+          For physical artworks, NFT editions, and collector inquiries, use the appropriate route below. Physical works are handled directly by email; digital releases and platform destinations are linked through the public profile hub.
         </p>
         <div class="hero-actions">
           <a href="mailto:sashelka.nft@gmail.com" class="btn btn-primary">Email Inquiry</a>
@@ -536,41 +520,25 @@
         </div>
 
         <div class="lower-grid">
-          <section class="info-panel">
-            <div class="panel-label">Collector Notes</div>
-            <h2>Clearer structure. Less friction.</h2>
-            <p>
-              The previous version repeated the same idea in several panels. This version separates acquisition paths by intent: one route for physical work, one for digital releases. That is cleaner, more legible, and more credible.
-            </p>
-            <div class="note-grid">
-              <article class="note">
-                <h3>Physical</h3>
-                <p>Best for originals, pricing questions, shipping, and direct collector communication.</p>
-              </article>
-              <article class="note">
-                <h3>Digital</h3>
-                <p>Best for NFT access, archives, and external release destinations.</p>
-              </article>
-            </div>
-          </section>
-
           <aside class="cta-panel">
             <div>
               <div class="panel-label">Direct Contact</div>
-              <h2>Prefer direct communication?</h2>
+              <h2>Direct route for collector inquiries.</h2>
               <p>
-                For serious collecting inquiries, direct email remains the strongest route. It signals intent and removes unnecessary noise.
+                For originals, print inquiries, availability checks, and private collector conversations, direct email remains the clearest route. For NFT destinations, archives, and connected platforms, use the public profile hub.
               </p>
             </div>
 
-            <div class="contact-block">
-              <span class="contact-label">Email</span>
-              <a class="contact-link" href="mailto:sashelka.nft@gmail.com">sashelka.nft@gmail.com</a>
-            </div>
+            <div class="contact-grid">
+              <div class="contact-block">
+                <span class="contact-label">Email</span>
+                <a class="contact-link" href="mailto:sashelka.nft@gmail.com">sashelka.nft@gmail.com</a>
+              </div>
 
-            <div class="contact-block">
-              <span class="contact-label">Public profile hub</span>
-              <a class="contact-link" href="https://linktr.ee/sashelka" target="_blank" rel="noopener">linktr.ee/sashelka</a>
+              <div class="contact-block">
+                <span class="contact-label">Public profile hub</span>
+                <a class="contact-link" href="https://linktr.ee/sashelka" target="_blank" rel="noopener">linktr.ee/sashelka</a>
+              </div>
             </div>
           </aside>
         </div>
