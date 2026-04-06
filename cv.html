@@ -20,6 +20,10 @@
       --muted: #cfc7b9;
       --soft: #9f9484;
       --accent: #b59f7a;
+
+      /* fixed thumbnail size */
+      --thumb-w: 150px;
+      --thumb-h: 110px;
     }
 
     * {
@@ -217,30 +221,22 @@
       font-size: 1rem;
     }
 
+    /* FIXED thumbnails: same size everywhere */
     .gallery {
-      display: grid;
+      display: flex;
+      flex-wrap: wrap;
       gap: 10px;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .gallery.gallery-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .gallery.gallery-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .gallery.gallery-5 {
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      align-items: flex-start;
     }
 
     .thumb {
+      flex: 0 0 auto;
+      width: var(--thumb-w);
+      height: var(--thumb-h);
       border: 1px solid var(--border);
       border-radius: 14px;
       overflow: hidden;
       background: var(--panel-2);
-      aspect-ratio: 4 / 3;
       cursor: pointer;
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
@@ -290,11 +286,15 @@
 
     .lightbox-inner {
       position: relative;
-      max-width: 800px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: min(800px, 88vw);
       max-height: 80vh;
     }
 
     .lightbox img {
+      display: block;
       max-width: min(800px, 88vw);
       max-height: 80vh;
       width: auto;
@@ -317,13 +317,6 @@
       cursor: pointer;
     }
 
-    @media (max-width: 980px) {
-      .gallery,
-      .gallery.gallery-5 {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
     @media (max-width: 760px) {
       .nav-inner {
         flex-direction: column;
@@ -335,19 +328,20 @@
         align-items: start;
       }
 
-      .gallery,
-      .gallery.gallery-3,
-      .gallery.gallery-5 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      :root {
+        --thumb-w: 132px;
+        --thumb-h: 98px;
       }
     }
 
     @media (max-width: 520px) {
-      .gallery,
-      .gallery.gallery-2,
-      .gallery.gallery-3,
-      .gallery.gallery-5 {
-        grid-template-columns: 1fr;
+      :root {
+        --thumb-w: 100%;
+        --thumb-h: 180px;
+      }
+
+      .thumb {
+        width: 100%;
       }
     }
   </style>
@@ -450,7 +444,7 @@
             <h3>mani-fest</h3>
             <div class="entry-details">BLRxZo / Zo Studio, Bengaluru, India</div>
           </div>
-          <div class="gallery gallery-2">
+          <div class="gallery">
             <div class="thumb"><img src="images/cv/2023_Manifest_BLRxZo_Bengaluru_Envy_01.jpg" alt="mani-fest installation"></div>
             <div class="thumb"><img src="images/cv/2023_Manifest_BLRxZo_Bengaluru_Envy_Artwork_01.jpg" alt="Envy artwork"></div>
           </div>
@@ -465,7 +459,7 @@
             <h3>Digital Art: The New Frontier</h3>
             <div class="entry-details">ArtPacks: Genesis and Nightmare, Casa NUA, São Paulo, Brazil</div>
           </div>
-          <div class="gallery gallery-2">
+          <div class="gallery">
             <div class="thumb"><img src="images/cv/cv-2023-exhibition-artpacks-genesis-nightmare-installation.jpg" alt="ArtPacks installation"></div>
             <div class="thumb"><img src="images/cv/cv-2023-exhibition-artpacks-genesis-nightmare-poster.jpg" alt="ArtPacks poster"></div>
           </div>
@@ -480,7 +474,7 @@
             <h3>CryptoGod’s World 2.0: Fusion of Photography & Art</h3>
             <div class="entry-details">Delhi NFT Gallery at Saket Social, New Delhi, India</div>
           </div>
-          <div class="gallery gallery-2">
+          <div class="gallery">
             <div class="thumb"><img src="images/cv/cv-2023-exhibition-cryptogods-world-delhi-feature.jpg" alt="CryptoGod's World feature"></div>
             <div class="thumb"><img src="images/cv/cv-2023-exhibition-cryptogods-world-delhi-installation.jpg" alt="CryptoGod's World installation"></div>
           </div>
@@ -512,7 +506,7 @@
             <h3>Zebu Live 2023</h3>
             <div class="entry-details">London, United Kingdom</div>
           </div>
-          <div class="gallery gallery-2">
+          <div class="gallery">
             <div class="thumb"><img src="images/cv/cv-2023-exhibition-zebu-live-invisible-wings-artwork.jpg" alt="Zebu Live artwork"></div>
             <div class="thumb"><img src="images/cv/cv-2023-exhibition-zebu-live-poster.jpg" alt="Zebu Live poster"></div>
           </div>
@@ -555,7 +549,7 @@
             <h3>AGUILAR Art & NFT Magazine</h3>
             <div class="entry-details">Issue No. 34</div>
           </div>
-          <div class="gallery gallery-2">
+          <div class="gallery">
             <div class="thumb"><img src="images/cv/publication_aguilar_magazine_2024_feature.jpg" alt="AGUILAR 2024 feature"></div>
             <div class="thumb"><img src="images/cv/artwork_aguilar_feature_piece.jpg" alt="AGUILAR feature artwork"></div>
           </div>
@@ -587,7 +581,7 @@
             <h3>AGUILAR Art & NFT Magazine</h3>
             <div class="entry-details">Issue 20</div>
           </div>
-          <div class="gallery gallery-2">
+          <div class="gallery">
             <div class="thumb"><img src="images/cv/cv-2023-publication-aguilar-art-nft-magazine-spotlight.jpg" alt="AGUILAR 2023 spotlight"></div>
           </div>
         </article>
@@ -601,7 +595,7 @@
             <h3>Nocturnalist Magazine</h3>
             <div class="entry-details">Issue 2</div>
           </div>
-          <div class="gallery gallery-2">
+          <div class="gallery">
             <div class="thumb"><img src="images/cv/cv-2023-publication-nocturnalist-magazine-spotlight.jpg" alt="Nocturnalist spotlight"></div>
           </div>
         </article>
@@ -615,7 +609,7 @@
             <h3>ART SHARE: Gallery Magazine</h3>
             <div class="entry-details">Issue 3</div>
           </div>
-          <div class="gallery gallery-2">
+          <div class="gallery">
             <div class="thumb"><img src="images/cv/cv-2023-publication-art-share-gallery-magazine-feature.jpg" alt="ART SHARE feature"></div>
           </div>
         </article>
@@ -639,7 +633,7 @@
             <h3>Zero14 Gallery Open Call</h3>
             <div class="entry-details">3rd Place Winner</div>
           </div>
-          <div class="gallery gallery-2">
+          <div class="gallery">
             <div class="thumb"><img src="images/cv/cv-2023-award-zero14gallery-opencall-winner-announcement.jpg" alt="Zero14 winner announcement"></div>
             <div class="thumb"><img src="images/cv/cv-2023-award-zero14gallery-opencall-organizer-post.jpg" alt="Zero14 organizer post"></div>
           </div>
@@ -650,7 +644,7 @@
 
   <a class="back-to-top" href="#top">↑ Top</a>
 
-  <div class="lightbox" id="lightbox">
+  <div class="lightbox" id="lightbox" aria-hidden="true">
     <div class="lightbox-inner">
       <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
       <img id="lightboxImage" src="" alt="">
@@ -664,14 +658,16 @@
 
     document.querySelectorAll('.thumb img').forEach((img) => {
       img.addEventListener('click', () => {
-        lightboxImage.src = img.getAttribute('src');
+        lightboxImage.src = img.currentSrc || img.src;
         lightboxImage.alt = img.getAttribute('alt') || '';
         lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
       });
     });
 
     function closeLightbox() {
       lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
       lightboxImage.src = '';
       lightboxImage.alt = '';
     }
@@ -683,7 +679,9 @@
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+        closeLightbox();
+      }
     });
   </script>
 </body>
