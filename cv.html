@@ -1,213 +1,446 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV — SASHELKA</title>
 
-<title>Sashelka — CV</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #fff;
-    color: #111;
-}
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: #111;
+      line-height: 1.6;
+    }
 
-/* HEADER — СДЕЛАН КАК У ДРУГИХ СТРАНИЦ */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    border-bottom: 1px solid #ddd;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-header a {
-    text-decoration: none;
-    color: black;
-    margin-left: 20px;
-    font-size: 14px;
-}
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
 
-.logo {
-    font-weight: bold;
-    letter-spacing: 1px;
-}
+    /* ===== HEADER ===== */
+    header {
+      width: 100%;
+      border-bottom: 1px solid #e5e5e5;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-/* MAIN */
-.container {
-    max-width: 1100px;
-    margin: 60px auto;
-    padding: 0 20px;
-}
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
 
-h1 {
-    font-size: 28px;
-    margin-bottom: 40px;
-}
+    .logo {
+      font-size: 15px;
+      letter-spacing: 0.18em;
+      font-weight: 700;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
 
-.section {
-    margin-bottom: 60px;
-}
+    nav {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
 
-.section h2 {
-    font-size: 18px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 5px;
-}
+    nav a {
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      position: relative;
+    }
 
-.entry {
-    margin-bottom: 25px;
-}
+    nav a:hover {
+      opacity: 0.65;
+    }
 
-.entry strong {
-    display: block;
-}
+    /* ===== PAGE ===== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px 100px;
+    }
 
-/* IMAGE GRID */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 12px;
-    margin-top: 15px;
-}
+    .page-title {
+      margin-bottom: 50px;
+    }
 
-.grid img {
-    width: 100%;
-    cursor: pointer;
-    transition: 0.2s;
-}
+    .page-title h1 {
+      font-size: 34px;
+      font-weight: 700;
+      margin: 0 0 8px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
 
-.grid img:hover {
-    opacity: 0.8;
-}
+    .page-title p {
+      margin: 0;
+      font-size: 14px;
+      color: #666;
+      max-width: 700px;
+    }
 
-/* LIGHTBOX */
-.lightbox {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.9);
-    justify-content: center;
-    align-items: center;
-}
+    /* ===== SECTION ===== */
+    .section {
+      margin-bottom: 72px;
+    }
 
-.lightbox img {
-    max-width: 800px;
-    max-height: 90%;
-}
+    .section h2 {
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin: 0 0 28px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+    }
 
-</style>
+    .entry {
+      margin-bottom: 48px;
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-meta {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 20px;
+      align-items: start;
+      margin-bottom: 14px;
+    }
+
+    .year {
+      font-size: 14px;
+      color: #666;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .entry-text h3 {
+      margin: 0 0 6px;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .entry-text p {
+      margin: 0;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .entry-text .sub {
+      color: #666;
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    /* ===== IMAGE GRID ===== */
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .image-card {
+      overflow: hidden;
+      border: 1px solid #eee;
+      background: #fafafa;
+      cursor: pointer;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+    }
+
+    .image-card:hover {
+      transform: translateY(-2px);
+      opacity: 0.92;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ===== LIGHTBOX ===== */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      z-index: 9999;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: min(800px, 92vw);
+      max-height: 90vh;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      color: white;
+      font-size: 34px;
+      font-weight: 300;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    /* ===== BACK TO TOP ===== */
+    .back-top {
+      margin-top: 80px;
+      text-align: right;
+    }
+
+    .back-top a {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border-bottom: 1px solid #111;
+      padding-bottom: 2px;
+    }
+
+    .back-top a:hover {
+      opacity: 0.65;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        justify-content: flex-start;
+        gap: 16px;
+      }
+
+      .container {
+        padding: 42px 18px 80px;
+      }
+
+      .page-title h1 {
+        font-size: 28px;
+      }
+
+      .entry-meta {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .entry-text h3 {
+        font-size: 18px;
+      }
+
+      .image-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 10px;
+      }
+    }
+  </style>
 </head>
+<body id="top">
 
-<body>
-
-<!-- HEADER -->
-<header>
-    <div class="logo">SASHELKA</div>
-    <nav>
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">SASHELKA</a>
+      <nav>
         <a href="index.html">Home</a>
         <a href="works.html">Works</a>
         <a href="cv.html">CV</a>
         <a href="contact.html">Contact</a>
-    </nav>
-</header>
+      </nav>
+    </div>
+  </header>
 
-<!-- CONTENT -->
-<div class="container">
+  <!-- MAIN -->
+  <main class="container">
+    <div class="page-title">
+      <h1>CV</h1>
+      <p>Selected exhibitions, awards, interviews, publications, and digital presentations.</p>
+    </div>
 
-<h1>CV</h1>
+    <!-- AWARDS -->
+    <section class="section">
+      <h2>Awards & Recognition</h2>
 
-<!-- AWARDS -->
-<div class="section">
-<h2>Awards & Recognition</h2>
+      <div class="entry">
+        <div class="entry-meta">
+          <div class="year">2025</div>
+          <div class="entry-text">
+            <h3>Web3 Artists Awards (W3AA)</h3>
+            <p>Platinum Award / 1st Place, Digital Painting</p>
+          </div>
+        </div>
 
-<div class="entry">
-<strong>2025</strong>
-Web3 Artists Awards (W3AA)<br>
-Platinum Award / 1st Place — Digital Painting
+        <div class="image-grid">
+          <div class="image-card">
+            <img src="w3aa.png" alt="Web3 Artists Awards 2025 — Platinum Award / 1st Place, Digital Painting" onclick="openLightbox(this)">
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="grid">
-<img src="images/cv-2025-w3aa-1.jpg" onclick="openLightbox(this)">
-<img src="images/cv-2025-w3aa-2.jpg" onclick="openLightbox(this)">
-</div>
-</div>
+    <!-- EXHIBITIONS -->
+    <section class="section">
+      <h2>Exhibitions</h2>
 
-</div>
+      <div class="entry">
+        <div class="entry-meta">
+          <div class="year">2025</div>
+          <div class="entry-text">
+            <h3>CODE:BLUE</h3>
+            <p>AR Exhibition, Miami Art Week</p>
+            <p class="sub">Balanced Forces × BitBasel, Miami, USA</p>
+          </div>
+        </div>
 
-<!-- EXHIBITIONS -->
-<div class="section">
-<h2>Exhibitions</h2>
+        <div class="image-grid">
+          <div class="image-card">
+            <img src="codeblue.png" alt="CODE:BLUE AR Exhibition, Miami Art Week 2025" onclick="openLightbox(this)">
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="entry">
-<strong>2025</strong>
-CODE:BLUE — AR Exhibition<br>
-Miami Art Week
+    <!-- TALKS -->
+    <section class="section">
+      <h2>Talks & Interviews</h2>
 
-<div class="grid">
-<img src="images/cv-2025-codeblue-1.jpg" onclick="openLightbox(this)">
-<img src="images/cv-2025-codeblue-2.jpg" onclick="openLightbox(this)">
-</div>
-</div>
+      <div class="entry">
+        <div class="entry-meta">
+          <div class="year">2025</div>
+          <div class="entry-text">
+            <h3>Hour of Power</h3>
+            <p>Interview / Artist Talk with Marc Mauro</p>
+            <p class="sub">QuestionMarc / Hour of Power</p>
+          </div>
+        </div>
 
-</div>
+        <div class="image-grid">
+          <div class="image-card">
+            <img src="hop.png" alt="Hour of Power interview with Sashelka" onclick="openLightbox(this)">
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- TALKS -->
-<div class="section">
-<h2>Talks & Interviews</h2>
+    <!-- PRESS -->
+    <section class="section">
+      <h2>Press / Publications / Features</h2>
 
-<div class="entry">
-<strong>2025</strong>
-Hour of Power — Interview with Marc Mauro
+      <div class="entry">
+        <div class="entry-meta">
+          <div class="year">2025</div>
+          <div class="entry-text">
+            <h3>TweakZine / LinkedByArt</h3>
+            <p>Featured Artwork Publication</p>
+            <p class="sub">Artwork: <em>LOVE</em></p>
+          </div>
+        </div>
 
-<div class="grid">
-<img src="images/cv-2025-interview-1.jpg" onclick="openLightbox(this)">
-<img src="images/cv-2025-interview-2.jpg" onclick="openLightbox(this)">
-</div>
-</div>
+        <div class="image-grid">
+          <div class="image-card">
+            <img src="love_tweakzine.png" alt="LOVE featured in TweakZine / LinkedByArt" onclick="openLightbox(this)">
+          </div>
+        </div>
+      </div>
+    </section>
 
-</div>
+    <!-- DIGITAL -->
+    <section class="section">
+      <h2>Selected Digital Presentations</h2>
 
-<!-- DIGITAL -->
-<div class="section">
-<h2>Selected Digital Presentations</h2>
+      <div class="entry">
+        <div class="entry-meta">
+          <div class="year">2025</div>
+          <div class="entry-text">
+            <h3>NFT.NYC 2025</h3>
+            <p>Digital Event Showcase</p>
+            <p class="sub">Marriott Marquis, New York City, USA</p>
+          </div>
+        </div>
 
-<div class="entry">
-<strong>2025</strong>
-NFT.NYC — Digital Event Showcase<br>
-Marriott Marquis, New York
+        <div class="image-grid">
+          <div class="image-card">
+            <img src="nftnyc.png" alt="NFT.NYC 2025 Digital Event Showcase" onclick="openLightbox(this)">
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="grid">
-<img src="images/cv-2025-nftnyc-1.jpg" onclick="openLightbox(this)">
-<img src="images/cv-2025-nftnyc-2.jpg" onclick="openLightbox(this)">
-</div>
-</div>
+    <div class="back-top">
+      <a href="#top">Back to Top</a>
+    </div>
+  </main>
 
-</div>
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+    <img id="lightbox-img" src="" alt="Expanded image">
+  </div>
 
-</div>
+  <script>
+    function openLightbox(img) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-<img id="lightbox-img">
-</div>
+    function closeLightbox(event) {
+      if (
+        event.target.id === 'lightbox' ||
+        event.target.classList.contains('lightbox-close')
+      ) {
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
 
-<script>
-function openLightbox(img) {
-    document.getElementById('lightbox').style.display = 'flex';
-    document.getElementById('lightbox-img').src = img.src;
-}
-
-function closeLightbox() {
-    document.getElementById('lightbox').style.display = 'none';
-}
-</script>
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
 
 </body>
 </html>
