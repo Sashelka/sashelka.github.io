@@ -52,57 +52,61 @@
       max-width: 100%;
     }
 
-    .site-nav {
-      border-bottom: 1px solid var(--border);
-      background: rgba(10,10,10,0.92);
-    }
+  .site-nav {
+  border-bottom: 1px solid var(--border);
+  background: rgba(10,10,10,0.92);
+}
 
-    .nav-inner {
-      width: min(1180px, 92%);
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-      padding: 18px 0;
-    }
+.nav-inner {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 22px;
+  padding: 14px 0;
+}
 
-    .brand {
-      font-size: 0.95rem;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
+.brand {
+  font-size: 0.78rem;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-weight: 500;
+  color: var(--text);
+}
 
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      align-items: center;
-    }
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
 
-    .nav-links a {
-      font-size: 0.92rem;
-      color: var(--muted);
-      transition: color 0.2s ease;
-    }
+.nav-links a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.80rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
 
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--accent);
-    }
-
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+}
     .container {
       width: min(1180px, 92%);
       margin: 0 auto;
       padding: 56px 0 90px;
     }
 
-    .page-header {
-      margin-bottom: 44px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--border);
-    }
+  .intro {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
 
     .eyebrow {
       margin-bottom: 12px;
@@ -112,12 +116,13 @@
       color: var(--accent);
     }
 
-    h1 {
-      margin: 0 0 14px;
-      font-size: clamp(2.1rem, 5vw, 3.7rem);
-      line-height: 1.08;
-      font-weight: 600;
-    }
+  h1 {
+  margin: 0 0 14px;
+  font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+  line-height: 1.12;
+  font-weight: 500;
+  max-width: 820px;
+}
 
     .intro {
       max-width: 780px;
@@ -125,25 +130,36 @@
       font-size: 1rem;
     }
 
-    .jump-links {
-      margin-top: 22px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-    }
+   .jump-links {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
 
-    .jump-links a {
-      font-size: 0.95rem;
-      color: var(--soft);
-      border-bottom: 1px solid transparent;
-      transition: color 0.2s ease, border-color 0.2s ease;
-    }
+.jump-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 10px 16px;
+  border: 1px solid rgba(181,159,122,0.28);
+  border-radius: 999px;
+  background: rgba(181,159,122,0.06);
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
 
-    .jump-links a:hover {
-      color: var(--accent);
-      border-color: rgba(181,159,122,0.35);
-    }
-
+.jump-links a:hover {
+  color: var(--accent);
+  border-color: rgba(181,159,122,0.55);
+  background: rgba(181,159,122,0.10);
+  transform: translateY(-1px);
+}
     .section {
       margin-top: 58px;
       scroll-margin-top: 30px;
@@ -317,12 +333,30 @@
       cursor: pointer;
     }
 
-    @media (max-width: 760px) {
-      .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+   .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
 
+  .nav-links {
+    gap: 12px 14px;
+  }
+
+  .nav-links a {
+    font-size: 0.76rem;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  :root {
+    --thumb-w: 132px;
+    --thumb-h: 98px;
+  }
+}
       .section-header {
         flex-direction: column;
         align-items: start;
