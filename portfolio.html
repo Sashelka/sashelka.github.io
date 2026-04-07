@@ -172,19 +172,19 @@
 
   position: relative; /* ДОБАВИТЬ */
 }
-    .category-card::after {
+   .category-card::after {
   content: "";
   position: absolute;
-  bottom: -60px;
-  right: -60px;
-  width: 180px;
-  height: 180px;
-  background: radial-gradient(circle, rgba(180, 20, 20, 0.18), transparent 70%);
+  bottom: -90px;   /* было -60px → уводим ниже */
+  right: -90px;    /* было -60px → уводим дальше */
+  width: 120px;    /* было 180px → уменьшаем */
+  height: 120px;   /* было 180px → уменьшаем */
+  background: radial-gradient(circle, rgba(180, 20, 20, 0.12), transparent 75%);
   pointer-events: none;
   z-index: 0;
 }
 .category-card:hover::after {
-  background: radial-gradient(circle, rgba(200, 30, 30, 0.22), transparent 70%);
+  background: radial-gradient(circle, rgba(200, 30, 30, 0.16), transparent 75%);
 }
     .category-image-wrap {
       position: relative;
