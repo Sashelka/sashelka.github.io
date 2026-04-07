@@ -151,16 +151,6 @@
       gap: 22px;
     }
 
-    .category-card {
-      display: block;
-      overflow: hidden;
-      border-radius: 28px;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      background: #0f0f0f;
-      transition: transform 0.34s ease, border-color 0.34s ease, box-shadow 0.34s ease;
-    }
-
   .category-card {
   display: block;
   overflow: hidden;
@@ -169,22 +159,41 @@
   box-shadow: var(--shadow);
   background: #0f0f0f;
   transition: transform 0.34s ease, border-color 0.34s ease, box-shadow 0.34s ease;
-
-  position: relative; /* ДОБАВИТЬ */
+  position: relative;
+  isolation: isolate;
 }
-   .category-card::after {
+
+.category-card::after {
   content: "";
   position: absolute;
-  bottom: -90px;   /* было -60px → уводим ниже */
-  right: -90px;    /* было -60px → уводим дальше */
-  width: 120px;    /* было 180px → уменьшаем */
-  height: 120px;   /* было 180px → уменьшаем */
-  background: radial-gradient(circle, rgba(180, 20, 20, 0.12), transparent 75%);
+  right: -42px;
+  bottom: -42px;
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(170, 22, 22, 0.18) 0%,
+    rgba(170, 22, 22, 0.10) 38%,
+    rgba(170, 22, 22, 0.00) 78%
+  );
   pointer-events: none;
   z-index: 0;
 }
+
+.category-image-wrap,
+.category-info {
+  position: relative;
+  z-index: 1;
+}
+
 .category-card:hover::after {
-  background: radial-gradient(circle, rgba(200, 30, 30, 0.16), transparent 75%);
+  background: radial-gradient(
+    circle,
+    rgba(185, 28, 28, 0.20) 0%,
+    rgba(185, 28, 28, 0.11) 38%,
+    rgba(185, 28, 28, 0.00) 78%
+  );
 }
     .category-image-wrap {
       position: relative;
