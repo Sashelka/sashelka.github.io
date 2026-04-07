@@ -164,21 +164,22 @@
       box-shadow: var(--shadow);
     }
 
-    .panel::after {
-      content: "";
-      position: absolute;
-      right: -60px;
-      bottom: -60px;
-      width: 220px;
-      height: 220px;
-      background:
-        radial-gradient(circle,
-          rgba(155, 45, 45, 0.22) 0%,
-          rgba(92, 128, 198, 0.14) 38%,
-          rgba(0,0,0,0) 72%);
-      pointer-events: none;
-      filter: blur(18px);
-    }
+.panel::after {
+  content: "";
+  position: absolute;
+  right: -36px;
+  bottom: -36px;
+  width: 140px;
+  height: 140px;
+  background:
+    radial-gradient(circle,
+      rgba(110, 18, 18, 0.13) 0%,
+      rgba(42, 58, 102, 0.06) 46%,
+      rgba(0,0,0,0) 78%);
+  pointer-events: none;
+  filter: blur(26px);
+  opacity: 0.72;
+}
 
     .panel p {
       color: #ddd8cf;
