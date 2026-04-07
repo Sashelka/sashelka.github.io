@@ -161,12 +161,31 @@
       transition: transform 0.34s ease, border-color 0.34s ease, box-shadow 0.34s ease;
     }
 
-    .category-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(255,255,255,0.16);
-      box-shadow: 0 22px 54px rgba(0,0,0,0.3);
-    }
+  .category-card {
+  display: block;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  background: #0f0f0f;
+  transition: transform 0.34s ease, border-color 0.34s ease, box-shadow 0.34s ease;
 
+  position: relative; /* ДОБАВИТЬ */
+}
+    .category-card::after {
+  content: "";
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(180, 20, 20, 0.18), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.category-card:hover::after {
+  background: radial-gradient(circle, rgba(200, 30, 30, 0.22), transparent 70%);
+}
     .category-image-wrap {
       position: relative;
       overflow: hidden;
