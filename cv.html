@@ -60,7 +60,7 @@
       margin: 0 auto;
     }
 
-   .site-header {
+  .site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -493,6 +493,29 @@
     @media (max-width: 780px) {
       main {
         padding: 36px 0 70px;
+      }
+
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 14px 0 16px;
+      }
+
+      
+      .brand {
+        font-size: 0.9rem;
+        letter-spacing: 0.24em;
+      }
+
+      .nav {
+        gap: 12px;
+        row-gap: 10px;
+      }
+
+      .nav a {
+        font-size: 0.74rem;
+        letter-spacing: 0.12em;
       }
 
       .hero {
