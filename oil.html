@@ -1,1 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Oil Paintings — Sashelka</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<style>
+body {
+  margin: 0;
+  background: #0b0b0b;
+  color: #f4f4f1;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.portfolio-gallery-page {
+  width: min(1320px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 56px 0 120px;
+}
+
+.portfolio-kicker {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+h1 {
+  margin: 10px 0 40px;
+  font-size: 42px;
+  font-weight: 500;
+}
+
+.gallery-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.gallery-row {
+  display: grid;
+  gap: 18px;
+}
+
+.row-hero {
+  grid-template-columns: 1.7fr 1fr;
+}
+
+.stack-column {
+  display: grid;
+  gap: 18px;
+}
+
+.row-three {
+  grid-template-columns: 1fr 1.2fr 1fr;
+}
+
+.row-double {
+  grid-template-columns: 1fr 1fr;
+}
+
+.row-wide {
+  grid-template-columns: 1fr;
+}
+
+.art-card {
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.3s;
+}
+
+.art-card img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.art-card:hover img {
+  transform: scale(1.04);
+}
+
+.card-wide img {
+  aspect-ratio: 2/1;
+}
+
+/* MODAL */
+
+.art-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  display: none;
+  z-index: 9999;
+}
+
+.art-modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.art-modal img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.art-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<section class="portfolio-gallery-page">
+
+<p class="portfolio-kicker">Oil Paintings</p>
+<h1>Selected Works</h1>
+
+<div class="gallery-layout">
+
+<!-- ROW 1 -->
+<div class="gallery-row row-hero">
+
+<div class="art-card" onclick="openModal('img/oil/full/Oil_One Year Closer To Eternal Darkness_2025_BIG.webp')">
+<img src="img/oil/preview/Oil_One Year Closer To Eternal Darkness_2025_SMALL.webp">
+</div>
+
+<div class="stack-column">
+
+<div class="art-card" onclick="openModal('img/oil/full/Oil_Lets Celebrate_2025_BIG.webp')">
+<img src="img/oil/preview/Oil_Lets Celebrate_2025_SMALL.webp">
+</div>
+
+<div class="art-card" onclick="openModal('img/oil/full/Oil_LOVE_2025_BIG.webp')">
+<img src="img/oil/preview/Oil_LOVE_2025_SMALL.webp">
+</div>
+
+</div>
+</div>
+
+<!-- ROW 2 -->
+<div class="gallery-row row-three">
+
+<div class="art-card" onclick="openModal('img/oil/full/Oil_Obeying Habits_2023_BIG.webp')">
+<img src="img/oil/preview/Oil_Obeying Habits_2023_SMALL.webp">
+</div>
+
+<div class="art-card" onclick="openModal('img/oil/full/Oil_Overcapacity_2026_BIG.webp')">
+<img src="img/oil/preview/Oil_Overcapacity_2026_SMALL.webp">
+</div>
+
+<div class="art-card" onclick="openModal('img/oil/full/Oil_Wordless Touching_2023_BIG.webp')">
+<img src="img/oil/preview/Oil_Wordless Touching_2023_SMALL.webp">
+</div>
+
+</div>
+
+<!-- ROW 3 -->
+<div class="gallery-row row-double">
+
+<div class="art-card" onclick="openModal('img/oil/full/Oil_Hearts Shadow_2024_BIG.webp')">
+<img src="img/oil/preview/Oil_Hearts Shadow_2024_SMALL.webp">
+</div>
+
+<div class="art-card" onclick="openModal('img/oil/full/Oil_Accumulation_2026_BIG.webp')">
+<img src="img/oil/preview/Oil_Accumulation_2026_SMALL.webp">
+</div>
+
+</div>
+
+<!-- ROW 4 -->
+<div class="gallery-row row-three">
+
+<div class="art-card" onclick="openModal('img/oil/full/Oil_That Day_2024_BIG.webp')">
+<img src="img/oil/preview/Oil_That Day_2024_SMALL.webp">
+</div>
+
+<div class="art-card" onclick="openModal('img/oil/full/Oil_Symptom Management_2026_BIG.webp')">
+<img src="img/oil/preview/Oil_Symptom Management_2026_SMALL.webp">
+</div>
+
+<div class="art-card" onclick="openModal('img/oil/full/Oil_Nocturnal Reflections_2023_BIG.webp')">
+<img src="img/oil/preview/Oil_Nocturnal Reflections_2023_SMALL.webp">
+</div>
+
+</div>
+
+<!-- ROW 5 -->
+<div class="gallery-row row-wide">
+
+<div class="art-card card-wide" onclick="openModal('img/oil/full/Oil_Suppressed Combustion_2026_BIG.webp')">
+<img src="img/oil/preview/Oil_Suppressed Combustion_2026_SMALL.webp">
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- MODAL -->
+<div class="art-modal" id="modal">
+<span class="art-modal-close" onclick="closeModal()">×</span>
+<img id="modalImg">
+</div>
+
+<script>
+function openModal(src) {
+  document.getElementById("modal").classList.add("active");
+  document.getElementById("modalImg").src = src;
+}
+
+function closeModal() {
+  document.getElementById("modal").classList.remove("active");
+}
+</script>
+
+</body>
+</html>
