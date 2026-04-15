@@ -1,1 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Works | SASHELKA</title>
+  <meta name="description" content="Selected digital works by SASHELKA." />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --text:#f4f0e8;--muted:#aaa39a;--muted-2:#b8b0a5;--line:rgba(255,255,255,.08);
+      --accent:#9e1d1d;--shadow:0 30px 80px rgba(0,0,0,.42);--max:1380px
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scrollbar-gutter:stable}
+    body{
+      font-family:"Manrope",Arial,sans-serif;color:var(--text);
+      background:
+        radial-gradient(circle at top center,rgba(255,255,255,.03),transparent 24%),
+        radial-gradient(circle at 85% 18%,rgba(158,29,29,.12),transparent 22%),
+        linear-gradient(to bottom,#090909,#060606 32%,#050505 100%);
+      line-height:1.7;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility
+    }
+    img{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .container{width:min(92%,var(--max));margin:0 auto}
+    .site-header{position:sticky;top:0;z-index:1000;backdrop-filter:blur(18px);background:rgba(7,7,7,.72);border-bottom:1px solid var(--line)}
+    .header-inner{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-size:.98rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;white-space:nowrap}
+    .nav{display:flex;gap:26px;flex-wrap:wrap;justify-content:flex-end}
+    .nav a{color:#b6afa5;font-size:.82rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;transition:color .25s ease,opacity .25s ease}
+    .nav a:hover,.nav a[aria-current="page"]{color:var(--text)}
+    .gallery-page{padding:56px 0 120px;min-height:calc(100vh - 160px)}
+    .gallery-header{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.7fr);gap:28px;margin-bottom:34px;align-items:end}
+    .gallery-kicker{color:var(--muted-2);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin-bottom:10px}
+    .gallery-title{font-size:clamp(2.5rem,4.8vw,4.4rem);line-height:.96;letter-spacing:-.04em;font-weight:600;margin-bottom:12px;max-width:10ch}
+    .gallery-intro{color:var(--muted);font-size:.98rem;max-width:640px}
+    .gallery-note{padding:18px 20px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01)),radial-gradient(circle at bottom right,rgba(158,29,29,.14),transparent 52%),#0a0a0a;box-shadow:var(--shadow)}
+    .gallery-note-title{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);font-weight:600;margin-bottom:8px}
+    .gallery-note p{color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.55}
+    .gallery-layout{display:flex;flex-direction:column;gap:18px}
+    .gallery-row{display:grid;gap:18px;align-items:stretch}
+    .row-hero{grid-template-columns:1.45fr .92fr .92fr}
+    .row-feature{grid-template-columns:1fr 1fr}
+    .row-three{grid-template-columns:1fr 1.08fr 1fr}
+    .row-four{grid-template-columns:repeat(4,1fr)}
+    .row-closure{grid-template-columns:1.08fr 1fr 1fr}
+    .stack-column{display:grid;gap:18px;grid-template-rows:1fr 1fr}
+    .art-card{position:relative;display:block;width:100%;padding:0;border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;background:#0d0d0d;cursor:pointer;transition:transform 240ms cubic-bezier(.2,.8,.2,1),border-color 240ms ease,box-shadow 240ms ease}
+    .art-card img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 420ms cubic-bezier(.2,.8,.2,1),filter 240ms ease}
+    .card-hero img{aspect-ratio:1.42/1}
+    .card-standard img{aspect-ratio:1/1}
+    .card-tall img{aspect-ratio:.84/1}
+    .card-wide img{aspect-ratio:1.45/1}
+    .art-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.48),rgba(0,0,0,.12) 45%,rgba(0,0,0,0));opacity:0;transition:opacity 240ms ease;pointer-events:none}
+    .art-card::before{content:"";position:absolute;right:-10%;bottom:-18%;width:42%;height:42%;background:radial-gradient(circle,rgba(158,29,29,.26) 0%,rgba(158,29,29,.1) 32%,rgba(158,29,29,0) 72%);filter:blur(24px);opacity:0;transition:opacity 260ms ease;pointer-events:none;z-index:1}
+    .art-card:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.14);box-shadow:0 18px 50px rgba(0,0,0,.34)}
+    .art-card:hover img{transform:scale(1.035)}
+    .art-card:hover::after,.art-card:hover::before{opacity:1}
+    .art-meta{position:absolute;left:16px;right:16px;bottom:14px;z-index:2;opacity:0;transform:translateY(8px);transition:opacity 240ms ease,transform 240ms ease;pointer-events:none}
+    .art-card:hover .art-meta{opacity:1;transform:translateY(0)}
+    .art-meta-title{font-size:.95rem;font-weight:600;line-height:1.25;color:#f5f1ea}
+    .art-meta-sub{font-size:.78rem;color:rgba(255,255,255,.68);letter-spacing:.04em;margin-top:3px}
+    .art-modal{position:fixed;inset:0;z-index:9999;background:rgba(5,5,5,.96);opacity:0;visibility:hidden;pointer-events:none;transition:opacity 220ms ease,visibility 220ms ease}
+    .art-modal.is-open{opacity:1;visibility:visible;pointer-events:auto}
+    .art-modal-inner{position:relative;width:min(1400px,calc(100% - 72px));height:calc(100vh - 72px);margin:36px auto;display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:28px;align-items:end}
+    .art-modal-image-wrap{width:100%;height:100%;display:grid;place-items:center;overflow:hidden}
+    .art-modal-image-wrap img{max-width:100%;max-height:100%;width:auto;height:auto;display:block;box-shadow:0 18px 80px rgba(0,0,0,.45);border-radius:6px}
+    .art-modal-meta{align-self:end;padding-bottom:6px}
+    .art-modal-meta h2{margin:0 0 8px;font-size:1.15rem;font-weight:500;line-height:1.2;color:#f3f3ef}
+    .art-modal-meta p{margin:0;font-size:.92rem;line-height:1.5;color:rgba(255,255,255,.62)}
+    .art-modal-close,.art-modal-nav{position:absolute;border:0;background:rgba(255,255,255,.06);color:#f5f5f0;cursor:pointer;backdrop-filter:blur(8px);transition:background 180ms ease,transform 180ms ease}
+    .art-modal-close:hover,.art-modal-nav:hover{background:rgba(255,255,255,.12);transform:scale(1.03)}
+    .art-modal-close{top:22px;right:22px;width:48px;height:48px;border-radius:999px;font-size:28px;line-height:1;z-index:5}
+    .art-modal-nav{top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:999px;font-size:34px;line-height:1;z-index:5}
+    .art-modal-prev{left:22px}.art-modal-next{right:22px}
+    .footer{padding:28px 0 42px;border-top:1px solid var(--line)}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--muted);font-size:.9rem}
+    @media (max-width:1180px){.gallery-page{padding:42px 0 96px}.gallery-header{grid-template-columns:1fr}}
+    @media (max-width:1024px){.row-hero,.row-feature,.row-three,.row-four,.row-closure{grid-template-columns:1fr 1fr}.stack-column{grid-template-rows:auto;grid-column:1/-1;grid-template-columns:1fr 1fr}.card-hero img,.card-wide img,.card-tall img,.card-standard img{aspect-ratio:1/1}.art-modal-inner{width:min(100%,calc(100% - 28px));height:calc(100vh - 28px);margin:14px auto;grid-template-columns:1fr;grid-template-rows:1fr auto;gap:16px}.art-modal-meta{padding:0 4px 8px}.art-modal-close{top:14px;right:14px}.art-modal-prev{left:10px}.art-modal-next{right:10px}}
+    @media (max-width:780px){.header-inner{flex-direction:column;align-items:flex-start;gap:10px;padding:14px 0 16px}.brand{font-size:.9rem;letter-spacing:.24em}.nav{gap:12px;row-gap:10px}.nav a{font-size:.74rem;letter-spacing:.12em}.container{width:min(94%,var(--max))}.gallery-page{padding:34px 0 74px}.gallery-title{font-size:2.7rem}.gallery-intro,.gallery-note p{font-size:.94rem}.row-hero,.row-feature,.row-three,.row-four,.row-closure,.stack-column{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">SASHELKA</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html" aria-current="page">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="cv.html">CV</a>
+        <a href="collect.html">Collect</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main class="gallery-page">
+    <div class="container">
+      <div class="gallery-header">
+        <div>
+          <div class="gallery-kicker">Digital Works</div>
+          <h1 class="gallery-title">Selected Works</h1>
+          <p class="gallery-intro">A curated selection of digital works shaped through symbolism, psychological tension, distortion, and controlled visual excess.</p>
+        </div>
+        <div class="gallery-note">
+          <div class="gallery-note-title">Visual direction</div>
+          <p>Portrait, narrative, and symbolic works arranged as a single visual sequence rather than a uniform archive.</p>
+        </div>
+      </div>
+      <div class="gallery-layout">
+        <div class="gallery-row row-hero">
+          <button class="art-card card-hero" data-full="img/digital/full/Digital_It_is_for_Your_Safety_2026_BIG.webp" data-title="It is for Your Safety" data-year="2026" data-medium="Digital artwork"><img src="img/digital/preview/Digital_It_is_for_Your_Safety_2026_SMALL.webp" alt="It is for Your Safety, 2026" loading="eager" /><div class="art-meta"><div class="art-meta-title">It is for Your Safety</div><div class="art-meta-sub">Digital artwork • 2026</div></div></button>
+          <div class="stack-column">
+            <button class="art-card card-standard" data-full="img/digital/full/Digital_Not Found Forever Linked_2025_BIG.webp" data-title="Not Found. Forever Linked." data-year="2025" data-medium="Digital artwork"><img src="img/digital/preview/Digital_Not Found Forever Linked_2025_SMALL.webp" alt="Not Found. Forever Linked., 2025" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Not Found. Forever Linked.</div><div class="art-meta-sub">Digital artwork • 2025</div></div></button>
+            <button class="art-card card-standard" data-full="img/digital/full/Digital_The_Way_of_the_Black_Sheep_2023_BIG.webp" data-title="The Way of the Black Sheep" data-year="2023" data-medium="Digital artwork"><img src="img/digital/preview/Digital_The_Way_of_the_Black_Sheep_2023_SMALL.webp" alt="The Way of the Black Sheep, 2023" loading="lazy" /><div class="art-meta"><div class="art-meta-title">The Way of the Black Sheep</div><div class="art-meta-sub">Digital artwork • 2023</div></div></button>
+          </div>
+          <div class="stack-column">
+            <button class="art-card card-standard" data-full="img/digital/full/Digital_Bone_Memory_2025_BIG.webp" data-title="Bone Memory" data-year="2025" data-medium="Digital artwork"><img src="img/digital/preview/Digital_Bone_Memory_2025_SMALL.webp" alt="Bone Memory, 2025" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Bone Memory</div><div class="art-meta-sub">Digital artwork • 2025</div></div></button>
+            <button class="art-card card-standard" data-full="img/digital/full/Digital_Pressure_Point_2025_BIG.webp" data-title="Pressure Point" data-year="2025" data-medium="Digital artwork"><img src="img/digital/preview/Digital_Pressure_Point_2025_SMALL.webp" alt="Pressure Point, 2025" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Pressure Point</div><div class="art-meta-sub">Digital artwork • 2025</div></div></button>
+          </div>
+        </div>
+        <div class="gallery-row row-feature">
+          <button class="art-card card-wide" data-full="img/digital/full/Digital_Still Alive_2023_BIG.webp" data-title="Still Alive" data-year="2023" data-medium="Digital artwork"><img src="img/digital/preview/Digital_Still Alive_2023_SMALL.webp" alt="Still Alive, 2023" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Still Alive</div><div class="art-meta-sub">Digital artwork • 2023</div></div></button>
+          <button class="art-card card-wide" data-full="img/digital/full/Digital_The_Lesson_of_Truth_2024_BIG.webp" data-title="The Lesson of Truth" data-year="2024" data-medium="Digital artwork"><img src="img/digital/preview/Digital_The_Lesson_of_Truth_2024_SMALL.webp" alt="The Lesson of Truth, 2024" loading="lazy" /><div class="art-meta"><div class="art-meta-title">The Lesson of Truth</div><div class="art-meta-sub">Digital artwork • 2024</div></div></button>
+        </div>
+        <div class="gallery-row row-three">
+          <button class="art-card card-tall" data-full="img/digital/full/Digital_She_2023_BIG.webp" data-title="She" data-year="2023" data-medium="Digital artwork"><img src="img/digital/preview/Digital_She_2023_SMALL.webp" alt="She, 2023" loading="lazy" /><div class="art-meta"><div class="art-meta-title">She</div><div class="art-meta-sub">Digital artwork • 2023</div></div></button>
+          <button class="art-card card-wide" data-full="img/digital/full/Digital_Eternal_Absorption_2024_BIG.webp" data-title="Eternal Absorption" data-year="2024" data-medium="Digital artwork"><img src="img/digital/preview/Digital_Eternal_Absorption_2024_SMALL.webp" alt="Eternal Absorption, 2024" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Eternal Absorption</div><div class="art-meta-sub">Digital artwork • 2024</div></div></button>
+          <button class="art-card card-tall" data-full="img/digital/full/Digital_No_Future_FM_2025_BIG.webp" data-title="No Future FM" data-year="2025" data-medium="Digital artwork"><img src="img/digital/preview/Digital_No_Future_FM_2025_SMALL.webp" alt="No Future FM, 2025" loading="lazy" /><div class="art-meta"><div class="art-meta-title">No Future FM</div><div class="art-meta-sub">Digital artwork • 2025</div></div></button>
+        </div>
+        <div class="gallery-row row-four">
+          <button class="art-card card-tall" data-full="img/digital/full/Digital_Anger_2024_BIG.webp" data-title="Anger" data-year="2024" data-medium="Digital artwork"><img src="img/digital/preview/Digital_Anger_2024_SMALL.webp" alt="Anger, 2024" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Anger</div><div class="art-meta-sub">Digital artwork • 2024</div></div></button>
+          <button class="art-card card-tall" data-full="img/digital/full/Digital_Envy_2024_BIG.webp" data-title="Envy" data-year="2024" data-medium="Digital artwork"><img src="img/digital/preview/Digital_Envy_2024_SMALL.webp" alt="Envy, 2024" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Envy</div><div class="art-meta-sub">Digital artwork • 2024</div></div></button>
+          <button class="art-card card-tall" data-full="img/digital/full/Digital_Lust_2024_BIG.webp" data-title="Lust" data-year="2024" data-medium="Digital artwork"><img src="img/digital/preview/Digital_Lust_2024_SMALL.webp" alt="Lust, 2024" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Lust</div><div class="art-meta-sub">Digital artwork • 2024</div></div></button>
+          <button class="art-card card-tall" data-full="img/digital/full/Digital_Greed_2024_BIG.webp" data-title="Greed" data-year="2024" data-medium="Digital artwork"><img src="img/digital/preview/Digital_Greed_2024_SMALL.webp" alt="Greed, 2024" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Greed</div><div class="art-meta-sub">Digital artwork • 2024</div></div></button>
+        </div>
+        <div class="gallery-row row-four">
+          <button class="art-card card-tall" data-full="img/digital/full/Digital_Pride_2024_BIG.webp" data-title="Pride" data-year="2024" data-medium="Digital artwork"><img src="img/digital/preview/Digital_Pride_2024_SMALL.webp" alt="Pride, 2024" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Pride</div><div class="art-meta-sub">Digital artwork • 2024</div></div></button>
+          <button class="art-card card-tall" data-full="img/digital/full/Digital_Sloth_2024_BIG.webp" data-title="Sloth" data-year="2024" data-medium="Digital artwork"><img src="img/digital/preview/Digital_Sloth_2024_SMALL.webp" alt="Sloth, 2024" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Sloth</div><div class="art-meta-sub">Digital artwork • 2024</div></div></button>
+          <button class="art-card card-tall" data-full="img/digital/full/Digital_Lady_Todd_2023_BIG.webp" data-title="Lady Todd" data-year="2023" data-medium="Digital artwork"><img src="img/digital/preview/Digital_Lady_Todd_2023_SMALL.webp" alt="Lady Todd, 2023" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Lady Todd</div><div class="art-meta-sub">Digital artwork • 2023</div></div></button>
+          <button class="art-card card-tall" data-full="img/digital/full/Digital_Lady_Justice_2022_BIG.webp" data-title="Lady Justice" data-year="2022" data-medium="Digital artwork"><img src="img/digital/preview/Digital_Lady_Justice_2022_SMALL.webp" alt="Lady Justice, 2022" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Lady Justice</div><div class="art-meta-sub">Digital artwork • 2022</div></div></button>
+        </div>
+        <div class="gallery-row row-closure">
+          <button class="art-card card-tall" data-full="img/digital/full/Digital_Soft_Obstruction_2026_BIG.webp" data-title="Soft Obstruction" data-year="2026" data-medium="Digital artwork"><img src="img/digital/preview/Digital_Soft_Obstruction_2026_SMALL.webp" alt="Soft Obstruction, 2026" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Soft Obstruction</div><div class="art-meta-sub">Digital artwork • 2026</div></div></button>
+          <button class="art-card card-standard" data-full="img/digital/full/Digital_Becoming_part2_2022_BIG.webp" data-title="Becoming, Part II" data-year="2022" data-medium="Digital artwork"><img src="img/digital/preview/Digital_Becoming_part2_2022_SMALL.webp" alt="Becoming, Part II, 2022" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Becoming, Part II</div><div class="art-meta-sub">Digital artwork • 2022</div></div></button>
+          <button class="art-card card-standard" data-full="img/digital/full/Digital_She_2023_BIG.webp" data-title="She" data-year="2023" data-medium="Digital artwork"><img src="img/digital/preview/Digital_She_2023_SMALL.webp" alt="She, 2023" loading="lazy" /><div class="art-meta"><div class="art-meta-title">She</div><div class="art-meta-sub">Digital artwork • 2023</div></div></button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div class="art-modal" id="artModal" aria-hidden="true">
+    <button class="art-modal-close" id="artModalClose" aria-label="Close">×</button>
+    <button class="art-modal-nav art-modal-prev" id="artPrev" aria-label="Previous work">‹</button>
+    <button class="art-modal-nav art-modal-next" id="artNext" aria-label="Next work">›</button>
+    <div class="art-modal-inner">
+      <div class="art-modal-image-wrap"><img id="artModalImage" src="" alt="" /></div>
+      <div class="art-modal-meta"><h2 id="artModalTitle"></h2><p id="artModalDetails"></p></div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© SASHELKA 2026. All rights reserved.</div>
+      <div>Multidisciplinary visual artist working through symbolism, tension, and transformation.</div>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      const modal = document.getElementById("artModal");
+      const modalImg = document.getElementById("artModalImage");
+      const modalTitle = document.getElementById("artModalTitle");
+      const modalDetails = document.getElementById("artModalDetails");
+      const closeBtn = document.getElementById("artModalClose");
+      const prevBtn = document.getElementById("artPrev");
+      const nextBtn = document.getElementById("artNext");
+      const cards = Array.from(document.querySelectorAll(".art-card"));
+      let currentIndex = 0;
+      function openModal(index){const card=cards[index];if(!card)return;currentIndex=index;const full=card.dataset.full||"",title=card.dataset.title||"",year=card.dataset.year||"",medium=card.dataset.medium||"";modalImg.src=full;modalImg.alt=title?`${title}, ${year}`:"Artwork";modalTitle.textContent=title;modalDetails.textContent=[medium,year].filter(Boolean).join(" • ");modal.classList.add("is-open");modal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden"}
+      function closeModal(){modal.classList.remove("is-open");modal.setAttribute("aria-hidden","true");modalImg.src="";document.body.style.overflow=""}
+      function showNext(){currentIndex=(currentIndex+1)%cards.length;openModal(currentIndex)}
+      function showPrev(){currentIndex=(currentIndex-1+cards.length)%cards.length;openModal(currentIndex)}
+      cards.forEach((card,index)=>{card.addEventListener("click",()=>openModal(index))});
+      closeBtn.addEventListener("click",closeModal);nextBtn.addEventListener("click",showNext);prevBtn.addEventListener("click",showPrev);
+      modal.addEventListener("click",(e)=>{if(e.target===modal)closeModal()});
+      document.addEventListener("keydown",(e)=>{if(!modal.classList.contains("is-open"))return;if(e.key==="Escape")closeModal();if(e.key==="ArrowRight")showNext();if(e.key==="ArrowLeft")showPrev()});
+    })();
+  </script>
+</body>
+</html>
 
