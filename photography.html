@@ -884,5 +884,78 @@
     </div>
   </div>
 </div>
+  <script>
+  (function () {
+    const modal = document.getElementById("artModal");
+    const modalImg = document.getElementById("artModalImage");
+    const modalTitle = document.getElementById("artModalTitle");
+    const modalDetails = document.getElementById("artModalDetails");
+    const closeBtn = document.getElementById("artModalClose");
+    const prevBtn = document.getElementById("artPrev");
+    const nextBtn = document.getElementById("artNext");
+    const cards = Array.from(document.querySelectorAll(".art-card"));
+
+    let currentIndex = 0;
+
+    function openModal(index) {
+      const card = cards[index];
+      if (!card) return;
+
+      currentIndex = index;
+
+      const full = card.dataset.full || "";
+      const title = card.dataset.title || "";
+      const year = card.dataset.year || "";
+      const medium = card.dataset.medium || "";
+
+      modalImg.src = full;
+      modalImg.alt = title ? `${title}, ${year}` : "Artwork";
+      modalTitle.textContent = title;
+      modalDetails.textContent = [medium, year].filter(Boolean).join(" • ");
+
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      modalImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % cards.length;
+      openModal(currentIndex);
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+      openModal(currentIndex);
+    }
+
+    cards.forEach((card, index) => {
+      card.addEventListener("click", () => openModal(index));
+    });
+
+    closeBtn.addEventListener("click", closeModal);
+    nextBtn.addEventListener("click", showNext);
+    prevBtn.addEventListener("click", showPrev);
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (!modal.classList.contains("is-open")) return;
+
+      if (e.key === "Escape") closeModal();
+      if (e.key === "ArrowRight") showNext();
+      if (e.key === "ArrowLeft") showPrev();
+    });
+  })();
+</script>
+
 </body>
 </html>
