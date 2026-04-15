@@ -225,13 +225,13 @@
     transition: transform 420ms cubic-bezier(.2,.8,.2,1), filter 240ms ease;
   }
 
-  .card-portrait img {
-    aspect-ratio: 0.8 / 1;
-  }
+ .card-portrait img {
+  aspect-ratio: 0.92 / 1;
+}
 
-  .card-square img {
-    aspect-ratio: 1 / 1;
-  }
+.card-square img {
+  aspect-ratio: 1 / 0.9;
+}
 
   .card-portrait-tall img {
     aspect-ratio: 0.72 / 1;
@@ -529,7 +529,21 @@
     .gallery-intro {
       font-size: 0.94rem;
     }
-  }
+  }.row-hero .art-card img {
+  max-height: 420px;
+}
+
+.stack-column .art-card img {
+  max-height: 201px;
+}
+
+.card-portrait img {
+  aspect-ratio: 0.92 / 1;
+}
+
+.card-square img {
+  aspect-ratio: 1 / 0.9;
+}
 </style>
 </head>
 <body>
