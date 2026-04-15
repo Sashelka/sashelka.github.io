@@ -509,6 +509,18 @@
       .gallery-intro {
         font-size: 0.94rem;
       }
+      .row-hero { grid-template-columns: 1.3fr 1fr; }
+.stack { display:grid; gap:18px; }
+
+.row-triptych { grid-template-columns: 1fr 1fr 1fr; }
+.row-double { grid-template-columns: 1fr 1fr; }
+.row-narrative { grid-template-columns: 0.9fr 1.2fr 0.9fr; }
+.row-wide { grid-template-columns: 1fr; }
+
+.card-wide img { aspect-ratio: 2.2/1; }
+.card-tall img { aspect-ratio: 0.7/1; }
+.card-portrait img { aspect-ratio: 0.8/1; }
+.card-square img { aspect-ratio: 1/1; }
     }
   </style>
 </head>
@@ -532,104 +544,56 @@
 
 <div class="gallery-layout">
 
-<!-- HERO -->
-<div class="gallery-row row-hero">
+  <div class="gallery-row row-hero">
+    <button class="art-card card-portrait">
+      <img src="img/photo/preview/Photo_Everybody_Has_Evil_2023_SMALL.webp">
+    </button>
 
-  <div class="art-card card-portrait">
-    <img src="img/photo/preview/Photo_Everybody_Has_Evil_2023_SMALL.webp">
-  </div>
+    <div class="stack">
+      <button class="art-card card-square">
+        <img src="img/photo/preview/Photo_Axis_2022_SMALL.webp">
+      </button>
 
-  <div class="stack">
-    <div class="art-card card-square">
-      <img src="img/photo/preview/Photo_Axis_2022_SMALL.webp">
+      <button class="art-card card-portrait">
+        <img src="img/photo/preview/Photo_Fading_Reality_2022_SMALL.webp">
+      </button>
     </div>
+  </div>
 
-    <div class="art-card card-portrait">
-      <img src="img/photo/preview/Photo_Fading_Reality_2022_SMALL.webp">
-    </div>
+  <div class="gallery-row row-triptych">
+    <button class="art-card card-portrait"><img src="img/photo/preview/Photo_Fragile_2022_SMALL.webp"></button>
+    <button class="art-card card-portrait"><img src="img/photo/preview/Photo_Pulse_2022_SMALL.webp"></button>
+    <button class="art-card card-portrait"><img src="img/photo/preview/Photo_Soft_Violence_2022_SMALL.webp"></button>
+  </div>
+
+  <div class="gallery-row row-double">
+    <button class="art-card card-square"><img src="img/photo/preview/Photo_Equilibrium_2023_SMALL.webp"></button>
+    <button class="art-card card-portrait"><img src="img/photo/preview/Photo_Held_2022_SMALL.webp"></button>
+  </div>
+
+  <div class="gallery-row row-narrative">
+    <button class="art-card card-portrait"><img src="img/photo/preview/Photo_Invisible_Wings_1_2023_SMALL.webp"></button>
+    <button class="art-card card-tall"><img src="img/photo/preview/Photo_Invisible_Wings_5_2023_SMALL.webp"></button>
+    <button class="art-card card-portrait"><img src="img/photo/preview/Photo_Invisible_Wings_4_2023_SMALL.webp"></button>
+  </div>
+
+  <div class="gallery-row row-double">
+    <button class="art-card card-portrait"><img src="img/photo/preview/Photo_Invisible_Wings_7_2023_SMALL.webp"></button>
+    <button class="art-card card-portrait"><img src="img/photo/preview/Photo_In_the_corner_of_the_soul_2022_SMALL.webp"></button>
+  </div>
+
+  <div class="gallery-row row-double">
+    <button class="art-card card-portrait"><img src="img/photo/preview/Photo_Tears_In_The_Shadow_2023_SMALL.webp"></button>
+    <button class="art-card card-portrait"><img src="img/photo/preview/Photo_Scene_I-Urushi_2025_SMALL.webp"></button>
+  </div>
+
+  <div class="gallery-row row-wide">
+    <button class="art-card card-wide">
+      <img src="img/photo/preview/Photo_She_2023_SMALL.webp">
+    </button>
   </div>
 
 </div>
-
-<!-- TRIPTYCH -->
-<div class="gallery-row row-triptych">
-
-  <div class="art-card card-portrait">
-    <img src="img/photo/preview/Photo_Fragile_2022_SMALL.webp">
-  </div>
-
-  <div class="art-card card-portrait">
-    <img src="img/photo/preview/Photo_Pulse_2022_SMALL.webp">
-  </div>
-
-  <div class="art-card card-portrait">
-    <img src="img/photo/preview/Photo_Soft_Violence_2022_SMALL.webp">
-  </div>
-
-</div>
-
-<!-- PAUSE -->
-<div class="gallery-row row-double">
-
-  <div class="art-card card-square">
-    <img src="img/photo/preview/Photo_Equilibrium_2023_SMALL.webp">
-  </div>
-
-  <div class="art-card card-portrait">
-    <img src="img/photo/preview/Photo_Held_2022_SMALL.webp">
-  </div>
-
-</div>
-
-<!-- NARRATIVE -->
-<div class="gallery-row row-narrative">
-
-  <div class="art-card card-portrait">
-    <img src="img/photo/preview/Photo_Invisible_Wings_1_2023_SMALL.webp">
-  </div>
-
-  <div class="art-card card-tall">
-    <img src="img/photo/preview/Photo_Invisible_Wings_5_2023_SMALL.webp">
-  </div>
-
-  <div class="art-card card-portrait">
-    <img src="img/photo/preview/Photo_Invisible_Wings_4_2023_SMALL.webp">
-  </div>
-
-</div>
-
-<!-- QUIET -->
-<div class="gallery-row row-double">
-
-  <div class="art-card card-portrait">
-    <img src="img/photo/preview/Photo_Invisible_Wings_7_2023_SMALL.webp">
-  </div>
-
-  <div class="art-card card-portrait">
-    <img src="img/photo/preview/Photo_In_the_corner_of_the_soul_2022_SMALL.webp">
-  </div>
-
-</div>
-
-<!-- PRE FINAL -->
-<div class="gallery-row row-double">
-
-  <div class="art-card card-portrait">
-    <img src="img/photo/preview/Photo_Tears_In_The_Shadow_2023_SMALL.webp">
-  </div>
-
-  <div class="art-card card-portrait">
-    <img src="img/photo/preview/Photo_Scene_I-Urushi_2025_SMALL.webp">
-  </div>
-
-</div>
-
-<!-- FINAL -->
-<div class="gallery-row row-wide">
-
-  <div class="art-card card-wide">
-    <img src="img/photo/preview/Photo_She_2023_SMALL.webp">
-  </div>
 
 </div>
 
