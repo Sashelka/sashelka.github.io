@@ -40,7 +40,14 @@
     .gallery-page{padding:56px 0 120px;min-height:calc(100vh - 160px)}
     .gallery-header{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.7fr);gap:28px;margin-bottom:34px;align-items:end}
     .gallery-kicker{color:var(--muted-2);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin-bottom:10px}
-    .gallery-title{font-size:clamp(2.5rem,4.8vw,4.4rem);line-height:.96;letter-spacing:-.04em;font-weight:600;margin-bottom:12px;max-width:10ch}
+    .gallery-title {
+  font-size: clamp(2.5rem, 4.8vw, 4.4rem);
+  line-height: .96;
+  letter-spacing: -.04em;
+  font-weight: 600;
+  margin-bottom: 12px;
+  white-space: nowrap;
+}
     .gallery-intro{color:var(--muted);font-size:.98rem;max-width:640px}
     .gallery-note{padding:18px 20px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01)),radial-gradient(circle at bottom right,rgba(158,29,29,.14),transparent 52%),#0a0a0a;box-shadow:var(--shadow)}
     .gallery-note-title{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);font-weight:600;margin-bottom:8px}
