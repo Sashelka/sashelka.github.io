@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Photography | SASHELKA</title>
-  <meta
-    name="description"
-    content="Selected photography works by SASHELKA."
-  />
+  <meta name="description" content="Selected photographic works by SASHELKA." />
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -18,10 +14,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -31,24 +24,12 @@
       --muted: #aaa39a;
       --muted-2: #b8b0a5;
       --line: rgba(255, 255, 255, 0.08);
-      --line-strong: rgba(255, 255, 255, 0.14);
       --accent: #9e1d1d;
-      --accent-2: #c73636;
-      --shadow: 0 30px 80px rgba(0, 0, 0, 0.38);
       --max: 1360px;
-      --hero-overlay: linear-gradient(to top, rgba(0, 0, 0, 0.34), transparent 35%);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scrollbar-gutter: stable;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scrollbar-gutter: stable; }
 
     body {
       font-family: "Manrope", Arial, sans-serif;
@@ -61,24 +42,11 @@
       text-rendering: optimizeLegibility;
     }
 
-    img {
-      display: block;
-      max-width: 100%;
-    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    .container {
-      width: min(92%, var(--max));
-      margin: 0 auto;
-    }
+    .container { width: min(92%, var(--max)); margin: 0 auto; }
 
     .site-header {
       position: sticky;
@@ -98,7 +66,6 @@
     }
 
     .brand {
-      font-family: "Manrope", Arial, sans-serif;
       font-size: 0.98rem;
       font-weight: 700;
       letter-spacing: 0.28em;
@@ -123,18 +90,14 @@
     }
 
     .nav a:hover,
-    .nav a[aria-current="page"] {
-      color: var(--text);
-    }
+    .nav a[aria-current="page"] { color: var(--text); }
 
     .gallery-page {
       padding: 54px 0 120px;
       min-height: calc(100vh - 160px);
     }
 
-    .gallery-header {
-      margin-bottom: 34px;
-    }
+    .gallery-header { margin-bottom: 34px; }
 
     .gallery-kicker {
       color: var(--muted-2);
@@ -156,38 +119,16 @@
     .gallery-intro {
       color: var(--muted);
       font-size: 0.98rem;
-      max-width: 680px;
+      max-width: 620px;
     }
 
-    .gallery-layout {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
+    .gallery-layout { display: flex; flex-direction: column; gap: 18px; }
+    .gallery-row { display: grid; gap: 18px; align-items: stretch; }
 
-    .gallery-row {
-      display: grid;
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .row-hero {
-      grid-template-columns: 1.18fr 0.82fr;
-    }
-
-    .stack-column {
-      display: grid;
-      gap: 18px;
-      grid-template-rows: 1fr 1fr;
-    }
-
-    .row-three {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .row-double {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+    .row-three-balanced { grid-template-columns: 1.06fr 1fr 1.06fr; }
+    .row-three-tight { grid-template-columns: 1fr 1fr 1fr; }
+    .row-narrative { grid-template-columns: 0.95fr 1.18fr 0.95fr; }
+    .row-finale { grid-template-columns: 1fr 0.92fr; }
 
     .art-card {
       position: relative;
@@ -199,42 +140,27 @@
       overflow: hidden;
       background: #0d0d0d;
       cursor: pointer;
-      transition:
-        transform 240ms cubic-bezier(.2,.8,.2,1),
-        border-color 240ms ease,
-        box-shadow 240ms ease;
+      transition: transform 240ms cubic-bezier(.2,.8,.2,1), border-color 240ms ease, box-shadow 240ms ease;
+      min-height: 0;
     }
 
     .art-card img {
-      display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 420ms cubic-bezier(.2,.8,.2,1), filter 240ms ease;
     }
 
-    .card-hero img {
-      aspect-ratio: 0.98 / 1.18;
-    }
-
-    .card-portrait img {
-      aspect-ratio: 0.78 / 1;
-    }
-
-    .card-square img {
-      aspect-ratio: 1 / 1;
-    }
-
-    .card-wide img {
-      aspect-ratio: 1.45 / 1;
-    }
+    .card-portrait img { aspect-ratio: 0.78 / 1; }
+    .card-portrait-tall img { aspect-ratio: 0.72 / 1; }
+    .card-square img { aspect-ratio: 1 / 1; }
+    .card-medium-wide img { aspect-ratio: 1.38 / 1; }
 
     .art-card::after {
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(to top, rgba(0,0,0,0.42), rgba(0,0,0,0.08) 45%, rgba(0,0,0,0));
+      background: linear-gradient(to top, rgba(0,0,0,0.44), rgba(0,0,0,0.1) 44%, rgba(0,0,0,0));
       opacity: 0;
       transition: opacity 240ms ease;
       pointer-events: none;
@@ -247,7 +173,7 @@
       bottom: -18%;
       width: 42%;
       height: 42%;
-      background: radial-gradient(circle, rgba(158,29,29,0.22) 0%, rgba(158,29,29,0.08) 32%, rgba(158,29,29,0) 72%);
+      background: radial-gradient(circle, rgba(158,29,29,0.22) 0%, rgba(158,29,29,0.1) 32%, rgba(158,29,29,0) 72%);
       filter: blur(22px);
       opacity: 0;
       transition: opacity 260ms ease;
@@ -261,14 +187,8 @@
       box-shadow: 0 18px 50px rgba(0,0,0,0.34);
     }
 
-    .art-card:hover img {
-      transform: scale(1.035);
-    }
-
-    .art-card:hover::after,
-    .art-card:hover::before {
-      opacity: 1;
-    }
+    .art-card:hover img { transform: scale(1.03); }
+    .art-card:hover::after, .art-card:hover::before { opacity: 1; }
 
     .art-meta {
       position: absolute;
@@ -282,24 +202,10 @@
       pointer-events: none;
     }
 
-    .art-card:hover .art-meta {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .art-card:hover .art-meta { opacity: 1; transform: translateY(0); }
 
-    .art-meta-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      line-height: 1.25;
-      color: #f5f1ea;
-    }
-
-    .art-meta-sub {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.68);
-      letter-spacing: 0.04em;
-      margin-top: 3px;
-    }
+    .art-meta-title { font-size: 0.95rem; font-weight: 600; line-height: 1.25; color: #f5f1ea; }
+    .art-meta-sub { font-size: 0.78rem; color: rgba(255,255,255,0.68); letter-spacing: 0.04em; margin-top: 3px; }
 
     .art-modal {
       position: fixed;
@@ -312,11 +218,7 @@
       transition: opacity 220ms ease, visibility 220ms ease;
     }
 
-    .art-modal.is-open {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
+    .art-modal.is-open { opacity: 1; visibility: visible; pointer-events: auto; }
 
     .art-modal-inner {
       position: relative;
@@ -347,28 +249,11 @@
       border-radius: 6px;
     }
 
-    .art-modal-meta {
-      align-self: end;
-      padding-bottom: 6px;
-    }
+    .art-modal-meta { align-self: end; padding-bottom: 6px; }
+    .art-modal-meta h2 { margin: 0 0 8px; font-size: 1.15rem; font-weight: 500; line-height: 1.2; color: #f3f3ef; }
+    .art-modal-meta p { margin: 0; font-size: 0.92rem; line-height: 1.5; color: rgba(255,255,255,0.62); }
 
-    .art-modal-meta h2 {
-      margin: 0 0 8px;
-      font-size: 1.15rem;
-      font-weight: 500;
-      line-height: 1.2;
-      color: #f3f3ef;
-    }
-
-    .art-modal-meta p {
-      margin: 0;
-      font-size: 0.92rem;
-      line-height: 1.5;
-      color: rgba(255,255,255,0.62);
-    }
-
-    .art-modal-close,
-    .art-modal-nav {
+    .art-modal-close, .art-modal-nav {
       position: absolute;
       border: 0;
       background: rgba(255,255,255,0.06);
@@ -378,8 +263,7 @@
       transition: background 180ms ease, transform 180ms ease;
     }
 
-    .art-modal-close:hover,
-    .art-modal-nav:hover {
+    .art-modal-close:hover, .art-modal-nav:hover {
       background: rgba(255,255,255,0.12);
       transform: scale(1.03);
     }
@@ -406,13 +290,8 @@
       z-index: 5;
     }
 
-    .art-modal-prev {
-      left: 22px;
-    }
-
-    .art-modal-next {
-      right: 22px;
-    }
+    .art-modal-prev { left: 22px; }
+    .art-modal-next { right: 22px; }
 
     .footer {
       padding: 28px 0 42px;
@@ -428,29 +307,9 @@
       font-size: 0.9rem;
     }
 
-    @media (max-width: 1180px) {
-      .gallery-page {
-        padding: 42px 0 96px;
-      }
-    }
-
     @media (max-width: 1024px) {
-      .row-hero,
-      .row-three,
-      .row-double {
-        grid-template-columns: 1fr;
-      }
-
-      .stack-column {
-        grid-template-rows: auto;
-      }
-
-      .card-hero img,
-      .card-portrait img,
-      .card-square img,
-      .card-wide img {
-        aspect-ratio: 1 / 1;
-      }
+      .row-three-balanced, .row-three-tight, .row-narrative, .row-finale { grid-template-columns: 1fr; }
+      .card-medium-wide img { aspect-ratio: 1 / 1; }
 
       .art-modal-inner {
         width: min(100%, calc(100% - 28px));
@@ -461,22 +320,10 @@
         gap: 16px;
       }
 
-      .art-modal-meta {
-        padding: 0 4px 8px;
-      }
-
-      .art-modal-close {
-        top: 14px;
-        right: 14px;
-      }
-
-      .art-modal-prev {
-        left: 10px;
-      }
-
-      .art-modal-next {
-        right: 10px;
-      }
+      .art-modal-meta { padding: 0 4px 8px; }
+      .art-modal-close { top: 14px; right: 14px; }
+      .art-modal-prev { left: 10px; }
+      .art-modal-next { right: 10px; }
     }
 
     @media (max-width: 780px) {
@@ -487,36 +334,13 @@
         padding: 14px 0 16px;
       }
 
-      .brand {
-        font-size: 0.9rem;
-        letter-spacing: 0.24em;
-      }
-
-      .nav {
-        gap: 12px;
-        row-gap: 10px;
-      }
-
-      .nav a {
-        font-size: 0.74rem;
-        letter-spacing: 0.12em;
-      }
-
-      .container {
-        width: min(94%, var(--max));
-      }
-
-      .gallery-page {
-        padding: 34px 0 74px;
-      }
-
-      .gallery-title {
-        font-size: 2.5rem;
-      }
-
-      .gallery-intro {
-        font-size: 0.94rem;
-      }
+      .brand { font-size: 0.9rem; letter-spacing: 0.24em; }
+      .nav { gap: 12px; row-gap: 10px; }
+      .nav a { font-size: 0.74rem; letter-spacing: 0.12em; }
+      .container { width: min(94%, var(--max)); }
+      .gallery-page { padding: 34px 0 74px; }
+      .gallery-title { font-size: 2.5rem; }
+      .gallery-intro { font-size: 0.94rem; }
     }
   </style>
 </head>
@@ -540,336 +364,43 @@
       <div class="gallery-header">
         <div class="gallery-kicker">Photography</div>
         <h1 class="gallery-title">Selected Works</h1>
-        <p class="gallery-intro">
-          A curated selection of photographic works exploring fragmentation, bodily tension, psychological atmosphere, and quiet symbolic narrative.
-        </p>
+        <p class="gallery-intro">A curated selection of photographic works exploring fracture, identity, tension, memory, and symbolic narrative.</p>
       </div>
 
       <div class="gallery-layout">
-        <!-- ROW 1 -->
-        <div class="gallery-row row-hero">
-          <button
-            class="art-card card-hero"
-            data-full="img/photo/full/Photo_Axis_2022_BIG.webp"
-            data-title="Axis"
-            data-year="2022"
-            data-medium="Photography"
-          >
-            <img
-              src="img/photo/preview/Photo_Axis_2022_SMALL.webp"
-              alt="Axis, 2022"
-              loading="eager"
-            />
-            <div class="art-meta">
-              <div class="art-meta-title">Axis</div>
-              <div class="art-meta-sub">Photography • 2022</div>
-            </div>
-          </button>
-
-          <div class="stack-column">
-            <button
-              class="art-card card-portrait"
-              data-full="img/photo/full/Photo_Everybody_Has_Evil_2023_BIG.webp"
-              data-title="Everybody Has Evil"
-              data-year="2023"
-              data-medium="Photography"
-            >
-              <img
-                src="img/photo/preview/Photo_Everybody_Has_Evil_2023_SMALL.webp"
-                alt="Everybody Has Evil, 2023"
-                loading="lazy"
-              />
-              <div class="art-meta">
-                <div class="art-meta-title">Everybody Has Evil</div>
-                <div class="art-meta-sub">Photography • 2023</div>
-              </div>
-            </button>
-
-            <button
-              class="art-card card-portrait"
-              data-full="img/photo/full/Photo_Fading_Reality_2022_BIG.webp"
-              data-title="Fading Reality"
-              data-year="2022"
-              data-medium="Photography"
-            >
-              <img
-                src="img/photo/preview/Photo_Fading_Reality_2022_SMALL.webp"
-                alt="Fading Reality, 2022"
-                loading="lazy"
-              />
-              <div class="art-meta">
-                <div class="art-meta-title">Fading Reality</div>
-                <div class="art-meta-sub">Photography • 2022</div>
-              </div>
-            </button>
-          </div>
+        <div class="gallery-row row-three-balanced">
+          <button class="art-card card-portrait" data-full="img/photo/full/Photo_Everybody_Has_Evil_2023_BIG.webp" data-title="Everybody Has Evil" data-year="2023" data-medium="Photography"><img src="img/photo/preview/Photo_Everybody_Has_Evil_2023_SMALL.webp" alt="Everybody Has Evil, 2023" loading="eager" /><div class="art-meta"><div class="art-meta-title">Everybody Has Evil</div><div class="art-meta-sub">Photography • 2023</div></div></button>
+          <button class="art-card card-square" data-full="img/photo/full/Photo_Axis_2022_BIG.webp" data-title="Axis" data-year="2022" data-medium="Photography"><img src="img/photo/preview/Photo_Axis_2022_SMALL.webp" alt="Axis, 2022" loading="eager" /><div class="art-meta"><div class="art-meta-title">Axis</div><div class="art-meta-sub">Photography • 2022</div></div></button>
+          <button class="art-card card-portrait" data-full="img/photo/full/Photo_Fading_Reality_2022_BIG.webp" data-title="Fading Reality" data-year="2022" data-medium="Photography"><img src="img/photo/preview/Photo_Fading_Reality_2022_SMALL.webp" alt="Fading Reality, 2022" loading="eager" /><div class="art-meta"><div class="art-meta-title">Fading Reality</div><div class="art-meta-sub">Photography • 2022</div></div></button>
         </div>
 
-        <!-- ROW 2 -->
-        <div class="gallery-row row-three">
-          <button
-            class="art-card card-portrait"
-            data-full="img/photo/full/Photo_Fragile_2022_BIG.webp"
-            data-title="Fragile"
-            data-year="2022"
-            data-medium="Photography"
-          >
-            <img
-              src="img/photo/preview/Photo_Fragile_2022_SMALL.webp"
-              alt="Fragile, 2022"
-              loading="lazy"
-            />
-            <div class="art-meta">
-              <div class="art-meta-title">Fragile</div>
-              <div class="art-meta-sub">Photography • 2022</div>
-            </div>
-          </button>
-
-          <button
-            class="art-card card-portrait"
-            data-full="img/photo/full/Photo_Pulse_2022_BIG.webp"
-            data-title="Pulse"
-            data-year="2022"
-            data-medium="Photography"
-          >
-            <img
-              src="img/photo/preview/Photo_Pulse_2022_SMALL.webp"
-              alt="Pulse, 2022"
-              loading="lazy"
-            />
-            <div class="art-meta">
-              <div class="art-meta-title">Pulse</div>
-              <div class="art-meta-sub">Photography • 2022</div>
-            </div>
-          </button>
-
-          <button
-            class="art-card card-portrait"
-            data-full="img/photo/full/Photo_Soft_Violence_2022_BIG.webp"
-            data-title="Soft Violence"
-            data-year="2022"
-            data-medium="Photography"
-          >
-            <img
-              src="img/photo/preview/Photo_Soft_Violence_2022_SMALL.webp"
-              alt="Soft Violence, 2022"
-              loading="lazy"
-            />
-            <div class="art-meta">
-              <div class="art-meta-title">Soft Violence</div>
-              <div class="art-meta-sub">Photography • 2022</div>
-            </div>
-          </button>
+        <div class="gallery-row row-three-tight">
+          <button class="art-card card-portrait" data-full="img/photo/full/Photo_Fragile_2022_BIG.webp" data-title="Fragile" data-year="2022" data-medium="Photography"><img src="img/photo/preview/Photo_Fragile_2022_SMALL.webp" alt="Fragile, 2022" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Fragile</div><div class="art-meta-sub">Photography • 2022</div></div></button>
+          <button class="art-card card-square" data-full="img/photo/full/Photo_Equilibrium_2023_BIG.webp" data-title="Equilibrium" data-year="2023" data-medium="Photography"><img src="img/photo/preview/Photo_Equilibrium_2023_SMALL.webp" alt="Equilibrium, 2023" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Equilibrium</div><div class="art-meta-sub">Photography • 2023</div></div></button>
+          <button class="art-card card-portrait" data-full="img/photo/full/Photo_Happiness_dreams_to_me_2022_BIG.webp" data-title="Happiness Dreams to Me" data-year="2022" data-medium="Photography"><img src="img/photo/preview/Photo_Happiness_dreams_to_me_2022_SMALL.webp" alt="Happiness Dreams to Me, 2022" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Happiness Dreams to Me</div><div class="art-meta-sub">Photography • 2022</div></div></button>
         </div>
 
-        <!-- ROW 3 -->
-        <div class="gallery-row row-double">
-          <button
-            class="art-card card-square"
-            data-full="img/photo/full/Photo_Equilibrium_2023_BIG.webp"
-            data-title="Equilibrium"
-            data-year="2023"
-            data-medium="Photography"
-          >
-            <img
-              src="img/photo/preview/Photo_Equilibrium_2023_SMALL.webp"
-              alt="Equilibrium, 2023"
-              loading="lazy"
-            />
-            <div class="art-meta">
-              <div class="art-meta-title">Equilibrium</div>
-              <div class="art-meta-sub">Photography • 2023</div>
-            </div>
-          </button>
-
-          <button
-            class="art-card card-portrait"
-            data-full="img/photo/full/Photo_Held_2022_BIG.webp"
-            data-title="Held"
-            data-year="2022"
-            data-medium="Photography"
-          >
-            <img
-              src="img/photo/preview/Photo_Held_2022_SMALL.webp"
-              alt="Held, 2022"
-              loading="lazy"
-            />
-            <div class="art-meta">
-              <div class="art-meta-title">Held</div>
-              <div class="art-meta-sub">Photography • 2022</div>
-            </div>
-          </button>
+        <div class="gallery-row row-three-tight">
+          <button class="art-card card-portrait" data-full="img/photo/full/Photo_Pulse_2022_BIG.webp" data-title="Pulse" data-year="2022" data-medium="Photography"><img src="img/photo/preview/Photo_Pulse_2022_SMALL.webp" alt="Pulse, 2022" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Pulse</div><div class="art-meta-sub">Photography • 2022</div></div></button>
+          <button class="art-card card-portrait" data-full="img/photo/full/Photo_Soft_Violence_2022_BIG.webp" data-title="Soft Violence" data-year="2022" data-medium="Photography"><img src="img/photo/preview/Photo_Soft_Violence_2022_SMALL.webp" alt="Soft Violence, 2022" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Soft Violence</div><div class="art-meta-sub">Photography • 2022</div></div></button>
+          <button class="art-card card-portrait" data-full="img/photo/full/Photo_Held_2022_BIG.webp" data-title="Held" data-year="2022" data-medium="Photography"><img src="img/photo/preview/Photo_Held_2022_SMALL.webp" alt="Held, 2022" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Held</div><div class="art-meta-sub">Photography • 2022</div></div></button>
         </div>
 
-        <!-- ROW 4 -->
-        <div class="gallery-row row-three">
-          <button
-            class="art-card card-portrait"
-            data-full="img/photo/full/Photo_Invisible_Wings_1_2023_BIG.webp"
-            data-title="Invisible Wings I"
-            data-year="2023"
-            data-medium="Photography"
-          >
-            <img
-              src="img/photo/preview/Photo_Invisible_Wings_1_2023_SMALL.webp"
-              alt="Invisible Wings I, 2023"
-              loading="lazy"
-            />
-            <div class="art-meta">
-              <div class="art-meta-title">Invisible Wings I</div>
-              <div class="art-meta-sub">Photography • 2023</div>
-            </div>
-          </button>
-
-          <button
-            class="art-card card-portrait"
-            data-full="img/photo/full/Photo_Invisible_Wings_5_2023_BIG.webp"
-            data-title="Invisible Wings V"
-            data-year="2023"
-            data-medium="Photography"
-          >
-            <img
-              src="img/photo/preview/Photo_Invisible_Wings_5_2023_SMALL.webp"
-              alt="Invisible Wings V, 2023"
-              loading="lazy"
-            />
-            <div class="art-meta">
-              <div class="art-meta-title">Invisible Wings V</div>
-              <div class="art-meta-sub">Photography • 2023</div>
-            </div>
-          </button>
-
-          <button
-            class="art-card card-portrait"
-            data-full="img/photo/full/Photo_Invisible_Wings_4_2023_BIG.webp"
-            data-title="Invisible Wings IV"
-            data-year="2023"
-            data-medium="Photography"
-          >
-            <img
-              src="img/photo/preview/Photo_Invisible_Wings_4_2023_SMALL.webp"
-              alt="Invisible Wings IV, 2023"
-              loading="lazy"
-            />
-            <div class="art-meta">
-              <div class="art-meta-title">Invisible Wings IV</div>
-              <div class="art-meta-sub">Photography • 2023</div>
-            </div>
-          </button>
+        <div class="gallery-row row-narrative">
+          <button class="art-card card-portrait" data-full="img/photo/full/Photo_Invisible_Wings_1_2023_BIG.webp" data-title="Invisible Wings I" data-year="2023" data-medium="Photography"><img src="img/photo/preview/Photo_Invisible_Wings_1_2023_SMALL.webp" alt="Invisible Wings I, 2023" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Invisible Wings I</div><div class="art-meta-sub">Photography • 2023</div></div></button>
+          <button class="art-card card-portrait-tall" data-full="img/photo/full/Photo_Invisible_Wings_5_2023_BIG.webp" data-title="Invisible Wings V" data-year="2023" data-medium="Photography"><img src="img/photo/preview/Photo_Invisible_Wings_5_2023_SMALL.webp" alt="Invisible Wings V, 2023" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Invisible Wings V</div><div class="art-meta-sub">Photography • 2023</div></div></button>
+          <button class="art-card card-portrait" data-full="img/photo/full/Photo_Invisible_Wings_4_2023_BIG.webp" data-title="Invisible Wings IV" data-year="2023" data-medium="Photography"><img src="img/photo/preview/Photo_Invisible_Wings_4_2023_SMALL.webp" alt="Invisible Wings IV, 2023" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Invisible Wings IV</div><div class="art-meta-sub">Photography • 2023</div></div></button>
         </div>
 
-        <!-- ROW 5 -->
-        <div class="gallery-row row-three">
-          <button
-            class="art-card card-portrait"
-            data-full="img/photo/full/Photo_Invisible_Wings_7_2023_BIG.webp"
-            data-title="Invisible Wings VII"
-            data-year="2023"
-            data-medium="Photography"
-          >
-            <img
-              src="img/photo/preview/Photo_Invisible_Wings_7_2023_SMALL.webp"
-              alt="Invisible Wings VII, 2023"
-              loading="lazy"
-            />
-            <div class="art-meta">
-              <div class="art-meta-title">Invisible Wings VII</div>
-              <div class="art-meta-sub">Photography • 2023</div>
-            </div>
-          </button>
-
-          <button
-            class="art-card card-portrait"
-            data-full="img/photo/full/Photo_In_the_corner_of_the_soul_2022_BIG.webp"
-            data-title="In the Corner of the Soul"
-            data-year="2022"
-            data-medium="Photography"
-          >
-            <img
-              src="img/photo/preview/Photo_In_the_corner_of_the_soul_2022_SMALL.webp"
-              alt="In the Corner of the Soul, 2022"
-              loading="lazy"
-            />
-            <div class="art-meta">
-              <div class="art-meta-title">In the Corner of the Soul</div>
-              <div class="art-meta-sub">Photography • 2022</div>
-            </div>
-          </button>
-
-          <button
-            class="art-card card-wide"
-            data-full="img/photo/full/Photo_She_2023_BIG.webp"
-            data-title="She"
-            data-year="2023"
-            data-medium="Photography"
-          >
-            <img
-              src="img/photo/preview/Photo_She_2023_SMALL.webp"
-              alt="She, 2023"
-              loading="lazy"
-            />
-            <div class="art-meta">
-              <div class="art-meta-title">She</div>
-              <div class="art-meta-sub">Photography • 2023</div>
-            </div>
-          </button>
+        <div class="gallery-row row-three-balanced">
+          <button class="art-card card-portrait" data-full="img/photo/full/Photo_Invisible_Wings_7_2023_BIG.webp" data-title="Invisible Wings VII" data-year="2023" data-medium="Photography"><img src="img/photo/preview/Photo_Invisible_Wings_7_2023_SMALL.webp" alt="Invisible Wings VII, 2023" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Invisible Wings VII</div><div class="art-meta-sub">Photography • 2023</div></div></button>
+          <button class="art-card card-portrait" data-full="img/photo/full/Photo_In_the_corner_of_the_soul_2022_BIG.webp" data-title="In the Corner of the Soul" data-year="2022" data-medium="Photography"><img src="img/photo/preview/Photo_In_the_corner_of_the_soul_2022_SMALL.webp" alt="In the Corner of the Soul, 2022" loading="lazy" /><div class="art-meta"><div class="art-meta-title">In the Corner of the Soul</div><div class="art-meta-sub">Photography • 2022</div></div></button>
+          <button class="art-card card-portrait" data-full="img/photo/full/Photo_Scene_I-Urushi_2025_BIG.webp" data-title="Scene I — Urushi" data-year="2025" data-medium="Photography"><img src="img/photo/preview/Photo_Scene_I-Urushi_2025_SMALL.webp" alt="Scene I — Urushi, 2025" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Scene I — Urushi</div><div class="art-meta-sub">Photography • 2025</div></div></button>
         </div>
 
-        <!-- ROW 6 -->
-        <div class="gallery-row row-three">
-          <button
-            class="art-card card-portrait"
-            data-full="img/photo/full/Photo_Happiness_dreams_to_me_2022_BIG.webp"
-            data-title="Happiness Dreams to Me"
-            data-year="2022"
-            data-medium="Photography"
-          >
-            <img
-              src="img/photo/preview/Photo_Happiness_dreams_to_me_2022_SMALL.webp"
-              alt="Happiness Dreams to Me, 2022"
-              loading="lazy"
-            />
-            <div class="art-meta">
-              <div class="art-meta-title">Happiness Dreams to Me</div>
-              <div class="art-meta-sub">Photography • 2022</div>
-            </div>
-          </button>
-
-          <button
-            class="art-card card-portrait"
-            data-full="img/photo/full/Photo_Scene_I-Urushi_2025_BIG.webp"
-            data-title="Scene I – Urushi"
-            data-year="2025"
-            data-medium="Photography"
-          >
-            <img
-              src="img/photo/preview/Photo_Scene_I-Urushi_2025_SMALL.webp"
-              alt="Scene I – Urushi, 2025"
-              loading="lazy"
-            />
-            <div class="art-meta">
-              <div class="art-meta-title">Scene I – Urushi</div>
-              <div class="art-meta-sub">Photography • 2025</div>
-            </div>
-          </button>
-
-          <button
-            class="art-card card-portrait"
-            data-full="img/photo/full/Photo_Tears_In_The_Shadow_2023_BIG.webp"
-            data-title="Tears In The Shadow"
-            data-year="2023"
-            data-medium="Photography"
-          >
-            <img
-              src="img/photo/preview/Photo_Tears_In_The_Shadow_2023_SMALL.webp"
-              alt="Tears In The Shadow, 2023"
-              loading="lazy"
-            />
-            <div class="art-meta">
-              <div class="art-meta-title">Tears In The Shadow</div>
-              <div class="art-meta-sub">Photography • 2023</div>
-            </div>
-          </button>
+        <div class="gallery-row row-finale">
+          <button class="art-card card-portrait" data-full="img/photo/full/Photo_Tears_In_The_Shadow_2023_BIG.webp" data-title="Tears In The Shadow" data-year="2023" data-medium="Photography"><img src="img/photo/preview/Photo_Tears_In_The_Shadow_2023_SMALL.webp" alt="Tears In The Shadow, 2023" loading="lazy" /><div class="art-meta"><div class="art-meta-title">Tears In The Shadow</div><div class="art-meta-sub">Photography • 2023</div></div></button>
+          <button class="art-card card-medium-wide" data-full="img/photo/full/Photo_She_2023_BIG.webp" data-title="She" data-year="2023" data-medium="Photography"><img src="img/photo/preview/Photo_She_2023_SMALL.webp" alt="She, 2023" loading="lazy" /><div class="art-meta"><div class="art-meta-title">She</div><div class="art-meta-sub">Photography • 2023</div></div></button>
         </div>
       </div>
     </div>
@@ -879,16 +410,9 @@
     <button class="art-modal-close" id="artModalClose" aria-label="Close">×</button>
     <button class="art-modal-nav art-modal-prev" id="artPrev" aria-label="Previous work">‹</button>
     <button class="art-modal-nav art-modal-next" id="artNext" aria-label="Next work">›</button>
-
     <div class="art-modal-inner">
-      <div class="art-modal-image-wrap">
-        <img id="artModalImage" src="" alt="" />
-      </div>
-
-      <div class="art-modal-meta">
-        <h2 id="artModalTitle"></h2>
-        <p id="artModalDetails"></p>
-      </div>
+      <div class="art-modal-image-wrap"><img id="artModalImage" src="" alt="" /></div>
+      <div class="art-modal-meta"><h2 id="artModalTitle"></h2><p id="artModalDetails"></p></div>
     </div>
   </div>
 
@@ -909,25 +433,20 @@
       const prevBtn = document.getElementById("artPrev");
       const nextBtn = document.getElementById("artNext");
       const cards = Array.from(document.querySelectorAll(".art-card"));
-
       let currentIndex = 0;
 
       function openModal(index) {
         const card = cards[index];
         if (!card) return;
-
         currentIndex = index;
-
         const full = card.dataset.full || "";
         const title = card.dataset.title || "";
         const year = card.dataset.year || "";
         const medium = card.dataset.medium || "";
-
         modalImg.src = full;
         modalImg.alt = title ? `${title}, ${year}` : "Artwork";
         modalTitle.textContent = title;
         modalDetails.textContent = [medium, year].filter(Boolean).join(" • ");
-
         modal.classList.add("is-open");
         modal.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
@@ -950,10 +469,7 @@
         openModal(currentIndex);
       }
 
-      cards.forEach((card, index) => {
-        card.addEventListener("click", () => openModal(index));
-      });
-
+      cards.forEach((card, index) => card.addEventListener("click", () => openModal(index)));
       closeBtn.addEventListener("click", closeModal);
       nextBtn.addEventListener("click", showNext);
       prevBtn.addEventListener("click", showPrev);
@@ -964,7 +480,6 @@
 
       document.addEventListener("keydown", (e) => {
         if (!modal.classList.contains("is-open")) return;
-
         if (e.key === "Escape") closeModal();
         if (e.key === "ArrowRight") showNext();
         if (e.key === "ArrowLeft") showPrev();
