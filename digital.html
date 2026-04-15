@@ -78,8 +78,25 @@
     .art-modal{position:fixed;inset:0;z-index:9999;background:rgba(5,5,5,.96);opacity:0;visibility:hidden;pointer-events:none;transition:opacity 220ms ease,visibility 220ms ease}
     .art-modal.is-open{opacity:1;visibility:visible;pointer-events:auto}
     .art-modal-inner{position:relative;width:min(1400px,calc(100% - 72px));height:calc(100vh - 72px);margin:36px auto;display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:28px;align-items:end}
-    .art-modal-image-wrap{width:100%;height:100%;display:grid;place-items:center;overflow:hidden}
-    .art-modal-image-wrap img{max-width:100%;max-height:100%;width:auto;height:auto;display:block;box-shadow:0 18px 80px rgba(0,0,0,.45);border-radius:6px}
+    .art-modal-image-wrap {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  overflow: auto;
+  padding: 18px;
+}
+
+.art-modal-image-wrap img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100vh - 120px);
+  object-fit: contain;
+  box-shadow: 0 18px 80px rgba(0,0,0,0.45);
+  border-radius: 6px;
+}
     .art-modal-meta{align-self:end;padding-bottom:6px}
     .art-modal-meta h2{margin:0 0 8px;font-size:1.15rem;font-weight:500;line-height:1.2;color:#f3f3ef}
     .art-modal-meta p{margin:0;font-size:.92rem;line-height:1.5;color:rgba(255,255,255,.62)}
