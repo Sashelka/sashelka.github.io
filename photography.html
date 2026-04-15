@@ -23,506 +23,514 @@
     rel="stylesheet"
   />
 
-  <style>
-    :root {
-      --bg: #070707;
-      --bg-2: #0d0d0d;
-      --text: #f4f0e8;
-      --muted: #aaa39a;
-      --muted-2: #b8b0a5;
-      --line: rgba(255, 255, 255, 0.08);
-      --line-strong: rgba(255, 255, 255, 0.14);
-      --accent: #9e1d1d;
-      --accent-2: #c73636;
-      --shadow: 0 30px 80px rgba(0, 0, 0, 0.38);
-      --max: 1360px;
-      --hero-overlay: linear-gradient(to top, rgba(0, 0, 0, 0.34), transparent 35%);
-    }
+<style>
+  :root {
+    --bg: #070707;
+    --bg-2: #0d0d0d;
+    --text: #f4f0e8;
+    --muted: #aaa39a;
+    --muted-2: #b8b0a5;
+    --line: rgba(255, 255, 255, 0.08);
+    --line-strong: rgba(255, 255, 255, 0.14);
+    --accent: #9e1d1d;
+    --accent-2: #c73636;
+    --shadow: 0 30px 80px rgba(0, 0, 0, 0.38);
+    --max: 1360px;
+    --hero-overlay: linear-gradient(to top, rgba(0, 0, 0, 0.34), transparent 35%);
+  }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-    html {
-      scroll-behavior: smooth;
-      scrollbar-gutter: stable;
-    }
+  html {
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+  }
 
-    body {
-      font-family: "Manrope", Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top center, rgba(255,255,255,0.035), transparent 24%),
-        linear-gradient(to bottom, #0a0a0a, #070707 30%, #060606 100%);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
+  body {
+    font-family: "Manrope", Arial, sans-serif;
+    color: var(--text);
+    background:
+      radial-gradient(circle at top center, rgba(255,255,255,0.035), transparent 24%),
+      linear-gradient(to bottom, #0a0a0a, #070707 30%, #060606 100%);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
 
-    img {
-      display: block;
-      max-width: 100%;
-    }
+  img {
+    display: block;
+    max-width: 100%;
+  }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-    button {
-      font: inherit;
-    }
+  button {
+    font: inherit;
+  }
 
-    .container {
-      width: min(92%, var(--max));
-      margin: 0 auto;
-    }
+  .container {
+    width: min(92%, var(--max));
+    margin: 0 auto;
+  }
 
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(18px);
-      background: rgba(7, 7, 7, 0.72);
-      border-bottom: 1px solid var(--line);
-    }
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(18px);
+    background: rgba(7, 7, 7, 0.72);
+    border-bottom: 1px solid var(--line);
+  }
 
-    .header-inner {
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
+  .header-inner {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
 
-    .brand {
-      font-family: "Manrope", Arial, sans-serif;
-      font-size: 0.98rem;
-      font-weight: 700;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
+  .brand {
+    font-family: "Manrope", Arial, sans-serif;
+    font-size: 0.98rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
 
-    .nav {
-      display: flex;
-      gap: 26px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
+  .nav {
+    display: flex;
+    gap: 26px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
 
-    .nav a {
-      color: #b6afa5;
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      transition: color 0.25s ease, opacity 0.25s ease;
-    }
+  .nav a {
+    color: #b6afa5;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition: color 0.25s ease, opacity 0.25s ease;
+  }
 
-    .nav a:hover,
-    .nav a[aria-current="page"] {
-      color: var(--text);
-    }
+  .nav a:hover,
+  .nav a[aria-current="page"] {
+    color: var(--text);
+  }
 
+  .gallery-page {
+    padding: 54px 0 120px;
+    min-height: calc(100vh - 160px);
+  }
+
+  .gallery-header {
+    margin-bottom: 34px;
+  }
+
+  .gallery-kicker {
+    color: var(--muted-2);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .gallery-title {
+    font-size: clamp(2.3rem, 4.5vw, 4rem);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .gallery-intro {
+    color: var(--muted);
+    font-size: 0.98rem;
+    max-width: 620px;
+  }
+
+  .gallery-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .gallery-row {
+    display: grid;
+    gap: 18px;
+    align-items: stretch;
+  }
+
+  .row-hero {
+    grid-template-columns: 1.18fr 1fr;
+  }
+
+  .stack-column {
+    display: grid;
+    gap: 18px;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .row-triptych {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .row-double {
+    grid-template-columns: 1.04fr 0.96fr;
+  }
+
+  .row-narrative {
+    grid-template-columns: 0.94fr 1.14fr 0.94fr;
+  }
+
+  .row-quiet {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .row-wide {
+    grid-template-columns: 1fr;
+  }
+
+  .art-card {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    overflow: hidden;
+    background: #0d0d0d;
+    cursor: pointer;
+    transition:
+      transform 240ms cubic-bezier(.2,.8,.2,1),
+      border-color 240ms ease,
+      box-shadow 240ms ease;
+  }
+
+  .art-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 420ms cubic-bezier(.2,.8,.2,1), filter 240ms ease;
+  }
+
+  .card-portrait img {
+    aspect-ratio: 0.8 / 1;
+  }
+
+  .card-square img {
+    aspect-ratio: 1 / 1;
+  }
+
+  .card-portrait-tall img {
+    aspect-ratio: 0.72 / 1;
+  }
+
+  .card-wide img {
+    aspect-ratio: 2.15 / 1;
+  }
+
+  .art-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top, rgba(0,0,0,0.42), rgba(0,0,0,0.08) 45%, rgba(0,0,0,0));
+    opacity: 0;
+    transition: opacity 240ms ease;
+    pointer-events: none;
+  }
+
+  .art-card::before {
+    content: "";
+    position: absolute;
+    right: -10%;
+    bottom: -18%;
+    width: 42%;
+    height: 42%;
+    background: radial-gradient(circle, rgba(158,29,29,0.24) 0%, rgba(158,29,29,0.1) 32%, rgba(158,29,29,0) 72%);
+    filter: blur(22px);
+    opacity: 0;
+    transition: opacity 260ms ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .art-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,255,255,0.14);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.34);
+  }
+
+  .art-card:hover img {
+    transform: scale(1.03);
+  }
+
+  .art-card:hover::after,
+  .art-card:hover::before {
+    opacity: 1;
+  }
+
+  .art-meta {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 14px;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 240ms ease, transform 240ms ease;
+    pointer-events: none;
+  }
+
+  .art-card:hover .art-meta {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .art-meta-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #f5f1ea;
+  }
+
+  .art-meta-sub {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.68);
+    letter-spacing: 0.04em;
+    margin-top: 3px;
+  }
+
+  .art-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(5,5,5,0.96);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 220ms ease, visibility 220ms ease;
+  }
+
+  .art-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .art-modal-inner {
+    position: relative;
+    width: min(1400px, calc(100% - 72px));
+    height: calc(100vh - 72px);
+    margin: 36px auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 28px;
+    align-items: end;
+  }
+
+  .art-modal-image-wrap {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+
+  .art-modal-image-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+    box-shadow: 0 18px 80px rgba(0,0,0,0.45);
+    border-radius: 6px;
+  }
+
+  .art-modal-meta {
+    align-self: end;
+    padding-bottom: 6px;
+  }
+
+  .art-modal-meta h2 {
+    margin: 0 0 8px;
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #f3f3ef;
+  }
+
+  .art-modal-meta p {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.62);
+  }
+
+  .art-modal-close,
+  .art-modal-nav {
+    position: absolute;
+    border: 0;
+    background: rgba(255,255,255,0.06);
+    color: #f5f5f0;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: background 180ms ease, transform 180ms ease;
+  }
+
+  .art-modal-close:hover,
+  .art-modal-nav:hover {
+    background: rgba(255,255,255,0.12);
+    transform: scale(1.03);
+  }
+
+  .art-modal-close {
+    top: 22px;
+    right: 22px;
+    width: 48px;
+    height: 48px;
+    border-radius: 999px;
+    font-size: 28px;
+    line-height: 1;
+    z-index: 5;
+  }
+
+  .art-modal-nav {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 999px;
+    font-size: 34px;
+    line-height: 1;
+    z-index: 5;
+  }
+
+  .art-modal-prev {
+    left: 22px;
+  }
+
+  .art-modal-next {
+    right: 22px;
+  }
+
+  .footer {
+    padding: 28px 0 42px;
+    border-top: 1px solid var(--line);
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 1180px) {
     .gallery-page {
-      padding: 54px 0 120px;
-      min-height: calc(100vh - 160px);
+      padding: 42px 0 96px;
     }
+  }
 
-    .gallery-header {
-      margin-bottom: 34px;
-    }
-
-    .gallery-kicker {
-      color: var(--muted-2);
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .gallery-title {
-      font-size: clamp(2.3rem, 4.5vw, 4rem);
-      line-height: 0.98;
-      letter-spacing: -0.03em;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .gallery-intro {
-      color: var(--muted);
-      font-size: 0.98rem;
-      max-width: 620px;
-    }
-
-    .gallery-layout {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .gallery-row {
-      display: grid;
-      gap: 18px;
-    }
-
-    .row-hero {
-      grid-template-columns: 1.7fr 1fr;
-      align-items: stretch;
-    }
-
-    .stack-column {
-      display: grid;
-      gap: 18px;
-      grid-template-rows: 1fr 1fr;
-    }
-
-    .row-three {
-      grid-template-columns: 1fr 1.18fr 1fr;
-      align-items: stretch;
-    }
-
-    .row-double {
-      grid-template-columns: 1fr 1fr;
-    }
-
+  @media (max-width: 1024px) {
+    .row-hero,
+    .row-triptych,
+    .row-double,
+    .row-narrative,
+    .row-quiet,
     .row-wide {
       grid-template-columns: 1fr;
     }
 
-    .art-card {
-      position: relative;
-      display: block;
-      width: 100%;
-      padding: 0;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      overflow: hidden;
-      background: #0d0d0d;
-      cursor: pointer;
-      transition:
-        transform 240ms cubic-bezier(.2,.8,.2,1),
-        border-color 240ms ease,
-        box-shadow 240ms ease;
-    }
-
-    .art-card img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      aspect-ratio: 1 / 1;
-      transition: transform 420ms cubic-bezier(.2,.8,.2,1), filter 240ms ease;
+    .stack-column {
+      grid-template-rows: auto;
     }
 
     .card-wide img {
-      aspect-ratio: 2.2 / 1;
-    }
-
-    .art-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(to top, rgba(0,0,0,0.42), rgba(0,0,0,0.08) 45%, rgba(0,0,0,0));
-      opacity: 0;
-      transition: opacity 240ms ease;
-      pointer-events: none;
-    }
-
-    .art-card::before {
-      content: "";
-      position: absolute;
-      right: -10%;
-      bottom: -18%;
-      width: 42%;
-      height: 42%;
-      background: radial-gradient(circle, rgba(158,29,29,0.24) 0%, rgba(158,29,29,0.1) 32%, rgba(158,29,29,0) 72%);
-      filter: blur(22px);
-      opacity: 0;
-      transition: opacity 260ms ease;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .art-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(255,255,255,0.14);
-      box-shadow: 0 18px 50px rgba(0,0,0,0.34);
-    }
-
-    .art-card:hover img {
-      transform: scale(1.035);
-    }
-
-    .art-card:hover::after,
-    .art-card:hover::before {
-      opacity: 1;
-    }
-
-    .art-meta {
-      position: absolute;
-      left: 16px;
-      right: 16px;
-      bottom: 14px;
-      z-index: 2;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 240ms ease, transform 240ms ease;
-      pointer-events: none;
-    }
-
-    .art-card:hover .art-meta {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .art-meta-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      line-height: 1.25;
-      color: #f5f1ea;
-    }
-
-    .art-meta-sub {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.68);
-      letter-spacing: 0.04em;
-      margin-top: 3px;
-    }
-
-    .art-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: rgba(5,5,5,0.96);
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transition: opacity 220ms ease, visibility 220ms ease;
-    }
-
-    .art-modal.is-open {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
+      aspect-ratio: 1 / 1;
     }
 
     .art-modal-inner {
-      position: relative;
-      width: min(1400px, calc(100% - 72px));
-      height: calc(100vh - 72px);
-      margin: 36px auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 280px;
-      gap: 28px;
-      align-items: end;
-    }
-
-    .art-modal-image-wrap {
-      width: 100%;
-      height: 100%;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-    }
-
-    .art-modal-image-wrap img {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-      display: block;
-      box-shadow: 0 18px 80px rgba(0,0,0,0.45);
-      border-radius: 6px;
+      width: min(100%, calc(100% - 28px));
+      height: calc(100vh - 28px);
+      margin: 14px auto;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr auto;
+      gap: 16px;
     }
 
     .art-modal-meta {
-      align-self: end;
-      padding-bottom: 6px;
-    }
-
-    .art-modal-meta h2 {
-      margin: 0 0 8px;
-      font-size: 1.15rem;
-      font-weight: 500;
-      line-height: 1.2;
-      color: #f3f3ef;
-    }
-
-    .art-modal-meta p {
-      margin: 0;
-      font-size: 0.92rem;
-      line-height: 1.5;
-      color: rgba(255,255,255,0.62);
-    }
-
-    .art-modal-close,
-    .art-modal-nav {
-      position: absolute;
-      border: 0;
-      background: rgba(255,255,255,0.06);
-      color: #f5f5f0;
-      cursor: pointer;
-      backdrop-filter: blur(8px);
-      transition: background 180ms ease, transform 180ms ease;
-    }
-
-    .art-modal-close:hover,
-    .art-modal-nav:hover {
-      background: rgba(255,255,255,0.12);
-      transform: scale(1.03);
+      padding: 0 4px 8px;
     }
 
     .art-modal-close {
-      top: 22px;
-      right: 22px;
-      width: 48px;
-      height: 48px;
-      border-radius: 999px;
-      font-size: 28px;
-      line-height: 1;
-      z-index: 5;
-    }
-
-    .art-modal-nav {
-      top: 50%;
-      transform: translateY(-50%);
-      width: 52px;
-      height: 52px;
-      border-radius: 999px;
-      font-size: 34px;
-      line-height: 1;
-      z-index: 5;
+      top: 14px;
+      right: 14px;
     }
 
     .art-modal-prev {
-      left: 22px;
+      left: 10px;
     }
 
     .art-modal-next {
-      right: 22px;
+      right: 10px;
+    }
+  }
+
+  @media (max-width: 780px) {
+    .header-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 14px 0 16px;
     }
 
-    .footer {
-      padding: 28px 0 42px;
-      border-top: 1px solid var(--line);
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      color: var(--muted);
+    .brand {
       font-size: 0.9rem;
+      letter-spacing: 0.24em;
     }
 
-    @media (max-width: 1180px) {
-      .gallery-page {
-        padding: 42px 0 96px;
-      }
+    .nav {
+      gap: 12px;
+      row-gap: 10px;
     }
 
-    @media (max-width: 1024px) {
-      .row-hero,
-      .row-three,
-      .row-double,
-      .row-wide {
-        grid-template-columns: 1fr;
-      }
-
-      .stack-column {
-        grid-template-rows: auto;
-      }
-
-      .card-wide img {
-        aspect-ratio: 1 / 1;
-      }
-
-      .art-modal-inner {
-        width: min(100%, calc(100% - 28px));
-        height: calc(100vh - 28px);
-        margin: 14px auto;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr auto;
-        gap: 16px;
-      }
-
-      .art-modal-meta {
-        padding: 0 4px 8px;
-      }
-
-      .art-modal-close {
-        top: 14px;
-        right: 14px;
-      }
-
-      .art-modal-prev {
-        left: 10px;
-      }
-
-      .art-modal-next {
-        right: 10px;
-      }
+    .nav a {
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
     }
 
-    @media (max-width: 780px) {
-      .header-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        padding: 14px 0 16px;
-      }
-
-      .brand {
-        font-size: 0.9rem;
-        letter-spacing: 0.24em;
-      }
-
-      .nav {
-        gap: 12px;
-        row-gap: 10px;
-      }
-
-      .nav a {
-        font-size: 0.74rem;
-        letter-spacing: 0.12em;
-      }
-
-      .container {
-        width: min(94%, var(--max));
-      }
-
-      .gallery-page {
-        padding: 34px 0 74px;
-      }
-
-      .gallery-title {
-        font-size: 2.5rem;
-      }
-
-      .gallery-intro {
-        font-size: 0.94rem;
-      }
-      .row-hero { grid-template-columns: 1.3fr 1fr; }
-.stack { display:grid; gap:18px; }
-
-.row-triptych { grid-template-columns: 1fr 1fr 1fr; }
-.row-double { grid-template-columns: 1fr 1fr; }
-.row-narrative { grid-template-columns: 0.9fr 1.2fr 0.9fr; }
-.row-wide { grid-template-columns: 1fr; }
-
-.card-wide img { aspect-ratio: 2.2/1; }
-.card-tall img { aspect-ratio: 0.7/1; }
-.card-portrait img { aspect-ratio: 0.8/1; }
-.card-square img { aspect-ratio: 1/1; }
+    .container {
+      width: min(94%, var(--max));
     }
-  </style>
+
+    .gallery-page {
+      padding: 34px 0 74px;
+    }
+
+    .gallery-title {
+      font-size: 2.5rem;
+    }
+
+    .gallery-intro {
+      font-size: 0.94rem;
+    }
+  }
+</style>
 </head>
 <body>
   <header class="site-header">
@@ -544,62 +552,337 @@
 
 <div class="gallery-layout">
 
+  <!-- ROW 1 -->
   <div class="gallery-row row-hero">
-    <button class="art-card card-portrait">
-      <img src="img/photo/preview/Photo_Everybody_Has_Evil_2023_SMALL.webp">
+    <button
+      class="art-card card-portrait"
+      data-full="img/photo/full/Photo_Everybody_Has_Evil_2023_BIG.webp"
+      data-title="Everybody Has Evil"
+      data-year="2023"
+      data-medium="Photography"
+    >
+      <img
+        src="img/photo/preview/Photo_Everybody_Has_Evil_2023_SMALL.webp"
+        alt="Everybody Has Evil, 2023"
+        loading="eager"
+      />
+      <div class="art-meta">
+        <div class="art-meta-title">Everybody Has Evil</div>
+        <div class="art-meta-sub">Photography • 2023</div>
+      </div>
     </button>
 
-    <div class="stack">
-      <button class="art-card card-square">
-        <img src="img/photo/preview/Photo_Axis_2022_SMALL.webp">
+    <div class="stack-column">
+      <button
+        class="art-card card-square"
+        data-full="img/photo/full/Photo_Axis_2022_BIG.webp"
+        data-title="Axis"
+        data-year="2022"
+        data-medium="Photography"
+      >
+        <img
+          src="img/photo/preview/Photo_Axis_2022_SMALL.webp"
+          alt="Axis, 2022"
+          loading="eager"
+        />
+        <div class="art-meta">
+          <div class="art-meta-title">Axis</div>
+          <div class="art-meta-sub">Photography • 2022</div>
+        </div>
       </button>
 
-      <button class="art-card card-portrait">
-        <img src="img/photo/preview/Photo_Fading_Reality_2022_SMALL.webp">
+      <button
+        class="art-card card-portrait"
+        data-full="img/photo/full/Photo_Fading_Reality_2022_BIG.webp"
+        data-title="Fading Reality"
+        data-year="2022"
+        data-medium="Photography"
+      >
+        <img
+          src="img/photo/preview/Photo_Fading_Reality_2022_SMALL.webp"
+          alt="Fading Reality, 2022"
+          loading="lazy"
+        />
+        <div class="art-meta">
+          <div class="art-meta-title">Fading Reality</div>
+          <div class="art-meta-sub">Photography • 2022</div>
+        </div>
       </button>
     </div>
   </div>
 
+  <!-- ROW 2 -->
   <div class="gallery-row row-triptych">
-    <button class="art-card card-portrait"><img src="img/photo/preview/Photo_Fragile_2022_SMALL.webp"></button>
-    <button class="art-card card-portrait"><img src="img/photo/preview/Photo_Pulse_2022_SMALL.webp"></button>
-    <button class="art-card card-portrait"><img src="img/photo/preview/Photo_Soft_Violence_2022_SMALL.webp"></button>
-  </div>
+    <button
+      class="art-card card-portrait"
+      data-full="img/photo/full/Photo_Fragile_2022_BIG.webp"
+      data-title="Fragile"
+      data-year="2022"
+      data-medium="Photography"
+    >
+      <img
+        src="img/photo/preview/Photo_Fragile_2022_SMALL.webp"
+        alt="Fragile, 2022"
+        loading="lazy"
+      />
+      <div class="art-meta">
+        <div class="art-meta-title">Fragile</div>
+        <div class="art-meta-sub">Photography • 2022</div>
+      </div>
+    </button>
 
-  <div class="gallery-row row-double">
-    <button class="art-card card-square"><img src="img/photo/preview/Photo_Equilibrium_2023_SMALL.webp"></button>
-    <button class="art-card card-portrait"><img src="img/photo/preview/Photo_Held_2022_SMALL.webp"></button>
-  </div>
+    <button
+      class="art-card card-portrait"
+      data-full="img/photo/full/Photo_Pulse_2022_BIG.webp"
+      data-title="Pulse"
+      data-year="2022"
+      data-medium="Photography"
+    >
+      <img
+        src="img/photo/preview/Photo_Pulse_2022_SMALL.webp"
+        alt="Pulse, 2022"
+        loading="lazy"
+      />
+      <div class="art-meta">
+        <div class="art-meta-title">Pulse</div>
+        <div class="art-meta-sub">Photography • 2022</div>
+      </div>
+    </button>
 
-  <div class="gallery-row row-narrative">
-    <button class="art-card card-portrait"><img src="img/photo/preview/Photo_Invisible_Wings_1_2023_SMALL.webp"></button>
-    <button class="art-card card-tall"><img src="img/photo/preview/Photo_Invisible_Wings_5_2023_SMALL.webp"></button>
-    <button class="art-card card-portrait"><img src="img/photo/preview/Photo_Invisible_Wings_4_2023_SMALL.webp"></button>
-  </div>
-
-  <div class="gallery-row row-double">
-    <button class="art-card card-portrait"><img src="img/photo/preview/Photo_Invisible_Wings_7_2023_SMALL.webp"></button>
-    <button class="art-card card-portrait"><img src="img/photo/preview/Photo_In_the_corner_of_the_soul_2022_SMALL.webp"></button>
-  </div>
-
-  <div class="gallery-row row-double">
-    <button class="art-card card-portrait"><img src="img/photo/preview/Photo_Tears_In_The_Shadow_2023_SMALL.webp"></button>
-    <button class="art-card card-portrait"><img src="img/photo/preview/Photo_Scene_I-Urushi_2025_SMALL.webp"></button>
-  </div>
-
-  <div class="gallery-row row-wide">
-    <button class="art-card card-wide">
-      <img src="img/photo/preview/Photo_She_2023_SMALL.webp">
+    <button
+      class="art-card card-portrait"
+      data-full="img/photo/full/Photo_Soft_Violence_2022_BIG.webp"
+      data-title="Soft Violence"
+      data-year="2022"
+      data-medium="Photography"
+    >
+      <img
+        src="img/photo/preview/Photo_Soft_Violence_2022_SMALL.webp"
+        alt="Soft Violence, 2022"
+        loading="lazy"
+      />
+      <div class="art-meta">
+        <div class="art-meta-title">Soft Violence</div>
+        <div class="art-meta-sub">Photography • 2022</div>
+      </div>
     </button>
   </div>
 
-</div>
+  <!-- ROW 3 -->
+  <div class="gallery-row row-double">
+    <button
+      class="art-card card-square"
+      data-full="img/photo/full/Photo_Equilibrium_2023_BIG.webp"
+      data-title="Equilibrium"
+      data-year="2023"
+      data-medium="Photography"
+    >
+      <img
+        src="img/photo/preview/Photo_Equilibrium_2023_SMALL.webp"
+        alt="Equilibrium, 2023"
+        loading="lazy"
+      />
+      <div class="art-meta">
+        <div class="art-meta-title">Equilibrium</div>
+        <div class="art-meta-sub">Photography • 2023</div>
+      </div>
+    </button>
+
+    <button
+      class="art-card card-portrait"
+      data-full="img/photo/full/Photo_Held_2022_BIG.webp"
+      data-title="Held"
+      data-year="2022"
+      data-medium="Photography"
+    >
+      <img
+        src="img/photo/preview/Photo_Held_2022_SMALL.webp"
+        alt="Held, 2022"
+        loading="lazy"
+      />
+      <div class="art-meta">
+        <div class="art-meta-title">Held</div>
+        <div class="art-meta-sub">Photography • 2022</div>
+      </div>
+    </button>
+  </div>
+
+  <!-- ROW 4 -->
+  <div class="gallery-row row-narrative">
+    <button
+      class="art-card card-portrait"
+      data-full="img/photo/full/Photo_Invisible_Wings_1_2023_BIG.webp"
+      data-title="Invisible Wings I"
+      data-year="2023"
+      data-medium="Photography"
+    >
+      <img
+        src="img/photo/preview/Photo_Invisible_Wings_1_2023_SMALL.webp"
+        alt="Invisible Wings I, 2023"
+        loading="lazy"
+      />
+      <div class="art-meta">
+        <div class="art-meta-title">Invisible Wings I</div>
+        <div class="art-meta-sub">Photography • 2023</div>
+      </div>
+    </button>
+
+    <button
+      class="art-card card-portrait-tall"
+      data-full="img/photo/full/Photo_Invisible_Wings_5_2023_BIG.webp"
+      data-title="Invisible Wings V"
+      data-year="2023"
+      data-medium="Photography"
+    >
+      <img
+        src="img/photo/preview/Photo_Invisible_Wings_5_2023_SMALL.webp"
+        alt="Invisible Wings V, 2023"
+        loading="lazy"
+      />
+      <div class="art-meta">
+        <div class="art-meta-title">Invisible Wings V</div>
+        <div class="art-meta-sub">Photography • 2023</div>
+      </div>
+    </button>
+
+    <button
+      class="art-card card-portrait"
+      data-full="img/photo/full/Photo_Invisible_Wings_4_2023_BIG.webp"
+      data-title="Invisible Wings IV"
+      data-year="2023"
+      data-medium="Photography"
+    >
+      <img
+        src="img/photo/preview/Photo_Invisible_Wings_4_2023_SMALL.webp"
+        alt="Invisible Wings IV, 2023"
+        loading="lazy"
+      />
+      <div class="art-meta">
+        <div class="art-meta-title">Invisible Wings IV</div>
+        <div class="art-meta-sub">Photography • 2023</div>
+      </div>
+    </button>
+  </div>
+
+  <!-- ROW 5 -->
+  <div class="gallery-row row-quiet">
+    <button
+      class="art-card card-portrait"
+      data-full="img/photo/full/Photo_Invisible_Wings_7_2023_BIG.webp"
+      data-title="Invisible Wings VII"
+      data-year="2023"
+      data-medium="Photography"
+    >
+      <img
+        src="img/photo/preview/Photo_Invisible_Wings_7_2023_SMALL.webp"
+        alt="Invisible Wings VII, 2023"
+        loading="lazy"
+      />
+      <div class="art-meta">
+        <div class="art-meta-title">Invisible Wings VII</div>
+        <div class="art-meta-sub">Photography • 2023</div>
+      </div>
+    </button>
+
+    <button
+      class="art-card card-portrait"
+      data-full="img/photo/full/Photo_In_the_corner_of_the_soul_2022_BIG.webp"
+      data-title="In the Corner of the Soul"
+      data-year="2022"
+      data-medium="Photography"
+    >
+      <img
+        src="img/photo/preview/Photo_In_the_corner_of_the_soul_2022_SMALL.webp"
+        alt="In the Corner of the Soul, 2022"
+        loading="lazy"
+      />
+      <div class="art-meta">
+        <div class="art-meta-title">In the Corner of the Soul</div>
+        <div class="art-meta-sub">Photography • 2022</div>
+      </div>
+    </button>
+  </div>
+
+  <!-- ROW 6 -->
+  <div class="gallery-row row-double">
+    <button
+      class="art-card card-portrait"
+      data-full="img/photo/full/Photo_Tears_In_The_Shadow_2023_BIG.webp"
+      data-title="Tears In The Shadow"
+      data-year="2023"
+      data-medium="Photography"
+    >
+      <img
+        src="img/photo/preview/Photo_Tears_In_The_Shadow_2023_SMALL.webp"
+        alt="Tears In The Shadow, 2023"
+        loading="lazy"
+      />
+      <div class="art-meta">
+        <div class="art-meta-title">Tears In The Shadow</div>
+        <div class="art-meta-sub">Photography • 2023</div>
+      </div>
+    </button>
+
+    <button
+      class="art-card card-portrait"
+      data-full="img/photo/full/Photo_Scene_I-Urushi_2025_BIG.webp"
+      data-title="Scene I — Urushi"
+      data-year="2025"
+      data-medium="Photography"
+    >
+      <img
+        src="img/photo/preview/Photo_Scene_I-Urushi_2025_SMALL.webp"
+        alt="Scene I — Urushi, 2025"
+        loading="lazy"
+      />
+      <div class="art-meta">
+        <div class="art-meta-title">Scene I — Urushi</div>
+        <div class="art-meta-sub">Photography • 2025</div>
+      </div>
+    </button>
+  </div>
+
+  <!-- ROW 7 -->
+  <div class="gallery-row row-wide">
+    <button
+      class="art-card card-wide"
+      data-full="img/photo/full/Photo_She_2023_BIG.webp"
+      data-title="She"
+      data-year="2023"
+      data-medium="Photography"
+    >
+      <img
+        src="img/photo/preview/Photo_She_2023_SMALL.webp"
+        alt="She, 2023"
+        loading="lazy"
+      />
+      <div class="art-meta">
+        <div class="art-meta-title">She</div>
+        <div class="art-meta-sub">Photography • 2023</div>
+      </div>
+    </button>
+  </div>
 
 </div>
 
 </div>
 </div>
 </main>
+<div class="art-modal" id="artModal" aria-hidden="true">
+  <button class="art-modal-close" id="artModalClose" aria-label="Close">×</button>
+  <button class="art-modal-nav art-modal-prev" id="artPrev" aria-label="Previous work">‹</button>
+  <button class="art-modal-nav art-modal-next" id="artNext" aria-label="Next work">›</button>
 
+  <div class="art-modal-inner">
+    <div class="art-modal-image-wrap">
+      <img id="artModalImage" src="" alt="" />
+    </div>
+
+    <div class="art-modal-meta">
+      <h2 id="artModalTitle"></h2>
+      <p id="artModalDetails"></p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
