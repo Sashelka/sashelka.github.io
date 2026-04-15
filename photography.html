@@ -225,12 +225,12 @@
     transition: transform 420ms cubic-bezier(.2,.8,.2,1), filter 240ms ease;
   }
 
- .card-portrait img {
-  aspect-ratio: 0.92 / 1;
+.card-portrait img {
+  aspect-ratio: 0.8 / 1;
 }
 
 .card-square img {
-  aspect-ratio: 1 / 0.9;
+  aspect-ratio: 1 / 1;
 }
 
   .card-portrait-tall img {
@@ -529,20 +529,9 @@
     .gallery-intro {
       font-size: 0.94rem;
     }
-  }.row-hero .art-card img {
-  max-height: 420px;
 }
-
-.stack-column .art-card img {
-  max-height: 201px;
-}
-
-.card-portrait img {
-  aspect-ratio: 0.92 / 1;
-}
-
-.card-square img {
-  aspect-ratio: 1 / 0.9;
+  .stack-column .card-wide img {
+  aspect-ratio: 1.6 / 1;
 }
 </style>
 </head>
@@ -606,22 +595,22 @@
       </button>
 
       <button
-        class="art-card card-portrait"
-        data-full="img/photo/full/Photo_Fading_Reality_2022_BIG.webp"
-        data-title="Fading Reality"
-        data-year="2022"
-        data-medium="Photography"
-      >
-        <img
-          src="img/photo/preview/Photo_Fading_Reality_2022_SMALL.webp"
-          alt="Fading Reality, 2022"
-          loading="lazy"
-        />
-        <div class="art-meta">
-          <div class="art-meta-title">Fading Reality</div>
-          <div class="art-meta-sub">Photography • 2022</div>
-        </div>
-      </button>
+  class="art-card card-wide"
+  data-full="img/photo/full/Photo_Fading_Reality_2022_BIG.webp"
+  data-title="Fading Reality"
+  data-year="2022"
+  data-medium="Photography"
+>
+  <img
+    src="img/photo/preview/Photo_Fading_Reality_2022_SMALL.webp"
+    alt="Fading Reality, 2022"
+    loading="lazy"
+  />
+  <div class="art-meta">
+    <div class="art-meta-title">Fading Reality</div>
+    <div class="art-meta-sub">Photography • 2022</div>
+  </div>
+</button>
     </div>
   </div>
 
