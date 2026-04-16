@@ -22,521 +22,225 @@
     rel="stylesheet"
   />
 
-  <style>
-    :root {
-      --bg: #070707;
-      --bg-2: #0d0d0d;
-      --text: #f4f0e8;
-      --muted: #aaa39a;
-      --muted-2: #b8b0a5;
-      --line: rgba(255, 255, 255, 0.08);
-      --line-strong: rgba(255, 255, 255, 0.14);
-      --accent: #9e1d1d;
-      --accent-2: #c73636;
-      --shadow: 0 30px 80px rgba(0, 0, 0, 0.38);
-      --max: 1360px;
-      --hero-overlay: linear-gradient(to top, rgba(0, 0, 0, 0.34), transparent 35%);
-    }
-.gallery-header {
-  display: grid;
-  grid-template-columns: minmax(0,1.15fr) minmax(300px,.72fr);
-  gap: 28px;
-  margin-bottom: 36px;
-  align-items: end;
+ <style>
+:root{
+  --text:#f4f0e8;
+  --muted:#aaa39a;
+  --muted-2:#b8b0a5;
+  --line:rgba(255,255,255,.08);
+  --accent:#9e1d1d;
+  --shadow:0 30px 80px rgba(0,0,0,.42);
+  --max:1380px;
 }
 
-.gallery-note {
-  padding: 18px 20px;
-  border: 1px solid var(--line);
-  border-radius: 18px;
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth;scrollbar-gutter:stable}
+
+body{
+  font-family:"Manrope",Arial,sans-serif;
+  color:var(--text);
   background:
-    linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)),
-    radial-gradient(circle at bottom right, rgba(158,29,29,.14), transparent 52%),
+    radial-gradient(circle at top center,rgba(255,255,255,.03),transparent 24%),
+    radial-gradient(circle at 78% 18%,rgba(158,29,29,.14),transparent 20%),
+    radial-gradient(circle at 88% 68%,rgba(158,29,29,.12),transparent 22%),
+    linear-gradient(to bottom,#090909,#060606 32%,#050505 100%);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+
+.container{width:min(92%,var(--max));margin:0 auto}
+
+.site-header{
+  position:sticky;top:0;z-index:1000;
+  backdrop-filter:blur(18px);
+  background:rgba(7,7,7,.72);
+  border-bottom:1px solid var(--line)
+}
+
+.header-inner{
+  min-height:82px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px
+}
+
+.brand{
+  font-size:.98rem;
+  font-weight:700;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  white-space:nowrap
+}
+
+.nav{display:flex;gap:26px;flex-wrap:wrap;justify-content:flex-end}
+
+.nav a{
+  color:#b6afa5;
+  font-size:.82rem;
+  font-weight:500;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  transition:color .25s ease
+}
+
+.nav a:hover,
+.nav a[aria-current="page"]{color:var(--text)}
+
+.gallery-page{
+  padding:56px 0 120px;
+  min-height:calc(100vh - 160px)
+}
+
+/* 🔴 HEADER FIX */
+.gallery-header{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:32px;
+  margin-bottom:40px;
+  align-items:end
+}
+
+.gallery-kicker{
+  color:var(--muted-2);
+  font-size:.72rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  font-weight:600;
+  margin-bottom:10px
+}
+
+.gallery-title{
+  font-size:clamp(2.5rem,4.8vw,4rem);
+  line-height:.96;
+  letter-spacing:-.04em;
+  font-weight:600;
+  margin-bottom:12px;
+  white-space:nowrap
+}
+
+.gallery-intro{
+  color:var(--muted);
+  font-size:.98rem;
+  max-width:640px
+}
+
+/* 🔴 ПРЯМОУГОЛЬНИК СПРАВА */
+.gallery-note{
+  padding:18px 20px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01)),
+    radial-gradient(circle at bottom right,rgba(158,29,29,.14),transparent 52%),
     #0a0a0a;
-  box-shadow: var(--shadow);
+  box-shadow:var(--shadow)
 }
 
-.gallery-note-title {
-  font-size: .74rem;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--muted-2);
-  font-weight: 600;
-  margin-bottom: 8px;
+.gallery-note-title{
+  font-size:.74rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted-2);
+  font-weight:600;
+  margin-bottom:8px
 }
 
-.gallery-note p {
-  color: rgba(255,255,255,.72);
-  font-size: .9rem;
-  line-height: 1.55;
+.gallery-note p{
+  color:rgba(255,255,255,.72);
+  font-size:.9rem;
+  line-height:1.55
 }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
 
-    html {
-      scroll-behavior: smooth;
-      scrollbar-gutter: stable;
-    }
+/* GRID */
+.gallery-layout{display:flex;flex-direction:column;gap:18px}
+.gallery-row{display:grid;gap:18px}
 
-    body {
-      font-family: "Manrope", Arial, sans-serif;
-      color: var(--text);
-      background:
-  radial-gradient(circle at top center, rgba(255,255,255,.03), transparent 24%),
-  radial-gradient(circle at 78% 18%, rgba(158,29,29,.14), transparent 20%),
-  radial-gradient(circle at 88% 68%, rgba(158,29,29,.12), transparent 22%),
-  linear-gradient(to bottom, #090909, #060606 32%, #050505 100%);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    .container {
-      width: min(92%, var(--max));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(18px);
-      background: rgba(7, 7, 7, 0.72);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .header-inner {
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      font-family: "Manrope", Arial, sans-serif;
-      font-size: 0.98rem;
-      font-weight: 700;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .nav {
-      display: flex;
-      gap: 26px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav a {
-      color: #b6afa5;
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      transition: color 0.25s ease, opacity 0.25s ease;
-    }
-
-    .nav a:hover,
-    .nav a[aria-current="page"] {
-      color: var(--text);
-    }
-
-    .gallery-page {
-      padding: 54px 0 120px;
-      min-height: calc(100vh - 160px);
-    }
-
-    <div class="gallery-header">
-  <div>
-    <div class="gallery-kicker">Oil Paintings</div>
-    <h1 class="gallery-title">Selected Works</h1>
-    <p class="gallery-intro">
-      A curated selection of symbolic oil paintings exploring pressure, fracture, control, and emotional intensity.
-    </p>
-  </div>
-
-  <div class="gallery-note">
-    <div class="gallery-note-title">Visual direction</div>
-    <p>
-      Symbolic oil paintings arranged with the same controlled rhythm and restrained red accent as the digital and photographic pages.
-    </p>
-  </div>
-</div>
-
-    .gallery-layout {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .gallery-row {
-      display: grid;
-      gap: 18px;
-    }
-
-    .row-hero {
-      grid-template-columns: 1.7fr 1fr;
-      align-items: stretch;
-    }
-
-    .stack-column {
-      display: grid;
-      gap: 18px;
-      grid-template-rows: 1fr 1fr;
-    }
-
-    .row-three {
-      grid-template-columns: 1fr 1.18fr 1fr;
-      align-items: stretch;
-    }
-
-    .row-double {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .row-wide {
-      grid-template-columns: 1fr;
-    }
-
-    .art-card {
-      position: relative;
-      display: block;
-      width: 100%;
-      padding: 0;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      overflow: hidden;
-      background: #0d0d0d;
-      cursor: pointer;
-      transition:
-        transform 240ms cubic-bezier(.2,.8,.2,1),
-        border-color 240ms ease,
-        box-shadow 240ms ease;
-    }
-
-    .art-card img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      aspect-ratio: 1 / 1;
-      transition: transform 420ms cubic-bezier(.2,.8,.2,1), filter 240ms ease;
-    }
-
-    .card-wide img {
-      aspect-ratio: 2.2 / 1;
-    }
-
-    .art-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(to top, rgba(0,0,0,0.42), rgba(0,0,0,0.08) 45%, rgba(0,0,0,0));
-      opacity: 0;
-      transition: opacity 240ms ease;
-      pointer-events: none;
-    }
-
-    .art-card::before {
-      content: "";
-      position: absolute;
-      right: -10%;
-      bottom: -18%;
-      width: 42%;
-      height: 42%;
-      background: radial-gradient(circle, rgba(158,29,29,0.24) 0%, rgba(158,29,29,0.1) 32%, rgba(158,29,29,0) 72%);
-      filter: blur(22px);
-      opacity: 0;
-      transition: opacity 260ms ease;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .art-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(255,255,255,0.14);
-      box-shadow: 0 18px 50px rgba(0,0,0,0.34);
-    }
-
-    .art-card:hover img {
-      transform: scale(1.035);
-    }
-
-    .art-card:hover::after,
-    .art-card:hover::before {
-      opacity: 1;
-    }
-
-    .art-meta {
-      position: absolute;
-      left: 16px;
-      right: 16px;
-      bottom: 14px;
-      z-index: 2;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 240ms ease, transform 240ms ease;
-      pointer-events: none;
-    }
-
-    .art-card:hover .art-meta {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .art-meta-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      line-height: 1.25;
-      color: #f5f1ea;
-    }
-
-    .art-meta-sub {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.68);
-      letter-spacing: 0.04em;
-      margin-top: 3px;
-    }
-
-    .art-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: rgba(5,5,5,0.96);
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transition: opacity 220ms ease, visibility 220ms ease;
-    }
-
-    .art-modal.is-open {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-
-    .art-modal-inner {
-      position: relative;
-      width: min(1400px, calc(100% - 72px));
-      height: calc(100vh - 72px);
-      margin: 36px auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 280px;
-      gap: 28px;
-      align-items: end;
-    }
-
-    .art-modal-image-wrap {
-      width: 100%;
-      height: 100%;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-    }
-
-    .art-modal-image-wrap img {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-      display: block;
-      box-shadow: 0 18px 80px rgba(0,0,0,0.45);
-      border-radius: 6px;
-    }
-
-    .art-modal-meta {
-      align-self: end;
-      padding-bottom: 6px;
-    }
-
-    .art-modal-meta h2 {
-      margin: 0 0 8px;
-      font-size: 1.15rem;
-      font-weight: 500;
-      line-height: 1.2;
-      color: #f3f3ef;
-    }
-
-    .art-modal-meta p {
-      margin: 0;
-      font-size: 0.92rem;
-      line-height: 1.5;
-      color: rgba(255,255,255,0.62);
-    }
-
-    .art-modal-close,
-    .art-modal-nav {
-      position: absolute;
-      border: 0;
-      background: rgba(255,255,255,0.06);
-      color: #f5f5f0;
-      cursor: pointer;
-      backdrop-filter: blur(8px);
-      transition: background 180ms ease, transform 180ms ease;
-    }
-
-    .art-modal-close:hover,
-    .art-modal-nav:hover {
-      background: rgba(255,255,255,0.12);
-      transform: scale(1.03);
-    }
-
-    .art-modal-close {
-      top: 22px;
-      right: 22px;
-      width: 48px;
-      height: 48px;
-      border-radius: 999px;
-      font-size: 28px;
-      line-height: 1;
-      z-index: 5;
-    }
-
-    .art-modal-nav {
-      top: 50%;
-      transform: translateY(-50%);
-      width: 52px;
-      height: 52px;
-      border-radius: 999px;
-      font-size: 34px;
-      line-height: 1;
-      z-index: 5;
-    }
-
-    .art-modal-prev {
-      left: 22px;
-    }
-
-    .art-modal-next {
-      right: 22px;
-    }
-
-    .footer {
-      padding: 28px 0 42px;
-      border-top: 1px solid var(--line);
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 1180px) {
-      .gallery-page {
-        padding: 42px 0 96px;
-      }
-      .gallery-header {
-  grid-template-columns: 1fr;
+.row-hero{
+  grid-template-columns:1.7fr 1fr
 }
-    }
 
-    @media (max-width: 1024px) {
-      .row-hero,
-      .row-three,
-      .row-double,
-      .row-wide {
-        grid-template-columns: 1fr;
-      }
+.stack-column{
+  display:grid;
+  gap:18px;
+  grid-template-rows:1fr 1fr
+}
 
-      .stack-column {
-        grid-template-rows: auto;
-      }
+.row-three{
+  grid-template-columns:1fr 1.18fr 1fr
+}
 
-      .card-wide img {
-        aspect-ratio: 1 / 1;
-      }
+.row-double{
+  grid-template-columns:1fr 1fr
+}
 
-      .art-modal-inner {
-        width: min(100%, calc(100% - 28px));
-        height: calc(100vh - 28px);
-        margin: 14px auto;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr auto;
-        gap: 16px;
-      }
+.row-wide{
+  grid-template-columns:1fr
+}
 
-      .art-modal-meta {
-        padding: 0 4px 8px;
-      }
+/* CARDS */
+.art-card{
+  position:relative;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  overflow:hidden;
+  background:#0d0d0d;
+  cursor:pointer;
+  transition:.25s
+}
 
-      .art-modal-close {
-        top: 14px;
-        right: 14px;
-      }
+.art-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  aspect-ratio:1/1
+}
 
-      .art-modal-prev {
-        left: 10px;
-      }
+.card-wide img{aspect-ratio:2.2/1}
 
-      .art-modal-next {
-        right: 10px;
-      }
-    }
+.art-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,255,255,.14)
+}
 
-    @media (max-width: 780px) {
-      .header-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        padding: 14px 0 16px;
-      }
+/* FOOTER */
+.footer{
+  padding:28px 0 42px;
+  border-top:1px solid var(--line)
+}
 
-      .brand {
-        font-size: 0.9rem;
-        letter-spacing: 0.24em;
-      }
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+  color:var(--muted);
+  font-size:.9rem
+}
 
-      .nav {
-        gap: 12px;
-        row-gap: 10px;
-      }
+/* 🔴 MOBILE FIX */
+@media (max-width:1024px){
+  .gallery-header{
+    grid-template-columns:1fr
+  }
 
-      .nav a {
-        font-size: 0.74rem;
-        letter-spacing: 0.12em;
-      }
+  .row-hero,
+  .row-three,
+  .row-double{
+    grid-template-columns:1fr
+  }
 
-      .container {
-        width: min(94%, var(--max));
-      }
-
-      .gallery-page {
-        padding: 34px 0 74px;
-      }
-
-      .gallery-title {
-        font-size: 2.5rem;
-      }
-
-      .gallery-intro {
-        font-size: 0.94rem;
-      }
-    }
-  </style>
+  .stack-column{
+    grid-template-rows:auto
+  }
+}
+</style>
 </head>
 <body>
   <header class="site-header">
@@ -555,13 +259,24 @@
 
   <main class="gallery-page">
     <div class="container">
-      <div class="gallery-header">
-        <div class="gallery-kicker">Oil Paintings</div>
-        <h1 class="gallery-title">Selected Works</h1>
-        <p class="gallery-intro">
-          A curated selection of symbolic oil paintings exploring pressure, fracture, control, and emotional intensity.
-        </p>
-      </div>
+   <div class="gallery-header">
+
+  <div>
+    <div class="gallery-kicker">Oil Paintings</div>
+    <h1 class="gallery-title">Selected Works</h1>
+    <p class="gallery-intro">
+      A curated selection of symbolic oil paintings exploring pressure, fracture, control, and emotional intensity.
+    </p>
+  </div>
+
+  <div class="gallery-note">
+    <div class="gallery-note-title">Visual direction</div>
+    <p>
+      Symbolic oil paintings arranged with the same controlled rhythm and restrained red accent as the digital and photographic pages.
+    </p>
+  </div>
+
+</div>
 
       <div class="gallery-layout">
         <!-- ROW 1 -->
