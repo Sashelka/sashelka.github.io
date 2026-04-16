@@ -37,7 +37,39 @@
       --max: 1360px;
       --hero-overlay: linear-gradient(to top, rgba(0, 0, 0, 0.34), transparent 35%);
     }
+.gallery-header {
+  display: grid;
+  grid-template-columns: minmax(0,1.15fr) minmax(300px,.72fr);
+  gap: 28px;
+  margin-bottom: 36px;
+  align-items: end;
+}
 
+.gallery-note {
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)),
+    radial-gradient(circle at bottom right, rgba(158,29,29,.14), transparent 52%),
+    #0a0a0a;
+  box-shadow: var(--shadow);
+}
+
+.gallery-note-title {
+  font-size: .74rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.gallery-note p {
+  color: rgba(255,255,255,.72);
+  font-size: .9rem;
+  line-height: 1.55;
+}
     * {
       box-sizing: border-box;
       margin: 0;
@@ -53,8 +85,10 @@
       font-family: "Manrope", Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top center, rgba(255,255,255,0.035), transparent 24%),
-        linear-gradient(to bottom, #0a0a0a, #070707 30%, #060606 100%);
+  radial-gradient(circle at top center, rgba(255,255,255,.03), transparent 24%),
+  radial-gradient(circle at 78% 18%, rgba(158,29,29,.14), transparent 20%),
+  radial-gradient(circle at 88% 68%, rgba(158,29,29,.12), transparent 22%),
+  linear-gradient(to bottom, #090909, #060606 32%, #050505 100%);
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
@@ -131,32 +165,22 @@
       min-height: calc(100vh - 160px);
     }
 
-    .gallery-header {
-      margin-bottom: 34px;
-    }
+    <div class="gallery-header">
+  <div>
+    <div class="gallery-kicker">Oil Paintings</div>
+    <h1 class="gallery-title">Selected Works</h1>
+    <p class="gallery-intro">
+      A curated selection of symbolic oil paintings exploring pressure, fracture, control, and emotional intensity.
+    </p>
+  </div>
 
-    .gallery-kicker {
-      color: var(--muted-2);
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .gallery-title {
-      font-size: clamp(2.3rem, 4.5vw, 4rem);
-      line-height: 0.98;
-      letter-spacing: -0.03em;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .gallery-intro {
-      color: var(--muted);
-      font-size: 0.98rem;
-      max-width: 620px;
-    }
+  <div class="gallery-note">
+    <div class="gallery-note-title">Visual direction</div>
+    <p>
+      Symbolic oil paintings arranged with the same controlled rhythm and restrained red accent as the digital and photographic pages.
+    </p>
+  </div>
+</div>
 
     .gallery-layout {
       display: flex;
@@ -425,6 +449,9 @@
       .gallery-page {
         padding: 42px 0 96px;
       }
+      .gallery-header {
+  grid-template-columns: 1fr;
+}
     }
 
     @media (max-width: 1024px) {
