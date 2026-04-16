@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -124,7 +123,10 @@
       transition:transform 420ms cubic-bezier(.2,.8,.2,1),filter 240ms ease
     }
 
-    .card-hero img{aspect-ratio:2.12/1}
+   .card-hero img {
+  aspect-ratio: 2.2 / 1;
+  object-position: center 35%;
+}
     .card-portrait img{aspect-ratio:.82/1}
     .card-square img{aspect-ratio:1/1}
     .card-tall img{aspect-ratio:.72/1}
@@ -144,11 +146,22 @@
     .art-card:hover img{transform:scale(1.035)}
     .art-card:hover::after,.art-card:hover::before{opacity:1}
 
-    .art-meta{
-      position:absolute;left:16px;right:16px;bottom:14px;z-index:2;opacity:0;transform:translateY(8px);
-      transition:opacity 240ms ease,transform 240ms ease;pointer-events:none
+    .art-meta {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 240ms ease, transform 240ms ease;
+  pointer-events: none;
+}
     }
-    .art-card:hover .art-meta{opacity:1;transform:translateY(0)}
+    .art-card:hover .art-meta {
+  opacity: 1;
+  transform: translateY(0);
+}
     .art-meta-title{font-size:.95rem;font-weight:600;line-height:1.25;color:#f5f1ea}
     .art-meta-sub{font-size:.78rem;color:rgba(255,255,255,.68);letter-spacing:.04em;margin-top:3px}
 
@@ -269,13 +282,13 @@
       <div class="gallery-layout">
 
         <div class="gallery-row row-hero-single">
-          <button class="art-card card-hero" data-full="img/photo/full/Photo_Scene_I-Urushi_2025_BIG.webp" data-title="Scene I — Urushi" data-year="2025" data-medium="Photography">
-            <img src="img/photo/preview/Photo_Scene_I-Urushi_2025_SMALL.webp" alt="Scene I — Urushi, 2025" loading="eager" />
-            <div class="hero-meta">
-              <div class="hero-title">Scene I — Urushi</div>
-              <div class="hero-sub">Photography • 2025</div>
-            </div>
-          </button>
+         <button class="art-card card-hero" data-full="img/photo/full/Photo_Invisible_Wings_2_2023_BIG.webp" data-title="Invisible Wings II" data-year="2023" data-medium="Photography">
+  <img src="img/photo/preview/Photo_Invisible_Wings_2_2023_SMALL.webp" alt="Invisible Wings II, 2023" loading="eager" />
+  <div class="art-meta">
+    <div class="art-meta-title">Invisible Wings II</div>
+    <div class="art-meta-sub">Photography • 2023</div>
+  </div>
+</button>
         </div>
 
         <div class="gallery-row row-editorial">
