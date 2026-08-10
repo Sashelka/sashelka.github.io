@@ -9,6 +9,17 @@
     name="description"
     content="SASHELKA is a multidisciplinary visual artist creating symbolic works shaped by psychological tension, inner fracture, and visual control across painting, conceptual photography, and digital image-making."
   />
+  <link rel="canonical" href="https://sashelka.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SASHELKA" />
+  <meta property="og:title" content="SASHELKA | Visual Artist" />
+  <meta property="og:description" content="Symbolic oil paintings, conceptual photography, and digital works shaped by tension, fracture, and emotional intensity." />
+  <meta property="og:url" content="https://sashelka.com/" />
+  <meta property="og:image" content="https://sashelka.com/img/wine-bullet.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SASHELKA | Visual Artist" />
+  <meta name="twitter:description" content="Symbolic oil paintings, conceptual photography, and digital works shaped by tension, fracture, and emotional intensity." />
+  <meta name="twitter:image" content="https://sashelka.com/img/wine-bullet.webp" />
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -124,8 +135,6 @@
 
     main {
       min-height: calc(100vh - 160px);
-      display: flex;
-      align-items: center;
     }
 
     .hero {
@@ -251,6 +260,127 @@
       transform: scale(1.01);
     }
 
+    .section {
+      padding: 78px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.5rem, 4.8vw, 4.4rem);
+      line-height: 0.95;
+      letter-spacing: 0.015em;
+      font-weight: 600;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      max-width: 620px;
+      font-size: 0.98rem;
+      line-height: 1.82;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .work-card {
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.012)),
+        #0d0d0d;
+      box-shadow: var(--shadow);
+      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .work-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.16);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.46);
+    }
+
+    .work-card img {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      background: #101010;
+      transition: transform 0.5s ease;
+    }
+
+    .work-card:hover img {
+      transform: scale(1.035);
+    }
+
+    .work-card-info {
+      padding: 20px 20px 22px;
+    }
+
+    .work-kicker {
+      color: var(--muted-2);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .work-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.85rem;
+      line-height: 1;
+      letter-spacing: 0.015em;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .work-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.65;
+    }
+
+    .collect-strip {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: center;
+      background:
+        radial-gradient(circle at right bottom, rgba(199, 54, 54, 0.16), transparent 36%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.012));
+      box-shadow: var(--shadow);
+    }
+
+    .collect-strip h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.1rem, 4vw, 3.4rem);
+      line-height: 0.98;
+      letter-spacing: 0.015em;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .collect-strip p {
+      color: var(--muted);
+      max-width: 720px;
+      line-height: 1.78;
+    }
+
     .footer {
       padding: 28px 0 42px;
       border-top: 1px solid var(--line);
@@ -283,6 +413,19 @@
       .hero-image {
         height: 72vh;
         min-height: 540px;
+      }
+
+      .section-heading,
+      .collect-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .works-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .work-card img {
+        height: 520px;
       }
     }
 
@@ -360,6 +503,32 @@
         font-size: 0.9rem;
       }
 
+      .section {
+        padding: 54px 0;
+      }
+
+      .section-heading {
+        gap: 14px;
+        margin-bottom: 20px;
+      }
+
+      .section-title {
+        font-size: 2.6rem;
+      }
+
+      .work-card {
+        border-radius: 20px;
+      }
+
+      .work-card img {
+        height: auto;
+      }
+
+      .collect-strip {
+        padding: 24px;
+        border-radius: 22px;
+      }
+
       .container {
         width: min(94%, var(--max));
       }
@@ -394,12 +563,73 @@
 
           <div class="hero-buttons">
             <a href="portfolio.html" class="btn btn-primary">View Works</a>
-            <a href="about.html" class="btn btn-secondary">About</a>
+            <a href="collect.html" class="btn btn-secondary">Collect</a>
           </div>
         </div>
 
         <div class="hero-image-wrap">
           <img src="img/sashelka.webp" alt="Portrait of Sashelka" class="hero-image" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Selected Works</div>
+            <h2 class="section-title">A first look into the work.</h2>
+          </div>
+          <p class="section-copy">
+            A small entry point into the wider portfolio: oil painting, digital image-making, and conceptual photography held together by symbolic pressure and emotional charge.
+          </p>
+        </div>
+
+        <div class="works-grid">
+          <a class="work-card" href="oil.html">
+            <img src="img/oil/preview/Oil_Overcapacity_2026_SMALL.webp" alt="Overcapacity, 2026" loading="lazy" />
+            <div class="work-card-info">
+              <div class="work-kicker">Oil Painting · 2026</div>
+              <h3>Overcapacity</h3>
+              <p>Symbolic oil work built around containment, excess, and inner pressure.</p>
+            </div>
+          </a>
+
+          <a class="work-card" href="digital.html">
+            <img src="img/digital/preview/Digital_It_is_for_Your_Safety_2026_SMALL.webp" alt="It is for Your Safety, 2026" loading="lazy" />
+            <div class="work-card-info">
+              <div class="work-kicker">Digital Artwork · 2026</div>
+              <h3>It is for Your Safety</h3>
+              <p>A controlled digital image shaped by vulnerability, protection, and unease.</p>
+            </div>
+          </a>
+
+          <a class="work-card" href="photography.html">
+            <img src="img/photo/preview/Photo_Invisible_Wings_2_2023_SMALL.webp" alt="Invisible Wings II, 2023" loading="lazy" />
+            <div class="work-card-info">
+              <div class="work-kicker">Photography · 2023</div>
+              <h3>Invisible Wings II</h3>
+              <p>Conceptual photography where atmosphere, body, and symbol carry the narrative.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="collect-strip">
+          <div>
+            <div class="eyebrow">For Collectors</div>
+            <h2>Original works, prints, and digital releases.</h2>
+            <p>
+              Collector inquiries are handled directly for physical works and through the public profile hub for digital releases and NFT destinations.
+            </p>
+          </div>
+          <div class="hero-buttons">
+            <a href="collect.html" class="btn btn-primary">Collect</a>
+            <a href="mailto:sashelka.nft@gmail.com" class="btn btn-secondary">Email Inquiry</a>
+          </div>
         </div>
       </div>
     </section>

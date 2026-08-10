@@ -8,6 +8,17 @@
     name="description"
     content="Collect original artworks, physical works, and NFT releases by SASHELKA through direct inquiry and selected platforms."
   />
+  <link rel="canonical" href="https://sashelka.com/collect.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SASHELKA" />
+  <meta property="og:title" content="Collect | SASHELKA" />
+  <meta property="og:description" content="Inquire about original works, prints, and digital releases by SASHELKA." />
+  <meta property="og:url" content="https://sashelka.com/collect.html" />
+  <meta property="og:image" content="https://sashelka.com/img/wine-bullet.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Collect | SASHELKA" />
+  <meta name="twitter:description" content="Inquire about original works, prints, and digital releases by SASHELKA." />
+  <meta name="twitter:image" content="https://sashelka.com/img/wine-bullet.webp" />
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -377,6 +388,79 @@
       opacity: 0.96;
     }
 
+    .collector-guide {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
+      gap: 22px;
+      margin-top: 22px;
+    }
+
+    .guide-panel,
+    .portfolio-panel {
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.028), rgba(255,255,255,0.014));
+      box-shadow: var(--shadow);
+      padding: 32px;
+    }
+
+    .guide-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .guide-list li {
+      display: grid;
+      gap: 4px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.66;
+    }
+
+    .guide-list strong {
+      color: var(--text);
+      font-size: 0.88rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .portfolio-links {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .portfolio-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px 16px;
+      color: var(--text);
+      background: rgba(255,255,255,0.02);
+      transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+    }
+
+    .portfolio-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.045);
+    }
+
+    .portfolio-link span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
     .footer {
       padding: 42px 0 64px;
       border-top: 1px solid var(--line);
@@ -394,7 +478,8 @@
     @media (max-width: 980px) {
       .route-grid,
       .lower-grid,
-      .contact-grid {
+      .contact-grid,
+      .collector-guide {
         grid-template-columns: 1fr;
       }
     }
@@ -442,7 +527,9 @@
 
       .route-card,
       .info-panel,
-      .cta-panel {
+      .cta-panel,
+      .guide-panel,
+      .portfolio-panel {
         padding: 22px;
         border-radius: 24px;
       }
@@ -543,6 +630,43 @@
               </div>
             </div>
           </aside>
+
+          <div class="collector-guide">
+            <section class="guide-panel">
+              <div class="panel-label">Inquiry Guide</div>
+              <h2>What to include in your message</h2>
+              <p>
+                A short, specific note makes it easier to respond with availability, format, pricing context, and the next step.
+              </p>
+              <ul class="guide-list">
+                <li>
+                  <strong>Artwork or series</strong>
+                  Include the title if you know it, or send the page/category where you saw the work.
+                </li>
+                <li>
+                  <strong>Collecting format</strong>
+                  Mention whether you are asking about an original work, print, commission, digital piece, or NFT release.
+                </li>
+                <li>
+                  <strong>Location</strong>
+                  For physical works, include your country so shipping and timing can be discussed clearly.
+                </li>
+              </ul>
+            </section>
+
+            <aside class="portfolio-panel">
+              <div class="panel-label">Browse before inquiry</div>
+              <h2>Enter the work by medium.</h2>
+              <p>
+                If you are not sure which piece to ask about yet, start with the curated portfolio sections.
+              </p>
+              <div class="portfolio-links">
+                <a class="portfolio-link" href="oil.html">Oil Paintings <span>Physical</span></a>
+                <a class="portfolio-link" href="digital.html">Digital Works <span>NFT / Digital</span></a>
+                <a class="portfolio-link" href="photography.html">Photography <span>Edition / Inquiry</span></a>
+              </div>
+            </aside>
+          </div>
         </div>
       </section>
     </div>
