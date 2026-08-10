@@ -247,6 +247,19 @@
       background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.012));
     }
 
+    .category-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      color: #cfc7bd;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
     .category-info h2 {
       font-size: 2rem;
       margin-bottom: 10px;
@@ -255,6 +268,18 @@
     .category-info p {
       color: var(--muted);
       font-size: 0.97rem;
+    }
+
+    .category-action {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 18px;
+      color: #f4f0e8;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.82;
     }
 
     .footer {
@@ -342,10 +367,10 @@
   <main>
     <section class="hero">
       <div class="container">
-        <div class="section-label">Portfolio</div>
-        <h1>Portfolio</h1>
+        <div class="section-label">Browse Works</div>
+        <h1>Work by Medium</h1>
         <p>
-          Enter the work through three mediums: photography, oil painting, and digital image-making.
+          A curated entry point into the practice: staged photography, original oil paintings, and digital works connected to contemporary image-making.
         </p>
       </div>
     </section>
@@ -358,8 +383,12 @@
               <img src="img/girl-balloon.webp" alt="Photography by Sashelka" />
             </div>
             <div class="category-info">
+              <div class="category-meta">
+                <span>Photography</span>
+              </div>
               <h2>Photography</h2>
               <p>Staged and atmospheric photographs focused on body, memory, and symbolic distance.</p>
+              <span class="category-action">Enter Gallery</span>
             </div>
           </a>
 
@@ -368,8 +397,12 @@
               <img src="img/wine-bullet.webp" alt="Oil Paintings by Sashelka" />
             </div>
             <div class="category-info">
+              <div class="category-meta">
+                <span>Original works</span>
+              </div>
               <h2>Oil Paintings</h2>
               <p>Oil paintings where beauty, danger, containment, and contradiction share the same surface.</p>
+              <span class="category-action">Enter Gallery</span>
             </div>
           </a>
 
@@ -378,8 +411,12 @@
               <img src="img/snail.webp" alt="Digital Art by Sashelka" />
             </div>
             <div class="category-info">
+              <div class="category-meta">
+                <span>Digital / NFT</span>
+              </div>
               <h2>Digital Art</h2>
               <p>Digital works and NFT-era images built around surreal narrative, bodily tension, and psychological charge.</p>
+              <span class="category-action">Enter Gallery</span>
             </div>
           </a>
         </div>
