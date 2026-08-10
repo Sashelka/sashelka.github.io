@@ -220,8 +220,7 @@
     }
 
     .route-card,
-    .info-panel,
-    .cta-panel {
+    .collector-note {
       border: 1px solid var(--line);
       border-radius: 30px;
       background:
@@ -231,7 +230,7 @@
 
     .route-card {
       padding: 32px;
-      min-height: 360px;
+      min-height: 300px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -280,32 +279,6 @@
       line-height: 1.78;
     }
 
-    .route-points {
-      list-style: none;
-      display: grid;
-      gap: 10px;
-      margin-top: 24px;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .route-points li {
-      position: relative;
-      padding-left: 18px;
-    }
-
-    .route-points li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.8em;
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.42);
-      transform: translateY(-50%);
-    }
-
     .route-actions {
       display: flex;
       flex-wrap: wrap;
@@ -319,8 +292,9 @@
       gap: 22px;
     }
 
-    .info-panel {
+    .collector-note {
       padding: 32px;
+      max-width: 920px;
     }
 
     .panel-label {
@@ -332,133 +306,41 @@
       margin-bottom: 14px;
     }
 
-    .info-panel h2,
-    .cta-panel h2 {
+    .collector-note h2 {
       font-size: clamp(2rem, 3vw, 2.8rem);
       margin-bottom: 14px;
     }
 
-    .info-panel p,
-    .cta-panel p {
+    .collector-note p {
       color: var(--muted);
       font-size: 0.97rem;
       line-height: 1.76;
+      max-width: 680px;
     }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(240px, 1fr));
-      gap: 18px;
+    .note-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
       margin-top: 24px;
     }
 
-    .cta-panel {
-      padding: 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .contact-block {
-      display: grid;
-      gap: 10px;
-      padding-top: 14px;
-      border-top: 1px solid var(--line);
-    }
-
-    .contact-label {
-      color: var(--muted);
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    .contact-link {
-      width: fit-content;
-      color: var(--text);
-      font-size: 1rem;
-      border-bottom: 1px solid rgba(255,255,255,0.18);
-      padding-bottom: 2px;
-      transition: border-color 0.22s ease, opacity 0.22s ease;
-    }
-
-    .contact-link:hover {
-      border-color: rgba(255,255,255,0.42);
-      opacity: 0.96;
-    }
-
-    .collector-guide {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
-      gap: 22px;
-      margin-top: 22px;
-    }
-
-    .guide-panel,
-    .portfolio-panel {
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.028), rgba(255,255,255,0.014));
-      box-shadow: var(--shadow);
-      padding: 32px;
-    }
-
-    .guide-list {
-      list-style: none;
-      display: grid;
-      gap: 14px;
-      margin-top: 20px;
-    }
-
-    .guide-list li {
-      display: grid;
-      gap: 4px;
-      padding-top: 14px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.66;
-    }
-
-    .guide-list strong {
-      color: var(--text);
-      font-size: 0.88rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .portfolio-links {
-      display: grid;
-      gap: 10px;
-      margin-top: 22px;
-    }
-
-    .portfolio-link {
-      display: flex;
+    .note-link {
+      display: inline-flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 18px;
+      min-height: 44px;
+      padding: 0 16px;
       border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 14px 16px;
+      border-radius: 999px;
       color: var(--text);
       background: rgba(255,255,255,0.02);
       transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
     }
 
-    .portfolio-link:hover {
+    .note-link:hover {
       transform: translateY(-2px);
       border-color: rgba(255,255,255,0.18);
       background: rgba(255,255,255,0.045);
-    }
-
-    .portfolio-link span {
-      color: var(--muted);
-      font-size: 0.78rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
     }
 
     .footer {
@@ -477,9 +359,7 @@
 
     @media (max-width: 980px) {
       .route-grid,
-      .lower-grid,
-      .contact-grid,
-      .collector-guide {
+      .lower-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -526,10 +406,7 @@
       }
 
       .route-card,
-      .info-panel,
-      .cta-panel,
-      .guide-panel,
-      .portfolio-panel {
+      .collector-note {
         padding: 22px;
         border-radius: 24px;
       }
@@ -561,7 +438,7 @@
         <div class="eyebrow">Collect</div>
         <h1>Collect original works and digital releases.</h1>
         <p class="hero-copy">
-          For physical artworks, NFT editions, and collector inquiries, use the appropriate route below. Physical works are handled directly by email; digital releases and platform destinations are linked through the public profile hub.
+          For originals, commissions, prints, and digital releases, use the route below. Serious inquiries are best handled by email.
         </p>
         <div class="hero-actions">
           <a href="mailto:sashelka.nft@gmail.com" class="btn btn-primary">Email Inquiry</a>
@@ -573,100 +450,44 @@
         <div class="route-grid">
           <article class="route-card">
             <div>
-              <span class="route-label">Physical Works</span>
-              <h2 class="card-title">Original works, private availability, and print inquiries.</h2>
+              <span class="route-label">Originals</span>
+              <h2 class="card-title">Original works and private inquiries.</h2>
               <p class="route-text">
-                Use direct email for original paintings, available physical works, shipping questions, private offers, or conversations about a specific piece.
+                For paintings, prints, commissions, availability, and shipping questions, write directly by email.
               </p>
-              <ul class="route-points">
-                <li>Original artworks and selected available pieces</li>
-                <li>Print inquiries where applicable</li>
-                <li>Private collector conversations and availability checks</li>
-              </ul>
             </div>
             <div class="route-actions">
-              <a href="mailto:sashelka.nft@gmail.com" class="btn btn-primary">Email for Physical Works</a>
+              <a href="mailto:sashelka.nft@gmail.com" class="btn btn-primary">Email Inquiry</a>
             </div>
           </article>
 
           <article class="route-card">
             <div>
-              <span class="route-label">Digital Works</span>
-              <h2 class="card-title">NFT releases, archives, and platform access.</h2>
+              <span class="route-label">Digital</span>
+              <h2 class="card-title">NFT releases and public platforms.</h2>
               <p class="route-text">
-                Use the public profile hub for NFT destinations, archived works, current links, and connected release platforms across ecosystems.
+                Use the public profile hub for current digital destinations, archives, and connected platforms.
               </p>
-              <ul class="route-points">
-                <li>NFT release destinations and profile links</li>
-                <li>Public archive and connected platforms</li>
-                <li>Fastest route to current digital availability</li>
-              </ul>
             </div>
             <div class="route-actions">
-              <a href="https://linktr.ee/sashelka" target="_blank" rel="noopener" class="btn btn-secondary">Open Digital Links</a>
+              <a href="https://linktr.ee/sashelka" target="_blank" rel="noopener" class="btn btn-secondary">Open Linktree</a>
             </div>
           </article>
         </div>
 
         <div class="lower-grid">
-          <aside class="cta-panel">
-            <div>
-              <div class="panel-label">Direct Contact</div>
-              <h2>Prefer direct communication?</h2>
-              <p>
-                For originals, print inquiries, availability checks, and private collector conversations, direct email remains the clearest route. For NFT destinations, archives, and connected platforms, use the public profile hub.
-              </p>
+          <section class="collector-note">
+            <div class="panel-label">Before writing</div>
+            <h2>A short note is enough.</h2>
+            <p>
+              Include the artwork title if you know it, the format you are interested in, and your country for physical shipping.
+            </p>
+            <div class="note-links">
+              <a class="note-link" href="oil.html">Oil Paintings</a>
+              <a class="note-link" href="digital.html">Digital Works</a>
+              <a class="note-link" href="photography.html">Photography</a>
             </div>
-
-            <div class="contact-grid">
-              <div class="contact-block">
-                <span class="contact-label">Email</span>
-                <a class="contact-link" href="mailto:sashelka.nft@gmail.com">sashelka.nft@gmail.com</a>
-              </div>
-
-              <div class="contact-block">
-                <span class="contact-label">Public profile hub</span>
-                <a class="contact-link" href="https://linktr.ee/sashelka" target="_blank" rel="noopener">linktr.ee/sashelka</a>
-              </div>
-            </div>
-          </aside>
-
-          <div class="collector-guide">
-            <section class="guide-panel">
-              <div class="panel-label">Inquiry Guide</div>
-              <h2>What to include in your message</h2>
-              <p>
-                A short, specific note makes it easier to respond with availability, format, pricing context, and the next step.
-              </p>
-              <ul class="guide-list">
-                <li>
-                  <strong>Artwork or series</strong>
-                  Include the title if you know it, or send the page/category where you saw the work.
-                </li>
-                <li>
-                  <strong>Collecting format</strong>
-                  Mention whether you are asking about an original work, print, commission, digital piece, or NFT release.
-                </li>
-                <li>
-                  <strong>Location</strong>
-                  For physical works, include your country so shipping and timing can be discussed clearly.
-                </li>
-              </ul>
-            </section>
-
-            <aside class="portfolio-panel">
-              <div class="panel-label">Browse before inquiry</div>
-              <h2>Enter the work by medium.</h2>
-              <p>
-                If you are not sure which piece to ask about yet, start with the curated portfolio sections.
-              </p>
-              <div class="portfolio-links">
-                <a class="portfolio-link" href="oil.html">Oil Paintings <span>Physical</span></a>
-                <a class="portfolio-link" href="digital.html">Digital Works <span>NFT / Digital</span></a>
-                <a class="portfolio-link" href="photography.html">Photography <span>Edition / Inquiry</span></a>
-              </div>
-            </aside>
-          </div>
+          </section>
         </div>
       </section>
     </div>
