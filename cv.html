@@ -3,8 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV — SASHELKA</title>
+  <title>CV | SASHELKA</title>
   <meta name="description" content="Selected exhibitions, publications, interviews, and recognitions of multidisciplinary artist SASHELKA." />
+  <link rel="canonical" href="https://sashelka.com/cv.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SASHELKA" />
+  <meta property="og:title" content="CV | SASHELKA" />
+  <meta property="og:description" content="Selected exhibitions, publications, interviews, awards, and recognitions." />
+  <meta property="og:url" content="https://sashelka.com/cv.html" />
+  <meta property="og:image" content="https://sashelka.com/img/cv/cv-2025-w3aa-platinum-award.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CV | SASHELKA" />
+  <meta name="twitter:description" content="Selected exhibitions, publications, interviews, awards, and recognitions." />
+  <meta name="twitter:image" content="https://sashelka.com/img/cv/cv-2025-w3aa-platinum-award.webp" />
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -159,6 +170,49 @@
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 30px;
+    }
+
+    .highlights {
+      margin-top: 34px;
+      padding-top: 30px;
+      border-top: 1px solid var(--line);
+    }
+
+    .highlights-title {
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .highlight-card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255,255,255,0.022);
+    }
+
+    .highlight-card strong {
+      display: block;
+      color: var(--text);
+      font-size: 0.92rem;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .highlight-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.55;
     }
 
     .jump-btn,
@@ -475,6 +529,10 @@
         grid-template-columns: 1fr;
       }
 
+      .highlights-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .entry {
         gap: 18px;
       }
@@ -534,6 +592,10 @@
 
       .cv-section {
         padding-top: 64px;
+      }
+
+      .highlights-grid {
+        grid-template-columns: 1fr;
       }
 
       .entry {
@@ -603,13 +665,35 @@
           <div>
             <div class="eyebrow">Curriculum Vitae</div>
             <h1>SASHELKA</h1>
-            <p class="hero-copy">A structured overview of selected exhibitions, publications, interviews, competitions, and recognition across physical and digital contexts.</p>
+            <p class="hero-copy">Selected exhibitions, publications, interviews, awards, and recognitions across physical and digital contexts.</p>
 
             <div class="section-jump">
               <a href="#exhibitions" class="jump-btn">Exhibitions</a>
               <a href="#publications" class="jump-btn">Publications</a>
               <a href="#interviews" class="jump-btn">Interviews</a>
               <a href="#awards" class="jump-btn">Awards</a>
+            </div>
+
+            <div class="highlights" aria-label="Selected CV highlights">
+              <div class="highlights-title">Selected Highlights</div>
+              <div class="highlights-grid">
+                <div class="highlight-card">
+                  <strong>International exhibitions</strong>
+                  <span>New York, Miami, Edinburgh, Rome, Paris, London, and other physical and virtual contexts.</span>
+                </div>
+                <div class="highlight-card">
+                  <strong>NFT.NYC selections</strong>
+                  <span>Works presented in NFT.NYC contexts in 2024 and 2025.</span>
+                </div>
+                <div class="highlight-card">
+                  <strong>Publications and features</strong>
+                  <span>Printed and online appearances including Aguilar, Tweakzine, Art Share Gallery, and Nocturnalist.</span>
+                </div>
+                <div class="highlight-card">
+                  <strong>Interviews and awards</strong>
+                  <span>Hour of Power interviews, W3AA Platinum Award, and selected open call recognition.</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1076,7 +1160,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div>© SASHELKA 2026. All rights reserved.</div>
-      <div>Visual artist working through symbolism, tension, and transformation.</div>
+      <div>Multidisciplinary visual artist across oil painting, photography, and digital works.</div>
     </div>
   </footer>
 
