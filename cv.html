@@ -373,6 +373,43 @@
       max-width: 940px;
     }
 
+    .affiliation-title-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      width: fit-content;
+      color: var(--text);
+      text-decoration: none;
+      margin-bottom: 8px;
+    }
+
+    .affiliation-title-link .entry-title {
+      margin-bottom: 0;
+    }
+
+    .affiliation-logo-small {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #0a0a0a;
+      transition: transform 0.22s ease, border-color 0.22s ease;
+    }
+
+    .affiliation-title-link:hover .affiliation-logo-small {
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    .affiliation-logo-small img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .gallery {
       display: flex;
       flex-wrap: wrap;
@@ -613,6 +650,7 @@
       .container {
         width: min(94%, var(--max));
       }
+
     }
 
     @media (max-width: 560px) {
@@ -718,7 +756,12 @@
                 <span class="entry-tag">Collective Membership</span>
               </div>
               <div>
-                <h3 class="entry-title">23 Artists</h3>
+                <a class="affiliation-title-link" href="https://23artists.art/" target="_blank" rel="noopener">
+                  <span class="affiliation-logo-small" aria-hidden="true">
+                    <img src="img/23-artists-logo.jpg" alt="" loading="lazy" />
+                  </span>
+                  <h3 class="entry-title">23 Artists</h3>
+                </a>
                 <div class="entry-sub">International web3 artist collective</div>
                 <p class="entry-desc">Member — 23 Artists, international web3 artist collective.</p>
                 <div class="interview-links">
